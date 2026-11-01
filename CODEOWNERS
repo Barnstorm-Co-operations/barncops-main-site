@@ -1,0 +1,6 @@
+# Owner review is required for infrastructure and database changes.
+# GitHub matches the last pattern. These paths cannot be treated as starter work.
+/infra/ @shubhtiwari06-barncops
+/db/ @shubhtiwari06-barncops
+/migrations/ @shubhtiwari06-barncops
+/server/ @shubhtiwari06-barncops
