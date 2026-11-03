@@ -605,7 +605,8 @@ describe("WhatsApp report document", () => {
     }, false);
     assert.equal(sent.some((s) => s.kind === "document" && s.filename === file.filename), true);
     assert.equal(sent.some((s) => String(s.body || "").indexOf(chat) >= 0), false);
-    assert.equal(atlasReplyBody({ text: file.filename, handler: "writer", modelCalls: 0, engineMs: 1, intent: "pdf", attach: true, document: file }, "x"), file.filename);
+    assert.equal(sent.some((s) => /\.pdf$/i.test(String(s.body || ""))), false);
+    assert.equal(atlasReplyBody({ text: file.filename, handler: "writer", modelCalls: 0, engineMs: 1, intent: "pdf", attach: true, document: file }, "x"), "Report");
   });
 
   it("keeps more, nearby, my plan, and PDF on the same reply", async () => {

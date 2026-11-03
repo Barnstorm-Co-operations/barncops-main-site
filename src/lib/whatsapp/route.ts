@@ -174,7 +174,7 @@ export type Store = {
 export type Email = { subject: string; displayName: string; rows: Array<[string, string]>; note?: string };
 /** atlasStatus: what the Atlas call returned ("200", "401", "html", "timeout", "no_secret", …). */
 export type AtlasButton = { id: string; title: string };
-export type AtlasDocument = { filename: string; mime: string; bytes: string };
+export type AtlasDocument = { filename: string; mime: string; bytes?: string; url?: string };
 export type AtlasReply = {
   text: string;
   handler: string;
@@ -216,13 +216,18 @@ export function atlasReplyButtons(buttons: AtlasButton[] | undefined): AtlasButt
     .map((b) => ({ id: String(b.id), title: String(b.title).slice(0, 20) }));
 }
 
-/** The PDF is a WhatsApp document. A PDF tap must not resend the chat as the file. */
+/** The PDF is a WhatsApp document. Never send a line that merely ends in .pdf. */
+export function atlasHasFile(reply: AtlasReply): boolean {
+  const doc = reply && reply.document;
+  return !!(reply && reply.attach && doc && (doc.bytes || doc.url));
+}
+
 export function atlasReplyBody(reply: AtlasReply, fallback: string): string {
   const filename = (reply.document && reply.document.filename) || "";
-  const file = !!(reply.attach && reply.document && reply.document.bytes);
-  const text = String(reply.text || "").trim() || fallback;
-  if (file && (reply.intent === "pdf" || (filename && text === filename))) return filename || "atlas.pdf";
-  return text;
+  const file = atlasHasFile(reply);
+  const text = String(reply.text || "").trim();
+  if (file && (reply.intent === "pdf" || (filename && text === filename) || /\.pdf$/i.test(text))) return "Report";
+  return text || (file ? "Report" : fallback);
 }
 
 export async function sendAtlasReply(
@@ -233,14 +238,14 @@ export async function sendAtlasReply(
   hi: boolean,
 ): Promise<void> {
   const fallback = hi ? COPY.textOnly.hi : COPY.textOnly.en;
-  const file = !!(reply.attach && reply.document && reply.document.bytes);
+  const file = atlasHasFile(reply);
   if (file && deps.sendDocument && reply.document) await deps.sendDocument(line, to, reply.document);
   const body = atlasReplyBody(reply, fallback);
   const buttons = atlasReplyButtons(reply.buttons);
   if (buttons.length > 3 && deps.sendList) await deps.sendList(line, to, body, buttons);
   else if (buttons.length && deps.sendButtons) await deps.sendButtons(line, to, body, buttons.slice(0, 3));
   else if (buttons.length === 1) await deps.sendButton(line, to, body, buttons[0].id, buttons[0].title);
-  else if (!(file && (reply.intent === "pdf" || body === ((reply.document && reply.document.filename) || "")))) {
+  else if (!file && body && !/\.pdf$/i.test(body)) {
     await deps.sendText(line, to, body, true);
   }
 }

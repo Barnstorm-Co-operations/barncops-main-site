@@ -406,12 +406,12 @@ export async function atlasAnswer(
   intent?: string;
   buttons?: { id: string; title: string }[];
   attach?: boolean;
-  document?: { filename: string; mime: string; bytes: string };
+  document?: { filename: string; mime: string; bytes?: string; url?: string };
 }> {
   const trail: string[] = [];
   const asked = await atlasAskReply(phone, body, trail, meta && meta.buttonId);
   const atlasStatus = trail.join(">") || "none";
-  if (asked && asked.text) return { ...asked, atlasStatus };
+  if (asked && (asked.text || asked.document)) return { ...asked, atlasStatus };
   const miss = chooseAtlasReply(body, null, hi);
   return { text: miss.text, handler: miss.handler, modelCalls: null, engineMs: null, atlasStatus };
 }
@@ -429,7 +429,7 @@ export type AtlasAskJson = {
   model_calls?: number;
   engine_ms?: number;
   attach?: boolean;
-  document?: { filename?: string; mime?: string; bytes?: string };
+  document?: { filename?: string; mime?: string; bytes?: string; url?: string };
   buttons?: { id?: string; title?: string }[];
 };
 
@@ -441,26 +441,27 @@ export function readAtlasAskJson(j: AtlasAskJson): {
   intent?: string;
   buttons?: { id: string; title: string }[];
   attach?: boolean;
-  document?: { filename: string; mime: string; bytes: string };
+  document?: { filename: string; mime: string; bytes?: string; url?: string };
 } | null {
   const textOut = String((j && j.text) || "").trim();
-  if (!textOut) return null;
+  const rawDoc = j && j.attach && j.document && (j.document.bytes || j.document.url) ? j.document : null;
+  if (!textOut && !rawDoc) return null;
   const quota = /free answers are used|muft jawaab|मुफ्त जवाब/i.test(textOut);
   const handler = String(j.handler || (quota ? "quota" : "engine"));
   const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
   const buttons = Array.isArray(j.buttons)
     ? j.buttons.filter((b) => b && b.id && b.title).slice(0, 10).map((b) => ({ id: String(b.id), title: String(b.title).slice(0, 20) }))
     : undefined;
-  const rawDoc = j.attach && j.document && j.document.bytes ? j.document : null;
   const document = rawDoc
     ? {
         filename: String(rawDoc.filename || "atlas.pdf").slice(0, 80),
         mime: String(rawDoc.mime || "application/pdf"),
-        bytes: String(rawDoc.bytes),
+        bytes: rawDoc.bytes ? String(rawDoc.bytes) : undefined,
+        url: rawDoc.url && /^https:\/\//i.test(String(rawDoc.url)) ? String(rawDoc.url) : undefined,
       }
     : undefined;
   return {
-    text: textOut.slice(0, 4096),
+    text: (/\.pdf$/i.test(textOut) && document ? "" : textOut).slice(0, 4096),
     handler,
     modelCalls: num(j.model_calls),
     engineMs: num(j.engine_ms),
@@ -503,7 +504,7 @@ async function atlasAskReply(
   intent?: string;
   buttons?: { id: string; title: string }[];
   attach?: boolean;
-  document?: { filename: string; mime: string; bytes: string };
+  document?: { filename: string; mime: string; bytes?: string; url?: string };
 } | null> {
   const secret = (process.env.ATLAS_WA_SECRET || "").trim();
   if (!secret) {
@@ -914,14 +915,23 @@ export async function uploadWhatsAppMedia(
   }
 }
 
-/** The report file. Caption is the filename, never the chat. */
+/** The report file. Send a document URL only after the file exists. Never a .pdf text line. */
 export async function sendWhatsAppDocument(
   to: string,
-  doc: { filename: string; mime: string; bytes: string },
+  doc: { filename: string; mime: string; bytes?: string; url?: string },
   phoneNumberId?: string | null,
 ): Promise<SendResult> {
+  const url = String(doc && doc.url || "");
+  if (/^https:\/\//i.test(url) && url.indexOf(" ") === -1) {
+    return graphWhatsApp(phoneNumberId, {
+      to,
+      type: "document",
+      document: { link: url, filename: String(doc.filename || "atlas.pdf").slice(0, 80) },
+    });
+  }
+  if (!doc || !doc.bytes) return { ok: false, error: "The file was not built." };
   const up = await uploadWhatsAppMedia(doc.bytes, doc.mime, doc.filename, phoneNumberId);
-  if (!up.id) return { ok: false, error: up.error || "upload failed" };
+  if (!up.id) return { ok: false, error: up.error || "The file was not built." };
   return graphWhatsApp(phoneNumberId, {
     to,
     type: "document",
