@@ -94,6 +94,6 @@ export const CLIENT_LEADERS = [
 
 export const FOUNDER = {
   name: "Shubh Tiwari",
-  title: "Founder · Executive Architect",
+  title: "Founder & Director",
   photo: "/images/clients/founder.jpg",
 } as const;

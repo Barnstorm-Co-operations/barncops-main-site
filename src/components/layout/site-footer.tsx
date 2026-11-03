@@ -19,6 +19,14 @@ export function SiteFooter() {
           <p className="mt-6 font-mono text-xs tracking-wide text-subtle">
             {FIRM.offices.join(" · ")}
           </p>
+          <p className="mt-4">
+            <Link
+              to="/shubh-tiwari"
+              className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg"
+            >
+              Founder: Shubh Tiwari
+            </Link>
+          </p>
           <p className="eyebrow mt-8">{t("social")}</p>
           <ul className="mt-4 flex items-center gap-2">
             {SOCIAL.map((s) => (

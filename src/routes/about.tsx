@@ -6,16 +6,25 @@ import { GlowAvatar } from "@/components/firm/glow-avatar";
 import { MetricsBar } from "@/components/firm/metrics-bar";
 import { OFFICES, PRINCIPLES } from "@/lib/content/firm";
 import { FOUNDER } from "@/lib/content/clients";
-import { pageHead } from "@/lib/seo";
+import { ORGANIZATION_JSON_LD, pageHead } from "@/lib/seo";
 import { useT } from "@/lib/i18n";
 
+const FOUNDER_PROFILES = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shubhspeaks" },
+  { label: "X", href: "https://x.com/shubhspeaks" },
+  { label: "Instagram", href: "https://www.instagram.com/shubhspeaks" },
+  { label: "YouTube", href: "https://www.youtube.com/@shubhspeaks" },
+] as const;
+
 export const Route = createFileRoute("/about")({
-  head: () =>
-    pageHead(
-      "The Agency | Barnstorm Co-operations",
+  head: () => ({
+    ...pageHead(
+      "About Barnstorm Co-operations | Political Consulting, Bhopal",
       "Shubh Tiwari founded Barnstorm Co-operations in 2019. Election campaign management across 10+ states, 35+ parliamentary seats, and 200+ assembly segments.",
       "/about",
     ),
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(ORGANIZATION_JSON_LD) }],
+  }),
   component: About,
 });
 
@@ -34,9 +43,31 @@ function About() {
           <div className="lg:col-span-7">
             <p className="eyebrow">{t("founderTitle")}</p>
             <h2 className="type-section mt-3 text-fg">{t("founderName")}</h2>
+            <p className="mt-4">
+              <Link
+                to="/shubh-tiwari"
+                className="text-sm text-fg underline decoration-border underline-offset-4 transition-colors duration-150 hover:decoration-fg"
+              >
+                Shubh Tiwari – founder profile
+              </Link>
+            </p>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
               {t("founderBio")}
             </p>
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+              {FOUNDER_PROFILES.map((profile) => (
+                <li key={profile.href}>
+                  <a
+                    href={profile.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-fg underline decoration-border underline-offset-4 transition-colors duration-150 hover:decoration-fg"
+                  >
+                    {profile.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

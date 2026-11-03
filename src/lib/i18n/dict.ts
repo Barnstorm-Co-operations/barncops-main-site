@@ -121,9 +121,9 @@ export const DICT = {
     clientsParties: "Political parties",
     clientsLeaders: "Senior leadership & officeholders",
 
-    founderKicker: "Founder · Executive architect",
+    founderKicker: "Founder & Director",
     founderName: "Shubh Tiwari",
-    founderTitle: "Founder · Executive Architect",
+    founderTitle: "Founder & Director",
     founderBio:
       "Shubh Tiwari is a veteran political intelligence strategist and deep-tech innovator with over a decade of high-stakes electoral engineering. Having commanded and led complex state and national campaigns across India—including landmark electoral operations in Andhra Pradesh, Karnataka, and major national policy forums—Shubh has built a reputation for sharp, data-driven political execution. As the National Strategic Consultant for the Indian Youth Congress during the 2019 Lok Sabha elections, he conceptualized and executed high-impact nationwide frameworks like the Haath Uthao campaign across 200+ constituencies. Following the 2019 general elections, Shubh founded Barnstorm Co-operations, scaling its elite footprint across 10+ states, 35+ parliamentary constituencies, and 200+ assembly segments. His strategic portfolio includes advising heavyweights across the political spectrum, from national parties like the BJP and Indian Youth Congress to top-tier officeholders, including Shri Shivraj Singh Chouhan, Union Minister, Agriculture & Farmers’ Welfare and Rural Development · former Chief Minister, Madhya Pradesh, Telangana Chief Minister Shri Revanth Reddy, and key regional leaders.",
     founderBioHome:
@@ -599,9 +599,9 @@ export const DICT = {
     clientsParties: "राजनीतिक पार्टियाँ",
     clientsLeaders: "वरिष्ठ नेतृत्व और जनप्रतिनिधि",
 
-    founderKicker: "कार्यकारी वास्तुकार और दृष्टि",
+    founderKicker: "संस्थापक और निदेशक",
     founderName: "शुभ तिवारी",
-    founderTitle: "संस्थापक · कार्यकारी वास्तुकार",
+    founderTitle: "संस्थापक और निदेशक",
     founderBio:
       "शुभ तिवारी एक अनुभवी राजनीतिक इंटेलिजेंस रणनीतिकार और डीप-टेक नवप्रवर्तक हैं, जिनके पास एक दशक से अधिक का उच्च-दांव चुनावी इंजीनियरिंग अनुभव है। आंध्र प्रदेश, कर्नाटक और राष्ट्रीय नीति मंचों सहित भारत भर के जटिल राज्य और राष्ट्रीय अभियानों का नेतृत्व करने के बाद उन्होंने डेटा-चालित निष्पादन की प्रतिष्ठा बनाई। 2019 लोकसभा चुनावों में इंडियन यूथ कांग्रेस के राष्ट्रीय रणनीतिक सलाहकार के रूप में उन्होंने हाथ उठाओ जैसे राष्ट्रव्यापी ढाँचे 200+ क्षेत्रों में चलाए। 2019 के आम चुनावों के बाद उन्होंने बार्नस्टॉर्म को-ऑपरेशन्स की स्थापना की, जिसका विस्तार 10+ राज्यों, 35+ लोकसभा क्षेत्रों और 200+ विधानसभा खंडों तक है। उनके पोर्टफोलियो में भाजपा और इंडियन यूथ कांग्रेस से लेकर श्री शिवराज सिंह चौहान, केंद्रीय मंत्री, कृषि एवं किसान कल्याण और ग्रामीण विकास · मध्य प्रदेश के पूर्व मुख्यमंत्री, तेलंगाना के मुख्यमंत्री श्री रेवंत रेड्डी, और प्रमुख क्षेत्रीय नेता शामिल हैं।",
     visionKicker: "mandata.ai की कल्पना",

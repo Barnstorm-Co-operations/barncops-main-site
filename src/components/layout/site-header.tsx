@@ -85,6 +85,12 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             >
               {t("electionAtlas")}
             </a>
+            <a
+              href="https://atlas.barncops.in/ask/"
+              className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950"
+            >
+              {t("atlasAsk")}
+            </a>
             <button
               type="button"
               onClick={openRoster}
@@ -163,6 +169,13 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             className="flex min-h-12 items-center border-b border-border font-display text-2xl text-fg no-underline"
           >
             {t("electionAtlas")}
+          </a>
+          <a
+            href="https://atlas.barncops.in/ask/"
+            onClick={() => setOpen(false)}
+            className="flex min-h-12 items-center border-b border-border font-display text-2xl text-fg no-underline"
+          >
+            {t("atlasAsk")}
           </a>
           <button
             type="button"

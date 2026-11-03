@@ -30,11 +30,18 @@ export const SITE_TAGLINE = "Political consulting firm in India — election cam
 export const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.barncops.in/#org",
   name: "Barnstorm Co-operations",
+  legalName: "Barnstorm Coops Private Limited",
   url: "https://www.barncops.in",
   logo: "https://www.barncops.in/icons/icon-512.png",
-  founder: { "@type": "Person", name: "Shubh Tiwari" },
   foundingDate: "2019",
+  founder: {
+    "@type": "Person",
+    "@id": "https://www.barncops.in/shubh-tiwari#person",
+    name: "Shubh Tiwari",
+    url: "https://www.barncops.in/shubh-tiwari",
+  },
   email: "poll@barncops.in",
   sameAs: [
     "https://x.com/BarnCops",
