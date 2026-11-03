@@ -19,6 +19,7 @@ import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as MandataRouteImport } from './routes/mandata'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ShubhTiwariRouteImport } from './routes/shubh-tiwari'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrackRecordRouteImport } from './routes/track-record'
 import { Route as WorkRouteImport } from './routes/work'
@@ -89,6 +90,11 @@ const PlatformRoute = PlatformRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShubhTiwariRoute = ShubhTiwariRouteImport.update({
+  id: '/shubh-tiwari',
+  path: '/shubh-tiwari',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -208,6 +214,7 @@ export interface FileRoutesByFullPath {
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
   '/privacy': typeof PrivacyRoute
+  '/shubh-tiwari': typeof ShubhTiwariRoute
   '/terms': typeof TermsRoute
   '/track-record': typeof TrackRecordRoute
   '/work': typeof WorkRoute
@@ -239,6 +246,7 @@ export interface FileRoutesByTo {
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
   '/privacy': typeof PrivacyRoute
+  '/shubh-tiwari': typeof ShubhTiwariRoute
   '/terms': typeof TermsRoute
   '/track-record': typeof TrackRecordRoute
   '/work': typeof WorkRoute
@@ -273,6 +281,7 @@ export interface FileRoutesById {
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
   '/privacy': typeof PrivacyRoute
+  '/shubh-tiwari': typeof ShubhTiwariRoute
   '/terms': typeof TermsRoute
   '/track-record': typeof TrackRecordRoute
   '/work': typeof WorkRoute
@@ -308,6 +317,7 @@ export interface FileRouteTypes {
     | '/mandata'
     | '/platform'
     | '/privacy'
+    | '/shubh-tiwari'
     | '/terms'
     | '/track-record'
     | '/work'
@@ -339,6 +349,7 @@ export interface FileRouteTypes {
     | '/mandata'
     | '/platform'
     | '/privacy'
+    | '/shubh-tiwari'
     | '/terms'
     | '/track-record'
     | '/work'
@@ -372,6 +383,7 @@ export interface FileRouteTypes {
     | '/mandata'
     | '/platform'
     | '/privacy'
+    | '/shubh-tiwari'
     | '/terms'
     | '/track-record'
     | '/work'
@@ -406,6 +418,7 @@ export interface RootRouteChildren {
   MandataRoute: typeof MandataRoute
   PlatformRoute: typeof PlatformRoute
   PrivacyRoute: typeof PrivacyRoute
+  ShubhTiwariRoute: typeof ShubhTiwariRoute
   TermsRoute: typeof TermsRoute
   TrackRecordRoute: typeof TrackRecordRoute
   WorkRoute: typeof WorkRoute
@@ -494,6 +507,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shubh-tiwari': {
+      id: '/shubh-tiwari'
+      path: '/shubh-tiwari'
+      fullPath: '/shubh-tiwari'
+      preLoaderRoute: typeof ShubhTiwariRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -686,6 +706,7 @@ const rootRouteChildren: RootRouteChildren = {
   MandataRoute: MandataRoute,
   PlatformRoute: PlatformRoute,
   PrivacyRoute: PrivacyRoute,
+  ShubhTiwariRoute: ShubhTiwariRoute,
   TermsRoute: TermsRoute,
   TrackRecordRoute: TrackRecordRoute,
   WorkRoute: WorkRoute,
