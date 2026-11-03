@@ -175,10 +175,6 @@ export default defineConfig(({ command, isPreview }) => ({
             // manifest + head-tag middleware). Nitro v3 defaults serverDir to
             // false, so removing this silently unwires /?install=1 on deploys.
             serverDir: "./server",
-            // Permanent. TanStack's own canonical redirect is a temporary 307.
-            routeRules: {
-              "/about/": { redirect: { to: "/about", status: 308 } },
-            },
             // Keeps the WhatsApp webhook function and the Atlas engine warm.
             vercel: { config: { crons: [{ path: "/api/wa-warm", schedule: "*/5 * * * *" }] } },
           }),
