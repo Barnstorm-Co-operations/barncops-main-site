@@ -397,7 +397,17 @@ export async function atlasAnswer(
   body: string,
   hi: boolean,
   meta?: { buttonId?: string | null },
-): Promise<{ text: string; handler: string; modelCalls: number | null; engineMs: number | null; atlasStatus: string; buttons?: { id: string; title: string }[] }> {
+): Promise<{
+  text: string;
+  handler: string;
+  modelCalls: number | null;
+  engineMs: number | null;
+  atlasStatus: string;
+  intent?: string;
+  buttons?: { id: string; title: string }[];
+  attach?: boolean;
+  document?: { filename: string; mime: string; bytes: string };
+}> {
   const trail: string[] = [];
   const asked = await atlasAskReply(phone, body, trail, meta && meta.buttonId);
   const atlasStatus = trail.join(">") || "none";
@@ -410,6 +420,55 @@ function isAtlasPayCta(text: string): boolean {
   return /constituency dossier|commercial licence|pay for (ask|maps|atlas|a licence)|full candidate list|booth-level|booth file|credits\s*\/\s*subscription|regional maps and region-wise/i.test(
     text,
   );
+}
+
+export type AtlasAskJson = {
+  text?: string;
+  handler?: string;
+  intent?: string;
+  model_calls?: number;
+  engine_ms?: number;
+  attach?: boolean;
+  document?: { filename?: string; mime?: string; bytes?: string };
+  buttons?: { id?: string; title?: string }[];
+};
+
+export function readAtlasAskJson(j: AtlasAskJson): {
+  text: string;
+  handler: string;
+  modelCalls: number | null;
+  engineMs: number | null;
+  intent?: string;
+  buttons?: { id: string; title: string }[];
+  attach?: boolean;
+  document?: { filename: string; mime: string; bytes: string };
+} | null {
+  const textOut = String((j && j.text) || "").trim();
+  if (!textOut) return null;
+  const quota = /free answers are used|muft jawaab|मुफ्त जवाब/i.test(textOut);
+  const handler = String(j.handler || (quota ? "quota" : "engine"));
+  const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
+  const buttons = Array.isArray(j.buttons)
+    ? j.buttons.filter((b) => b && b.id && b.title).slice(0, 10).map((b) => ({ id: String(b.id), title: String(b.title).slice(0, 20) }))
+    : undefined;
+  const rawDoc = j.attach && j.document && j.document.bytes ? j.document : null;
+  const document = rawDoc
+    ? {
+        filename: String(rawDoc.filename || "atlas.pdf").slice(0, 80),
+        mime: String(rawDoc.mime || "application/pdf"),
+        bytes: String(rawDoc.bytes),
+      }
+    : undefined;
+  return {
+    text: textOut.slice(0, 4096),
+    handler,
+    modelCalls: num(j.model_calls),
+    engineMs: num(j.engine_ms),
+    intent: j.intent ? String(j.intent) : undefined,
+    buttons,
+    attach: !!(document && j.attach),
+    document,
+  };
 }
 
 function atlasAskUrls(): string[] {
@@ -436,7 +495,16 @@ async function atlasAskReply(
   text: string,
   trail: string[] = [],
   buttonId?: string | null,
-): Promise<{ text: string; handler: string; modelCalls: number | null; engineMs: number | null; buttons?: { id: string; title: string }[] } | null> {
+): Promise<{
+  text: string;
+  handler: string;
+  modelCalls: number | null;
+  engineMs: number | null;
+  intent?: string;
+  buttons?: { id: string; title: string }[];
+  attach?: boolean;
+  document?: { filename: string; mime: string; bytes: string };
+} | null> {
   const secret = (process.env.ATLAS_WA_SECRET || "").trim();
   if (!secret) {
     trail.push("no_secret");
@@ -469,7 +537,16 @@ async function atlasAskReply(
         trail.push(`html${r.status}`);
         continue;
       }
-      let j: { text?: string; handler?: string; model_calls?: number; engine_ms?: number; buttons?: { id?: string; title?: string }[] } = {};
+      let j: {
+        text?: string;
+        handler?: string;
+        intent?: string;
+        model_calls?: number;
+        engine_ms?: number;
+        attach?: boolean;
+        document?: { filename?: string; mime?: string; bytes?: string };
+        buttons?: { id?: string; title?: string }[];
+      } = {};
       try {
         j = JSON.parse(raw) as typeof j;
       } catch {
@@ -479,14 +556,8 @@ async function atlasAskReply(
       }
       trail.push(String(r.status));
       if (j && j.text) {
-        const textOut = String(j.text).slice(0, 4096);
-        const quota = /free answers are used|muft jawaab|मुफ्त जवाब/i.test(textOut);
-        const handler = String(j.handler || (quota ? "quota" : "engine"));
-        const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
-        const buttons = Array.isArray(j.buttons)
-          ? j.buttons.filter((b) => b && b.id && b.title).slice(0, 3).map((b) => ({ id: String(b.id), title: String(b.title).slice(0, 20) }))
-          : undefined;
-        return { text: textOut, handler, modelCalls: num(j.model_calls), engineMs: num(j.engine_ms), buttons };
+        const parsed = readAtlasAskJson(j);
+        if (parsed) return parsed;
       }
       console.log("[intake] atlas ask no text", r.status);
       /* A wrong intake secret fails the same way on every Atlas URL; trying the others only adds delay. */
@@ -779,6 +850,82 @@ export async function sendWhatsAppButtons(
     to,
     type: "interactive",
     interactive: { type: "button", body: { text: body }, action: { buttons: action } },
+  });
+}
+
+/** Four report actions on the same reply. A list holds more than three chips. */
+export async function sendWhatsAppList(
+  to: string,
+  body: string,
+  buttons: { id: string; title: string }[],
+  phoneNumberId?: string | null,
+): Promise<SendResult> {
+  const rows = buttons.slice(0, 10).map((b) => ({ id: b.id.slice(0, 200), title: b.title.slice(0, 24) }));
+  const hindi = rows.some((r) => /[\u0900-\u097F]/.test(r.title));
+  return graphWhatsApp(phoneNumberId, {
+    to,
+    type: "interactive",
+    interactive: {
+      type: "list",
+      body: { text: String(body || "").slice(0, 4096) },
+      action: { button: hindi ? "आगे" : "Next", sections: [{ title: "Atlas", rows }] },
+    },
+  });
+}
+
+export async function uploadWhatsAppMedia(
+  bytesB64: string,
+  mime: string,
+  filename: string,
+  phoneNumberId?: string | null,
+): Promise<{ id?: string; error?: string }> {
+  const token = process.env.WHATSAPP_BUSINESS_TOKEN;
+  const phoneId = phoneNumberId || process.env.WHATSAPP_PHONE_NUMBER_ID;
+  if (!token || !phoneId) return { error: "missing credentials" };
+  let buf: Buffer;
+  try {
+    buf = Buffer.from(String(bytesB64 || ""), "base64");
+  } catch {
+    return { error: "bad bytes" };
+  }
+  if (buf.length < 8 || buf.slice(0, 4).toString() !== "%PDF") return { error: "not a pdf" };
+  if (buf.length > 5 * 1024 * 1024) return { error: "too large" };
+  const form = new FormData();
+  form.append("messaging_product", "whatsapp");
+  form.append("file", new Blob([new Uint8Array(buf)], { type: mime || "application/pdf" }), String(filename || "atlas.pdf").slice(0, 80));
+  form.append("type", mime || "application/pdf");
+  try {
+    const res = await fetch(`https://graph.facebook.com/${GRAPH_VERSION}/${phoneId}/media`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: form,
+    });
+    const raw = await res.text();
+    if (!res.ok) return { error: `Meta ${res.status}` };
+    let j: { id?: string } = {};
+    try {
+      j = JSON.parse(raw) as { id?: string };
+    } catch {
+      return { error: "not json" };
+    }
+    return j.id ? { id: j.id } : { error: "no media id" };
+  } catch {
+    return { error: "network error" };
+  }
+}
+
+/** The report file. Caption is the filename, never the chat. */
+export async function sendWhatsAppDocument(
+  to: string,
+  doc: { filename: string; mime: string; bytes: string },
+  phoneNumberId?: string | null,
+): Promise<SendResult> {
+  const up = await uploadWhatsAppMedia(doc.bytes, doc.mime, doc.filename, phoneNumberId);
+  if (!up.id) return { ok: false, error: up.error || "upload failed" };
+  return graphWhatsApp(phoneNumberId, {
+    to,
+    type: "document",
+    document: { id: up.id, filename: String(doc.filename || "atlas.pdf").slice(0, 80) },
   });
 }
 

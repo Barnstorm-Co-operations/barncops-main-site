@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { chooseAtlasReply, isAtlasQuestion, looksDataQuestion } from "./intake-engine.ts";
+import { chooseAtlasReply, isAtlasQuestion, looksDataQuestion, readAtlasAskJson } from "./intake-engine.ts";
 
 const HIJACK = /Noted — Election Atlas|consulting mandate|नोट किया — Election Atlas/;
 const QUERIES = [
@@ -46,4 +46,34 @@ test("explicit consult with no Atlas text is the lead note", () => {
 test("a scheduling reply is not stolen as a leader query", () => {
   assert.equal(looksDataQuestion("yes tomorrow"), false);
   assert.equal(looksDataQuestion("MLA"), false);
+});
+
+test("Atlas JSON keeps the WhatsApp document and all four report buttons", () => {
+  const got = readAtlasAskJson({
+    text: "Malwa-Punjab.pdf",
+    handler: "writer",
+    intent: "pdf",
+    attach: true,
+    document: { filename: "Malwa-Punjab.pdf", mime: "application/pdf", bytes: "JVBERi0x" },
+    buttons: [
+      { id: "step_depth", title: "More detail" },
+      { id: "step_breadth", title: "Nearby" },
+      { id: "step_money", title: "My plan" },
+      { id: "step_pdf", title: "PDF" },
+    ],
+  });
+  assert.equal(!!got, true);
+  assert.equal(got && got.attach, true);
+  assert.equal(got && got.document && got.document.filename, "Malwa-Punjab.pdf");
+  assert.equal(got && got.buttons && got.buttons.length, 4);
+  assert.equal(got && got.intent, "pdf");
+  const ask = readAtlasAskJson({
+    text: "A PDF in this chat costs from ₹49.",
+    handler: "writer",
+    intent: "pdf",
+    attach: false,
+    buttons: [{ id: "step_pdf", title: "PDF" }],
+  });
+  assert.equal(ask && ask.attach, false);
+  assert.equal(ask && ask.document, undefined);
 });

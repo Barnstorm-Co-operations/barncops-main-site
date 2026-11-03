@@ -5,7 +5,7 @@ import { PGlite } from "@electric-sql/pglite";
 import { handleWhatsAppWebhookPost } from "./webhook-handlers.ts";
 import { signMetaBody } from "./meta-sig.ts";
 import { atlasSecretCheck, atlasUrlKind, dbHealth, missingEnv, phoneIdCheck, testNumberStatus } from "./health.ts";
-import { COPY, TEAM_BUTTON_ID, counters, memoryStore, routeConfig, sqlStore, tagSource, timingSummary, type AtlasReply, type RouteConfig, type RouteDeps, type Store } from "./route.ts";
+import { COPY, TEAM_BUTTON_ID, atlasReplyBody, counters, memoryStore, routeConfig, sendAtlasReply, sqlStore, tagSource, timingSummary, type AtlasReply, type RouteConfig, type RouteDeps, type Store } from "./route.ts";
 
 const SECRET = "test-meta-app-secret-do-not-use-live";
 const TAG = "#BCteam";
@@ -563,6 +563,98 @@ describe("timing summary", () => {
     assert.equal(s.first_reply.p50, 1050);
     assert.equal(s.acked, 2);
     assert.equal(s.model_calls_avg, 0.5);
+  });
+});
+
+describe("WhatsApp report document", () => {
+  const reportButtons = [
+    { id: "step_depth", title: "More detail" },
+    { id: "step_breadth", title: "Nearby" },
+    { id: "step_money", title: "My plan" },
+    { id: "step_pdf", title: "PDF" },
+  ];
+  const file = { filename: "Malwa-Punjab-Vidhan-Sabha.pdf", mime: "application/pdf", bytes: "JVBERi0x" };
+
+  it("sends the PDF as a document and does not put the chat in its place", async () => {
+    const sent: Array<Record<string, unknown>> = [];
+    const deps = {
+      sendText: async (_l: string, _t: string, body: string) => {
+        sent.push({ kind: "text", body });
+      },
+      sendButton: async () => undefined,
+      sendButtons: async (_l: string, _t: string, body: string, buttons: { id: string }[]) => {
+        sent.push({ kind: "buttons", body, ids: buttons.map((b) => b.id) });
+      },
+      sendList: async (_l: string, _t: string, body: string, buttons: { id: string }[]) => {
+        sent.push({ kind: "list", body, ids: buttons.map((b) => b.id) });
+      },
+      sendDocument: async (_l: string, _t: string, doc: { filename: string }) => {
+        sent.push({ kind: "document", filename: doc.filename });
+      },
+    } as unknown as RouteDeps;
+    const chat = "Malwa, Punjab, Vidhan Sabha\n\n69";
+    await sendAtlasReply(deps, "111", "9198", {
+      text: file.filename,
+      handler: "writer",
+      modelCalls: 0,
+      engineMs: 1,
+      intent: "pdf",
+      attach: true,
+      document: file,
+      buttons: reportButtons,
+    }, false);
+    assert.equal(sent.some((s) => s.kind === "document" && s.filename === file.filename), true);
+    assert.equal(sent.some((s) => String(s.body || "").indexOf(chat) >= 0), false);
+    assert.equal(atlasReplyBody({ text: file.filename, handler: "writer", modelCalls: 0, engineMs: 1, intent: "pdf", attach: true, document: file }, "x"), file.filename);
+  });
+
+  it("keeps more, nearby, my plan, and PDF on the same reply", async () => {
+    const sent: Array<Record<string, unknown>> = [];
+    const deps = {
+      sendText: async () => undefined,
+      sendButton: async () => undefined,
+      sendButtons: async () => undefined,
+      sendList: async (_l: string, _t: string, body: string, buttons: { id: string }[]) => {
+        sent.push({ kind: "list", body, ids: buttons.map((b) => b.id) });
+      },
+      sendDocument: async () => undefined,
+    } as unknown as RouteDeps;
+    await sendAtlasReply(deps, "111", "9198", {
+      text: "Malwa, Punjab, Vidhan Sabha\n\n69",
+      handler: "writer",
+      modelCalls: 0,
+      engineMs: 1,
+      intent: "region",
+      buttons: reportButtons,
+    }, false);
+    assert.deepEqual(sent[0].ids, ["step_depth", "step_breadth", "step_money", "step_pdf"]);
+  });
+
+  it("Ask PDF is the price line and no file", async () => {
+    const sent: Array<Record<string, unknown>> = [];
+    const deps = {
+      sendText: async (_l: string, _t: string, body: string) => {
+        sent.push({ kind: "text", body });
+      },
+      sendButton: async () => undefined,
+      sendButtons: async (_l: string, _t: string, body: string) => {
+        sent.push({ kind: "buttons", body });
+      },
+      sendDocument: async () => {
+        sent.push({ kind: "document" });
+      },
+    } as unknown as RouteDeps;
+    await sendAtlasReply(deps, "111", "9198", {
+      text: "A PDF in this chat costs from ₹49.",
+      handler: "writer",
+      modelCalls: 0,
+      engineMs: 1,
+      intent: "pdf",
+      attach: false,
+      buttons: reportButtons.slice(0, 3),
+    }, false);
+    assert.equal(sent.some((s) => s.kind === "document"), false);
+    assert.equal(sent.some((s) => /₹49/.test(String(s.body || ""))), true);
   });
 });
 

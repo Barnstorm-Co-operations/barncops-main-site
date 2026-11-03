@@ -174,7 +174,18 @@ export type Store = {
 export type Email = { subject: string; displayName: string; rows: Array<[string, string]>; note?: string };
 /** atlasStatus: what the Atlas call returned ("200", "401", "html", "timeout", "no_secret", …). */
 export type AtlasButton = { id: string; title: string };
-export type AtlasReply = { text: string; handler: string; modelCalls: number | null; engineMs: number | null; atlasStatus?: string; buttons?: AtlasButton[] };
+export type AtlasDocument = { filename: string; mime: string; bytes: string };
+export type AtlasReply = {
+  text: string;
+  handler: string;
+  modelCalls: number | null;
+  engineMs: number | null;
+  atlasStatus?: string;
+  intent?: string;
+  buttons?: AtlasButton[];
+  attach?: boolean;
+  document?: AtlasDocument;
+};
 /** What a send returned; anything else (void) counts as sent. */
 type Sent = { ok?: boolean; error?: string; status?: number; code?: number | null } | void | unknown;
 
@@ -192,8 +203,47 @@ export type RouteDeps = {
   sendText: (phoneNumberId: string, to: string, body: string, previewUrl?: boolean) => Promise<unknown>;
   sendButton: (phoneNumberId: string, to: string, body: string, buttonId: string, title: string) => Promise<unknown>;
   sendButtons?: (phoneNumberId: string, to: string, body: string, buttons: AtlasButton[]) => Promise<unknown>;
+  sendList?: (phoneNumberId: string, to: string, body: string, buttons: AtlasButton[]) => Promise<unknown>;
+  sendDocument?: (phoneNumberId: string, to: string, doc: AtlasDocument) => Promise<unknown>;
   email: (e: Email) => Promise<void>;
 };
+
+/** Four report actions stay on one reply via a list; three stay reply chips. */
+export function atlasReplyButtons(buttons: AtlasButton[] | undefined): AtlasButton[] {
+  return (buttons || [])
+    .filter((b) => b && b.id && b.title)
+    .slice(0, 10)
+    .map((b) => ({ id: String(b.id), title: String(b.title).slice(0, 20) }));
+}
+
+/** The PDF is a WhatsApp document. A PDF tap must not resend the chat as the file. */
+export function atlasReplyBody(reply: AtlasReply, fallback: string): string {
+  const filename = (reply.document && reply.document.filename) || "";
+  const file = !!(reply.attach && reply.document && reply.document.bytes);
+  const text = String(reply.text || "").trim() || fallback;
+  if (file && (reply.intent === "pdf" || (filename && text === filename))) return filename || "atlas.pdf";
+  return text;
+}
+
+export async function sendAtlasReply(
+  deps: RouteDeps,
+  line: string,
+  to: string,
+  reply: AtlasReply,
+  hi: boolean,
+): Promise<void> {
+  const fallback = hi ? COPY.textOnly.hi : COPY.textOnly.en;
+  const file = !!(reply.attach && reply.document && reply.document.bytes);
+  if (file && deps.sendDocument && reply.document) await deps.sendDocument(line, to, reply.document);
+  const body = atlasReplyBody(reply, fallback);
+  const buttons = atlasReplyButtons(reply.buttons);
+  if (buttons.length > 3 && deps.sendList) await deps.sendList(line, to, body, buttons);
+  else if (buttons.length && deps.sendButtons) await deps.sendButtons(line, to, body, buttons.slice(0, 3));
+  else if (buttons.length === 1) await deps.sendButton(line, to, body, buttons[0].id, buttons[0].title);
+  else if (!(file && (reply.intent === "pdf" || body === ((reply.document && reply.document.filename) || "")))) {
+    await deps.sendText(line, to, body, true);
+  }
+}
 
 export type Outcome = "ignored_number" | "ignored_type" | "duplicate" | "atlas" | "inquiry_opened" | "inquiry_thread";
 
@@ -437,15 +487,12 @@ export async function handle(ev: WaEvent, rawDeps: RouteDeps, base: RouteConfig 
   t.handler = reply.handler;
   t.modelCalls = reply.modelCalls;
   t.engineMs = reply.engineMs;
-  const terminal = reply.text || (hi ? COPY.textOnly.hi : COPY.textOnly.en);
-  const buttons = (reply.buttons || []).filter((b) => b && b.id && b.title).slice(0, 3).map((b) => ({ id: b.id, title: b.title.slice(0, 20) }));
+  const buttons = atlasReplyButtons(reply.buttons);
   const shared = cfg.businessId === cfg.atlasId;
   if (shared && !looksDataQuestion(text) && !isAtlasQuestion(text) && buttons.length < 3 && !buttons.some((b) => b.id === TEAM_BUTTON_ID)) {
     buttons.push({ id: TEAM_BUTTON_ID, title: (hi ? COPY.button.hi : COPY.button.en).slice(0, 20) });
   }
-  if (buttons.length && deps.sendButtons) await deps.sendButtons(line, ev.from, terminal, buttons);
-  else if (buttons.length === 1) await deps.sendButton(line, ev.from, terminal, buttons[0].id, buttons[0].title);
-  else await deps.sendText(line, ev.from, terminal, true);
+  await sendAtlasReply(deps, line, ev.from, { ...reply, buttons }, hi);
   t.sentAt = deps.now();
   return done("atlas");
 }
