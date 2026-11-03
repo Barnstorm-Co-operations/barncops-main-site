@@ -73,9 +73,10 @@ test("Atlas JSON keeps the WhatsApp document and all four report buttons", () =>
     handler: "writer",
     intent: "pdf",
     attach: true,
-    document: { filename: "Tirwa.pdf", mime: "application/pdf", url: "https://atlas.barncops.in/api/wa-doc/?t=abc" },
+    document: { filename: "Tirwa.pdf", mime: "application/pdf", url: "https://atlas.barncops.in/api/wa-ask/?t=abc" },
   });
   assert.equal(!!(byUrl && byUrl.document && byUrl.document.url), true);
+  assert.equal(byUrl && byUrl.text, "");
   const ask = readAtlasAskJson({
     text: "A PDF in this chat costs from ₹49.",
     handler: "writer",

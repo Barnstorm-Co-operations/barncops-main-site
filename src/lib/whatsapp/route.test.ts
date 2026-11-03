@@ -609,6 +609,38 @@ describe("WhatsApp report document", () => {
     assert.equal(atlasReplyBody({ text: file.filename, handler: "writer", modelCalls: 0, engineMs: 1, intent: "pdf", attach: true, document: file }, "x"), "Report");
   });
 
+  it("sends a document URL and never a line that ends in .pdf", async () => {
+    const sent: Array<Record<string, unknown>> = [];
+    const hosted = {
+      filename: "Tirwa.pdf",
+      mime: "application/pdf",
+      url: "https://atlas.barncops.in/api/wa-ask/?t=abc",
+    };
+    const deps = {
+      sendText: async (_l: string, _t: string, body: string) => {
+        sent.push({ kind: "text", body });
+      },
+      sendButton: async () => undefined,
+      sendButtons: async () => undefined,
+      sendList: async () => undefined,
+      sendDocument: async (_l: string, _t: string, doc: { filename: string; url?: string }) => {
+        sent.push({ kind: "document", filename: doc.filename, url: doc.url });
+      },
+    } as unknown as RouteDeps;
+    await sendAtlasReply(deps, "111", "9198", {
+      text: "",
+      handler: "writer",
+      modelCalls: 0,
+      engineMs: 1,
+      intent: "pdf",
+      attach: true,
+      document: hosted,
+    }, false);
+    assert.equal(sent.some((s) => s.kind === "document" && s.url === hosted.url), true);
+    assert.equal(sent.some((s) => s.kind === "text"), false);
+    assert.equal(sent.some((s) => /\.pdf$/i.test(String(s.body || ""))), false);
+  });
+
   it("keeps more, nearby, my plan, and PDF on the same reply", async () => {
     const sent: Array<Record<string, unknown>> = [];
     const deps = {

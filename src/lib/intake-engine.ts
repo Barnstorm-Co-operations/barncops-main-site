@@ -545,7 +545,7 @@ async function atlasAskReply(
         model_calls?: number;
         engine_ms?: number;
         attach?: boolean;
-        document?: { filename?: string; mime?: string; bytes?: string };
+        document?: { filename?: string; mime?: string; bytes?: string; url?: string };
         buttons?: { id?: string; title?: string }[];
       } = {};
       try {
@@ -556,7 +556,8 @@ async function atlasAskReply(
         continue;
       }
       trail.push(String(r.status));
-      if (j && j.text) {
+      const hasFile = !!(j && j.attach && j.document && (j.document.bytes || j.document.url));
+      if (j && (j.text || hasFile)) {
         const parsed = readAtlasAskJson(j);
         if (parsed) return parsed;
       }
