@@ -916,18 +916,42 @@ export async function uploadWhatsAppMedia(
   }
 }
 
-/** The report file. Send a document URL only after the file exists. Never a .pdf text line. */
+/** True only when the hosted file is a PDF WhatsApp can fetch. */
+export async function hostedPdfUrl(url: string): Promise<string> {
+  const href = String(url || "");
+  if (!/^https:\/\//i.test(href) || href.indexOf(" ") !== -1) return "";
+  const ac = new AbortController();
+  const t = setTimeout(() => ac.abort(), 6000);
+  try {
+    const r = await fetch(href, { method: "HEAD", signal: ac.signal, redirect: "follow" });
+    const ct = String(r.headers.get("content-type") || "").toLowerCase();
+    if (r.status === 200 && ct.indexOf("application/pdf") === 0) return href;
+    if (r.status === 405 || r.status === 501 || !ct) {
+      const g = await fetch(href, { method: "GET", signal: ac.signal, redirect: "follow" });
+      const gct = String(g.headers.get("content-type") || "").toLowerCase();
+      const buf = gct.indexOf("application/pdf") === 0 ? Buffer.from(await g.arrayBuffer()) : Buffer.alloc(0);
+      if (g.status === 200 && buf.slice(0, 4).toString() === "%PDF") return href;
+    }
+  } catch {
+    return "";
+  } finally {
+    clearTimeout(t);
+  }
+  return "";
+}
+
+/** The report file. Send a document URL only after that URL is a PDF. Never a .pdf text line. */
 export async function sendWhatsAppDocument(
   to: string,
   doc: { filename: string; mime: string; bytes?: string; url?: string },
   phoneNumberId?: string | null,
 ): Promise<SendResult> {
-  const url = String(doc && doc.url || "");
-  if (/^https:\/\//i.test(url) && url.indexOf(" ") === -1) {
+  const live = await hostedPdfUrl(doc && doc.url || "");
+  if (live) {
     return graphWhatsApp(phoneNumberId, {
       to,
       type: "document",
-      document: { link: url, filename: String(doc.filename || "atlas.pdf").slice(0, 80) },
+      document: { link: live, filename: String(doc.filename || "atlas.pdf").slice(0, 80) },
     });
   }
   if (!doc || !doc.bytes) return { ok: false, error: "The file was not built." };

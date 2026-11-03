@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { chooseAtlasReply, isAtlasQuestion, looksDataQuestion, readAtlasAskJson } from "./intake-engine.ts";
+import { chooseAtlasReply, isAtlasQuestion, looksDataQuestion, readAtlasAskJson, sendWhatsAppDocument } from "./intake-engine.ts";
 
 const HIJACK = /Noted — Election Atlas|consulting mandate|नोट किया — Election Atlas/;
 const QUERIES = [
@@ -86,4 +86,90 @@ test("Atlas JSON keeps the WhatsApp document and all four report buttons", () =>
   });
   assert.equal(ask && ask.attach, false);
   assert.equal(ask && ask.document, undefined);
+});
+
+test("WhatsApp document uses a PDF URL and never a .pdf line", async () => {
+  const prevTok = process.env.WHATSAPP_BUSINESS_TOKEN;
+  const prevId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+  process.env.WHATSAPP_BUSINESS_TOKEN = "tok";
+  process.env.WHATSAPP_PHONE_NUMBER_ID = "111";
+  const sent: { link?: string; id?: string }[] = [];
+  const orig = globalThis.fetch;
+  globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    const url = String(input);
+    const method = String((init && init.method) || "GET").toUpperCase();
+    if (url.includes("/api/wa-ask/") && method === "HEAD") {
+      return new Response(null, { status: 200, headers: { "content-type": "application/pdf" } });
+    }
+    if (url.includes("graph.facebook.com") && url.includes("/messages")) {
+      const body = JSON.parse(String((init && init.body) || "{}")) as { document?: { link?: string; id?: string } };
+      sent.push(body.document || {});
+      return new Response("{}", { status: 200 });
+    }
+    return new Response("no", { status: 500 });
+  }) as typeof fetch;
+  try {
+    const r = await sendWhatsAppDocument("91", {
+      filename: "Tirwa.pdf",
+      mime: "application/pdf",
+      url: "https://atlas.barncops.in/api/wa-ask/?t=abc",
+    });
+    assert.equal(r.ok, true);
+    assert.equal(sent[0] && sent[0].link, "https://atlas.barncops.in/api/wa-ask/?t=abc");
+    assert.equal(sent[0] && sent[0].id, undefined);
+  } finally {
+    globalThis.fetch = orig;
+    if (prevTok == null) delete process.env.WHATSAPP_BUSINESS_TOKEN;
+    else process.env.WHATSAPP_BUSINESS_TOKEN = prevTok;
+    if (prevId == null) delete process.env.WHATSAPP_PHONE_NUMBER_ID;
+    else process.env.WHATSAPP_PHONE_NUMBER_ID = prevId;
+  }
+});
+
+test("a URL that is not a PDF sends the built file, or says the file was not built", async () => {
+  const prevTok = process.env.WHATSAPP_BUSINESS_TOKEN;
+  const prevId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+  process.env.WHATSAPP_BUSINESS_TOKEN = "tok";
+  process.env.WHATSAPP_PHONE_NUMBER_ID = "111";
+  const sent: { link?: string; id?: string }[] = [];
+  const orig = globalThis.fetch;
+  globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    const url = String(input);
+    if (url.includes("/api/wa-ask/")) {
+      return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { "content-type": "application/json" } });
+    }
+    if (url.includes("/media")) {
+      return new Response(JSON.stringify({ id: "media-1" }), { status: 200 });
+    }
+    if (url.includes("graph.facebook.com") && url.includes("/messages")) {
+      const body = JSON.parse(String((init && init.body) || "{}")) as { document?: { link?: string; id?: string } };
+      sent.push(body.document || {});
+      return new Response("{}", { status: 200 });
+    }
+    return new Response("no", { status: 500 });
+  }) as typeof fetch;
+  try {
+    const missing = await sendWhatsAppDocument("91", {
+      filename: "Tirwa.pdf",
+      mime: "application/pdf",
+      url: "https://atlas.barncops.in/api/wa-ask/?t=abc",
+    });
+    assert.equal(missing.ok, false);
+    assert.match(String(missing.error || ""), /file was not built/i);
+    const built = await sendWhatsAppDocument("91", {
+      filename: "Tirwa.pdf",
+      mime: "application/pdf",
+      url: "https://atlas.barncops.in/api/wa-ask/?t=abc",
+      bytes: Buffer.from("%PDF-1.4 built").toString("base64"),
+    });
+    assert.equal(built.ok, true);
+    assert.equal(sent[0] && sent[0].id, "media-1");
+    assert.equal(sent[0] && sent[0].link, undefined);
+  } finally {
+    globalThis.fetch = orig;
+    if (prevTok == null) delete process.env.WHATSAPP_BUSINESS_TOKEN;
+    else process.env.WHATSAPP_BUSINESS_TOKEN = prevTok;
+    if (prevId == null) delete process.env.WHATSAPP_PHONE_NUMBER_ID;
+    else process.env.WHATSAPP_PHONE_NUMBER_ID = prevId;
+  }
 });
