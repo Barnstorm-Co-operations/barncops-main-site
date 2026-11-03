@@ -230,6 +230,16 @@ function Home() {
                 Ask the Atlas
               </a>
             </li>
+            <li>
+              <a href="https://atlas.barncops.in/analysis/" className="text-sm text-slate-200 no-underline hover:text-white">
+                Election analysis
+              </a>
+            </li>
+            <li>
+              <a href="https://atlas.barncops.in/upcoming/" className="text-sm text-slate-200 no-underline hover:text-white">
+                Forecasts
+              </a>
+            </li>
           </ul>
           <div className="mt-8">
             <Button asChild variant="accent">

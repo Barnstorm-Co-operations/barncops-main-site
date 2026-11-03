@@ -73,6 +73,28 @@ function About() {
       </section>
 
       <section className="border-b border-border">
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
+          <p className="eyebrow">Election Atlas</p>
+          <h2 className="type-section mt-3 max-w-3xl text-fg">How the last result landed, and where the next one is decided</h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+            The written pages on the Atlas are the retrospectives and the forecasts: vote conversion, the seats that moved, and the swing that would change the next house.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            <li>
+              <a href="https://atlas.barncops.in/analysis/" className="text-sm text-fg underline decoration-border underline-offset-4 hover:decoration-fg">
+                Election analysis
+              </a>
+            </li>
+            <li>
+              <a href="https://atlas.barncops.in/upcoming/" className="text-sm text-fg underline decoration-border underline-offset-4 hover:decoration-fg">
+                Upcoming elections and forecasts
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-b border-border">
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-6 py-16 md:px-12 md:py-24 lg:grid-cols-2">
           <div>
             <p className="eyebrow">{t("visionKicker")}</p>
