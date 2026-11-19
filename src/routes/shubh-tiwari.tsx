@@ -118,7 +118,7 @@ function ShubhTiwariPage() {
             Shubh Tiwari is an election strategist and data analyst, and the Founder &amp; Director of
             Barnstorm Co-operations, a political consulting firm based in Bhopal, Madhya Pradesh, with
             studios in New Delhi and Hyderabad. Known online as Shubh Speaks, he has worked in elections
-            and political communication for 15 years.
+            and political communication for 13+ years.
           </p>
           <p>
             Before founding Barnstorm, Shubh was an Associate in the Political Intelligence Unit at
