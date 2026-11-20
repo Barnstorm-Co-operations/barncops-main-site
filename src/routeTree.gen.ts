@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ConsoleRouteImport } from './routes/console'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GovernanceRouteImport } from './routes/governance'
@@ -19,6 +20,7 @@ import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as MandataRouteImport } from './routes/mandata'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RosterRouteImport } from './routes/roster'
 import { Route as ShubhTiwariRouteImport } from './routes/shubh-tiwari'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrackRecordRouteImport } from './routes/track-record'
@@ -32,6 +34,8 @@ import { Route as ConsoleIntakeRouteImport } from './routes/console.intake'
 import { Route as ConsoleWhatsappRouteImport } from './routes/console.whatsapp'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as RosterIndexRouteImport } from './routes/roster.index'
+import { Route as RosterRoleRouteImport } from './routes/roster.$role'
 import { Route as AdminWaInboxIndexRouteImport } from './routes/admin.wa-inbox.index'
 import { Route as AdminWaInboxIdRouteImport } from './routes/admin.wa-inbox.$id'
 import { Route as ApiAdminIntakeRouteImport } from './routes/api.admin.intake'
@@ -55,6 +59,11 @@ const AboutRoute = AboutRouteImport.update({
 const AdvisoryRoute = AdvisoryRouteImport.update({
   id: '/advisory',
   path: '/advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConsoleRoute = ConsoleRouteImport.update({
@@ -90,6 +99,11 @@ const PlatformRoute = PlatformRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RosterRoute = RosterRouteImport.update({
+  id: '/roster',
+  path: '/roster',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShubhTiwariRoute = ShubhTiwariRouteImport.update({
@@ -157,6 +171,16 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
 } as any)
+const RosterIndexRoute = RosterIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => RosterRoute,
+} as any)
+const RosterRoleRoute = RosterRoleRouteImport.update({
+  id: '/$role',
+  path: '/$role',
+  getParentRoute: () => RosterRoute,
+} as any)
 const AdminWaInboxIndexRoute = AdminWaInboxIndexRouteImport.update({
   id: '/admin/wa-inbox/',
   path: '/admin/wa-inbox/',
@@ -207,6 +231,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/careers': typeof CareersRoute
   '/console': typeof ConsoleRouteWithChildren
   '/contact': typeof ContactRoute
   '/governance': typeof GovernanceRoute
@@ -214,6 +239,7 @@ export interface FileRoutesByFullPath {
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
   '/privacy': typeof PrivacyRoute
+  '/roster': typeof RosterRouteWithChildren
   '/shubh-tiwari': typeof ShubhTiwariRoute
   '/terms': typeof TermsRoute
   '/track-record': typeof TrackRecordRoute
@@ -225,8 +251,10 @@ export interface FileRoutesByFullPath {
   '/console/intake': typeof ConsoleIntakeRoute
   '/console/whatsapp': typeof ConsoleWhatsappRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/roster/$role': typeof RosterRoleRoute
   '/console/': typeof ConsoleIndexRoute
   '/insights/': typeof InsightsIndexRoute
+  '/roster/': typeof RosterIndexRoute
   '/admin/wa-inbox/$id': typeof AdminWaInboxIdRoute
   '/api/admin/intake': typeof ApiAdminIntakeRoute
   '/api/admin/whatsapp': typeof ApiAdminWhatsappRoute
@@ -241,6 +269,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/governance': typeof GovernanceRoute
   '/mandata': typeof MandataRoute
@@ -257,8 +286,10 @@ export interface FileRoutesByTo {
   '/console/intake': typeof ConsoleIntakeRoute
   '/console/whatsapp': typeof ConsoleWhatsappRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/roster/$role': typeof RosterRoleRoute
   '/console': typeof ConsoleIndexRoute
   '/insights': typeof InsightsIndexRoute
+  '/roster': typeof RosterIndexRoute
   '/admin/wa-inbox/$id': typeof AdminWaInboxIdRoute
   '/api/admin/intake': typeof ApiAdminIntakeRoute
   '/api/admin/whatsapp': typeof ApiAdminWhatsappRoute
@@ -274,6 +305,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/careers': typeof CareersRoute
   '/console': typeof ConsoleRouteWithChildren
   '/contact': typeof ContactRoute
   '/governance': typeof GovernanceRoute
@@ -281,6 +313,7 @@ export interface FileRoutesById {
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
   '/privacy': typeof PrivacyRoute
+  '/roster': typeof RosterRouteWithChildren
   '/shubh-tiwari': typeof ShubhTiwariRoute
   '/terms': typeof TermsRoute
   '/track-record': typeof TrackRecordRoute
@@ -292,8 +325,10 @@ export interface FileRoutesById {
   '/console/intake': typeof ConsoleIntakeRoute
   '/console/whatsapp': typeof ConsoleWhatsappRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/roster/$role': typeof RosterRoleRoute
   '/console/': typeof ConsoleIndexRoute
   '/insights/': typeof InsightsIndexRoute
+  '/roster/': typeof RosterIndexRoute
   '/admin/wa-inbox/$id': typeof AdminWaInboxIdRoute
   '/api/admin/intake': typeof ApiAdminIntakeRoute
   '/api/admin/whatsapp': typeof ApiAdminWhatsappRoute
@@ -310,6 +345,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/careers'
     | '/console'
     | '/contact'
     | '/governance'
@@ -317,6 +353,7 @@ export interface FileRouteTypes {
     | '/mandata'
     | '/platform'
     | '/privacy'
+    | '/roster'
     | '/shubh-tiwari'
     | '/terms'
     | '/track-record'
@@ -328,8 +365,10 @@ export interface FileRouteTypes {
     | '/console/intake'
     | '/console/whatsapp'
     | '/insights/$slug'
+    | '/roster/$role'
     | '/console/'
     | '/insights/'
+    | '/roster/'
     | '/admin/wa-inbox/$id'
     | '/api/admin/intake'
     | '/api/admin/whatsapp'
@@ -344,6 +383,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/careers'
     | '/contact'
     | '/governance'
     | '/mandata'
@@ -360,8 +400,10 @@ export interface FileRouteTypes {
     | '/console/intake'
     | '/console/whatsapp'
     | '/insights/$slug'
+    | '/roster/$role'
     | '/console'
     | '/insights'
+    | '/roster'
     | '/admin/wa-inbox/$id'
     | '/api/admin/intake'
     | '/api/admin/whatsapp'
@@ -376,6 +418,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/careers'
     | '/console'
     | '/contact'
     | '/governance'
@@ -383,6 +426,7 @@ export interface FileRouteTypes {
     | '/mandata'
     | '/platform'
     | '/privacy'
+    | '/roster'
     | '/shubh-tiwari'
     | '/terms'
     | '/track-record'
@@ -394,8 +438,10 @@ export interface FileRouteTypes {
     | '/console/intake'
     | '/console/whatsapp'
     | '/insights/$slug'
+    | '/roster/$role'
     | '/console/'
     | '/insights/'
+    | '/roster/'
     | '/admin/wa-inbox/$id'
     | '/api/admin/intake'
     | '/api/admin/whatsapp'
@@ -411,6 +457,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdvisoryRoute: typeof AdvisoryRoute
+  CareersRoute: typeof CareersRoute
   ConsoleRoute: typeof ConsoleRouteWithChildren
   ContactRoute: typeof ContactRoute
   GovernanceRoute: typeof GovernanceRoute
@@ -418,6 +465,7 @@ export interface RootRouteChildren {
   MandataRoute: typeof MandataRoute
   PlatformRoute: typeof PlatformRoute
   PrivacyRoute: typeof PrivacyRoute
+  RosterRoute: typeof RosterRouteWithChildren
   ShubhTiwariRoute: typeof ShubhTiwariRoute
   TermsRoute: typeof TermsRoute
   TrackRecordRoute: typeof TrackRecordRoute
@@ -458,6 +506,13 @@ declare module '@tanstack/react-router' {
       path: '/advisory'
       fullPath: '/advisory'
       preLoaderRoute: typeof AdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/console': {
@@ -507,6 +562,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roster': {
+      id: '/roster'
+      path: '/roster'
+      fullPath: '/roster'
+      preLoaderRoute: typeof RosterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shubh-tiwari': {
@@ -599,6 +661,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
+    }
+    '/roster/': {
+      id: '/roster/'
+      path: '/'
+      fullPath: '/roster/'
+      preLoaderRoute: typeof RosterIndexRouteImport
+      parentRoute: typeof RosterRoute
+    }
+    '/roster/$role': {
+      id: '/roster/$role'
+      path: '/$role'
+      fullPath: '/roster/$role'
+      preLoaderRoute: typeof RosterRoleRouteImport
+      parentRoute: typeof RosterRoute
     }
     '/admin/wa-inbox/': {
       id: '/admin/wa-inbox/'
@@ -695,10 +771,24 @@ const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
   InsightsRouteChildren,
 )
 
+interface RosterRouteChildren {
+  RosterRoleRoute: typeof RosterRoleRoute
+  RosterIndexRoute: typeof RosterIndexRoute
+}
+
+const RosterRouteChildren: RosterRouteChildren = {
+  RosterRoleRoute: RosterRoleRoute,
+  RosterIndexRoute: RosterIndexRoute,
+}
+
+const RosterRouteWithChildren =
+  RosterRoute._addFileChildren(RosterRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdvisoryRoute: AdvisoryRoute,
+  CareersRoute: CareersRoute,
   ConsoleRoute: ConsoleRouteWithChildren,
   ContactRoute: ContactRoute,
   GovernanceRoute: GovernanceRoute,
@@ -706,6 +796,7 @@ const rootRouteChildren: RootRouteChildren = {
   MandataRoute: MandataRoute,
   PlatformRoute: PlatformRoute,
   PrivacyRoute: PrivacyRoute,
+  RosterRoute: RosterRouteWithChildren,
   ShubhTiwariRoute: ShubhTiwariRoute,
   TermsRoute: TermsRoute,
   TrackRecordRoute: TrackRecordRoute,

@@ -13,6 +13,19 @@ export const FIRM = {
   votersFull: "90,000,000+",
 } as const;
 
+/** Must match /roster, /contact, the Organization JSON-LD and the Google Business Profile character for character. */
+export const BHOPAL_ADDRESS_TEXT =
+  "Unit 5, 6, 7 & 8, 5th Floor, Bansal One, CW-2, Habibganj Railway Station, Zone-II, Bhopal 462016, Madhya Pradesh, India";
+
+export const BHOPAL_POSTAL_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: "Unit 5, 6, 7 & 8, 5th Floor, Bansal One, CW-2, Habibganj Railway Station, Zone-II",
+  addressLocality: "Bhopal",
+  addressRegion: "MP",
+  postalCode: "462016",
+  addressCountry: "IN",
+} as const;
+
 export const SOCIAL = [
   {
     id: "x",
@@ -67,7 +80,7 @@ export const OFFICES = [
   {
     city: "Bhopal",
     role: "Central & field systems",
-    address: "Arera Colony studio",
+    address: "Bansal One, Habibganj Railway Station, Bhopal 462016",
   },
   {
     city: "Hyderabad",

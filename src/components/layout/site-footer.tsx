@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mark, Wordmark } from "@/components/layout/mark";
-import { openRoster } from "@/components/layout/roster-dialog";
 import { FOOTER_NAV } from "@/lib/content/nav";
-import { FIRM, SOCIAL } from "@/lib/content/firm";
+import { BHOPAL_ADDRESS_TEXT, FIRM, SOCIAL } from "@/lib/content/firm";
 import { useT, type DictKey } from "@/lib/i18n";
 
 export function SiteFooter() {
@@ -19,6 +18,9 @@ export function SiteFooter() {
           <p className="mt-6 font-mono text-xs tracking-wide text-subtle">
             {FIRM.offices.join(" · ")}
           </p>
+          <address className="mt-3 max-w-sm text-sm not-italic leading-relaxed text-muted">
+            <span className="text-fg">{t("bhopalOffice")}:</span> {BHOPAL_ADDRESS_TEXT}
+          </address>
           <p className="mt-4">
             <Link
               to="/shubh-tiwari"
@@ -50,13 +52,12 @@ export function SiteFooter() {
           <FooterCol title={t("atlasCol")} items={FOOTER_NAV.atlas} />
           <div>
             <FooterCol title={t("firm")} items={FOOTER_NAV.firm} />
-            <button
-              type="button"
-              onClick={openRoster}
-              className="mt-3 text-left text-sm text-muted transition-colors duration-150 hover:text-fg"
+            <Link
+              to="/roster"
+              className="mt-2 inline-block text-sm text-muted no-underline transition-colors duration-150 hover:text-fg"
             >
-              {t("roster")}
-            </button>
+              {t("rosterCareers")}
+            </Link>
           </div>
           <div>
             <p className="eyebrow">{t("legal")}</p>

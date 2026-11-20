@@ -198,6 +198,13 @@ function Mandata() {
             <article className="border-t border-border pt-6">
               <h3 className="font-display text-2xl tracking-tight text-fg">{t("deployPlatTitle")}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">{t("deployPlatBody")}</p>
+              <Link
+                to="/roster/$role"
+                params={{ role: "ai-backend-engineer" }}
+                className="mt-6 inline-block text-sm text-fg underline-offset-4 hover:underline"
+              >
+                We're hiring engineers
+              </Link>
             </article>
             <article className="border-t border-border pt-6">
               <h3 className="font-display text-2xl tracking-tight text-fg">{t("deployAdvTitle")}</h3>

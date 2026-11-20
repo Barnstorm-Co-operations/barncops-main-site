@@ -1,7 +1,32 @@
-import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { useEffect, useState, type MouseEvent, type ReactNode } from "react";
+import { ROSTER_EMAIL, ROSTER_FORM } from "@/lib/content/roster";
 
 export function openRoster() {
   window.dispatchEvent(new CustomEvent("open-roster"));
+}
+
+/** A real link to /roster for crawlers and new-tab clicks; a plain click opens the modal. */
+export function RosterLink({
+  className,
+  children,
+  onOpen,
+}: {
+  className?: string;
+  children: ReactNode;
+  onOpen?: () => void;
+}) {
+  const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    onOpen?.();
+    openRoster();
+  };
+  return (
+    <Link to="/roster" className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
 }
 
 export function RosterDialog() {
@@ -48,10 +73,20 @@ export function RosterDialog() {
         <p className="mt-4 text-sm leading-relaxed text-[#c5ced6] sm:text-base">
           We don't hire employees. We deploy political operatives and data architects. If you belong in a war-room, send your brief.
         </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <a
-            href="mailto:lead@barncops.in"
+            href={ROSTER_FORM}
+            target="_blank"
+            rel="noreferrer noopener"
+            data-roster-apply=""
             className="inline-flex h-12 items-center justify-center bg-[#0b1f3a] px-5 text-sm font-medium text-white no-underline shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] transition-colors duration-150 hover:bg-[#123056]"
+          >
+            Apply
+          </a>
+          <a
+            href={`mailto:${ROSTER_EMAIL}`}
+            data-roster-apply=""
+            className="inline-flex h-12 items-center justify-center px-5 text-sm text-[#c5ced6] no-underline shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] transition-colors duration-150 hover:text-white"
           >
             Submit Intelligence (CV)
           </a>
@@ -59,6 +94,13 @@ export function RosterDialog() {
             Close
           </button>
         </div>
+        <Link
+          to="/roster"
+          onClick={() => setOpen(false)}
+          className="mt-6 inline-block text-sm text-[#0fb5a8] no-underline hover:text-white"
+        >
+          See open roles →
+        </Link>
       </div>
     </div>
   );

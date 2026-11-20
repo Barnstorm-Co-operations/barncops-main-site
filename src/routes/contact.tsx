@@ -4,7 +4,7 @@ import { WhatsAppCta } from "@/components/contact/whatsapp-cta";
 import { IntelligenceFeed } from "@/components/firm/intelligence-feed";
 import { PageHero } from "@/components/layout/page-hero";
 import { FaqBlock } from "@/components/firm/faq-block";
-import { FIRM } from "@/lib/content/firm";
+import { BHOPAL_ADDRESS_TEXT, FIRM } from "@/lib/content/firm";
 import { CONTACT_FAQS } from "@/lib/content/faqs";
 import { pageHead } from "@/lib/seo";
 import { useCopy, useT } from "@/lib/i18n";
@@ -98,6 +98,9 @@ function Contact() {
             <div>
               <p className="eyebrow">{t("studios")}</p>
               <p className="mt-3 text-sm text-muted">{FIRM.offices.join(" · ")}</p>
+              <address className="mt-3 text-sm not-italic leading-relaxed text-muted">
+                <span className="text-fg">{t("bhopalOffice")}:</span> {BHOPAL_ADDRESS_TEXT}
+              </address>
               <p className="mt-2 font-mono text-xs text-subtle">{t("noEmail")}</p>
             </div>
             <div>

@@ -1,3 +1,5 @@
+import { BHOPAL_POSTAL_ADDRESS } from "@/lib/content/firm";
+
 const ORIGIN = "https://www.barncops.in";
 
 export function pageHead(title: string, description: string, path = "/") {
@@ -43,6 +45,7 @@ export const ORGANIZATION_JSON_LD = {
     url: "https://www.barncops.in/shubh-tiwari",
   },
   email: "poll@barncops.in",
+  address: BHOPAL_POSTAL_ADDRESS,
   sameAs: [
     "https://x.com/BarnCops",
     "https://www.linkedin.com/company/barncops",

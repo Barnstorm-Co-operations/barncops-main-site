@@ -485,6 +485,8 @@ export const DICT = {
     waCta: "WhatsApp a director",
     waNote: "WhatsApp inquiries may begin with a short, confidential qualification.",
     roster: "The Roster",
+    rosterCareers: "Careers (The Roster)",
+    bhopalOffice: "Bhopal office",
   },
   hi: {
     skip: "मुख्य सामग्री पर जाएँ",
@@ -969,6 +971,8 @@ export const DICT = {
     waCta: "निदेशक से WhatsApp",
     waNote: "WhatsApp पूछताछ एक संक्षिप्त, गोपनीय योग्यता से शुरू हो सकती है।",
     roster: "The Roster",
+    rosterCareers: "करियर (The Roster)",
+    bhopalOffice: "भोपाल कार्यालय",
   },
 } as const;
 
