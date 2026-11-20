@@ -81,6 +81,15 @@ async function main() {
 }
 
 main().catch((err) => {
+  // 53000 is Neon's "project exceeded its quota". With MIGRATE_ALLOW_QUOTA_SKIP=1
+  // the deploy ships without migrating; unset it once the quota is back, or a
+  // pending migration stays unapplied until the next deploy.
+  if (err?.code === "53000" && process.env.MIGRATE_ALLOW_QUOTA_SKIP === "1") {
+    console.warn(
+      "[migrate] WARNING: database quota exceeded (53000) — skipping migrations because MIGRATE_ALLOW_QUOTA_SKIP=1. The database is unreachable until the quota is restored.",
+    );
+    process.exit(0);
+  }
   console.error("[migrate] failed:", err?.message || err);
   // pg errors carry the context needed to debug a bad SQL file.
   for (const key of ["code", "detail", "hint", "position", "where"]) {
