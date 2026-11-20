@@ -29,7 +29,7 @@ export const DICT = {
     lang: "Language",
     caseStudies: "The Mandates",
     trackRecord: "Track Record",
-    mandataNav: "mandata.ai",
+    mandataNav: "Mandata",
     whatWeDo: "What We Do",
     social: "Connect",
     socialX: "X",
@@ -39,14 +39,14 @@ export const DICT = {
     heroKicker: "Political consulting firm in India · Since 2019",
     heroTitle: "Political campaign consulting and constituency intelligence for candidates, MPs, MLAs, and party leadership.",
     heroLede:
-      "Barnstorm Co-operations is a political consulting firm in India. Election campaign management at booth grain — then mandata.ai, the constituency management platform for data-driven constituency governance and citizen feedback analysis.",
+      "Barnstorm Co-operations is a political consulting firm in India. Election campaign management at booth grain — then Mandata, the constituency management platform for data-driven constituency governance and citizen feedback analysis.",
     heroFirmLabel: "Barnstorm Co-operations",
     heroFirmLine: "Political consulting and constituency operations.",
-    heroProductLabel: "mandata.ai",
+    heroProductLabel: "Mandata",
     heroProductLine: "Data-driven constituency governance and citizen feedback analysis.",
     heroScale: "Since 2019 · 10+ states · 200+ assembly segments · 35+ parliamentary constituencies · 90M+ elector records",
     ctaBrief: "Request a confidential brief",
-    ctaPlatform: "Explore mandata.ai",
+    ctaPlatform: "Explore Mandata",
     ctaMandate: "Discuss a mandate",
     ctaSpeak: "Speak with Barnstorm Co-operations",
     ctaIntake: "Submit a confidential intake",
@@ -62,8 +62,8 @@ export const DICT = {
       "Sentiment, rapid response, and short-form on a 72-hour clock — written back to the booth file, not a content calendar.",
     arsenal3Title: "Booth-level intelligence",
     arsenal3Body: "Booth management strategy and booth micro-targeting against the actual roll. Nightly reconciliation — logistics, not folklore.",
-    arsenal4Title: "mandata.ai constituency OS",
-    arsenal4Product: "mandata.ai",
+    arsenal4Title: "Mandata constituency OS",
+    arsenal4Product: "Mandata",
     arsenal4Body: "Constituency management platform after counting day: Jan-Sunwai workflow management, citizen feedback analysis, MPLADS / MLACDS tracking.",
 
     statVoters: "Elector records processed across campaign and operating engagements",
@@ -75,7 +75,7 @@ export const DICT = {
     statPcsSecured: "Parliamentary constituencies supported",
     statStatesMastered: "States in the operating footprint",
     statRaces: "Races advised",
-    statRecords: "Citizens on mandata.ai",
+    statRecords: "Citizens on Mandata",
     statOperators: "Operators",
     statStudios: "Studios",
 
@@ -85,10 +85,10 @@ export const DICT = {
       "Madhya Pradesh, Delhi, Maharashtra, Rajasthan, Haryana, Assam, Odisha, Telangana, Goa, Puducherry, Jammu & Kashmir.",
     impactSeoTitle: "A political consulting firm in India with booth-level intelligence and constituency operations.",
     impactLede:
-      "Operating files associated with Barnstorm Co-operations engagements since 2019 include on the order of 90 million electors, work across 200+ assembly segments and 35+ parliamentary constituencies, written into mandata.ai so governing does not start from zero on counting day. The booth is a coordinate. The voter is a graph.",
+      "Operating files associated with Barnstorm Co-operations engagements since 2019 include on the order of 90 million electors, work across 200+ assembly segments and 35+ parliamentary constituencies, written into Mandata so governing does not start from zero on counting day. The booth is a coordinate. The voter is a graph.",
     impactBanner:
-      "This footprint now sits on mandata.ai — data-driven constituency governance and citizen feedback analysis for MPs and MLAs who still have to govern on Monday.",
-    impactCta: "Explore mandata.ai",
+      "This footprint now sits on Mandata — data-driven constituency governance and citizen feedback analysis for MPs and MLAs who still have to govern on Monday.",
+    impactCta: "Explore Mandata",
     impactFootnote:
       "Figures reflect cumulative campaign, field, and constituency operating footprint across Barnstorm Co-operations engagements since 2019.",
     impactStates:
@@ -129,16 +129,16 @@ export const DICT = {
     founderBioHome:
       "Shubh Tiwari founded Barnstorm Co-operations after the 2019 Lok Sabha. 13+ years of high-stakes electoral operations — including the Indian Youth Congress Haath Uthao framework — now sits as a firm across 10+ states, 35+ parliamentary constituencies, and 200+ assembly segments, advising parties and officeholders including Shri Shivraj Singh Chouhan, Union Minister, Agriculture & Farmers’ Welfare and Rural Development · former Chief Minister, Madhya Pradesh, and Shri A. Revanth Reddy.",
     founderReadProfile: "Read leadership profile",
-    visionKicker: "The ideation of mandata.ai",
+    visionKicker: "The ideation of Mandata",
     visionTitle: "From Bharat Janadesh to a constituency operating system.",
     visionBody:
-      "Recognizing the friction between high-octane campaign strategies and day-to-day legislative governance, Shubh conceptualized mandata.ai—evolving from his pioneering digital blueprint, the Bharat Janadesh App. Traditional politics ends on counting day; true governance begins the next morning. mandata.ai bridges this gap by functioning as a constituency operating system for sitting MPs and MLAs, with role-based access, activity history, and human oversight — booth analytics, Jan-Sunwai queues, and MPLADS/MLACDS tracking on one permissioned file.",
+      "Recognizing the friction between high-octane campaign strategies and day-to-day legislative governance, Shubh conceptualized Mandata—evolving from his pioneering digital blueprint, the Bharat Janadesh App. Traditional politics ends on counting day; true governance begins the next morning. Mandata bridges this gap by functioning as a constituency operating system for sitting MPs and MLAs, with role-based access, activity history, and human oversight — booth analytics, Jan-Sunwai queues, and MPLADS/MLACDS tracking on one permissioned file.",
 
-    gatewayKicker: "Product · mandata.ai",
+    gatewayKicker: "Product · Mandata",
     gatewayTitle: "The constituency operating system.",
     gatewayBody:
       "Booth heat, Jan-Sunwai queues, citizen connect, and MPLADS / MLACDS utilization — one graph for sitting MPs and MLAs.",
-    gatewayCta: "Explore mandata.ai Suite",
+    gatewayCta: "Explore Mandata Suite",
     gatewayFeat1: "Constituency OS",
     gatewayFeat2: "Jan-Sunwai tracking",
     gatewayFeat3: "Booth heatmaps",
@@ -150,12 +150,12 @@ export const DICT = {
     pillarAdvisoryBody:
       "Booth-level intelligence, narrative strategy, digital perception, and political war-room management. Principals get one-page decision memos. Field gets a sentence it can execute. Then the same operators have to govern.",
     pillarAdvisoryCta: "See advisory",
-    pillarPlatformKicker: "mandata.ai · The Map",
+    pillarPlatformKicker: "Mandata · The Map",
     pillarPlatformTitle: "Constituency management platform for sitting MPs and MLAs",
     pillarPlatformSub: "Data-driven constituency governance. Citizen feedback analysis.",
     pillarPlatformBody:
       "A constituency management platform: Jan-Sunwai workflow management, citizen connect, booth intelligence, and MPLADS / MLACDS tracking — written by the same operators who sit in the advisory room, under role-based access.",
-    pillarPlatformCta: "See mandata.ai",
+    pillarPlatformCta: "See Mandata",
 
     workKicker: "The Mandates",
     workTitle: "Selected engagements, structured.",
@@ -170,7 +170,7 @@ export const DICT = {
     operatingGeographies: "Operating geographies",
     assemblyTheatres: "Assembly theatres",
 
-    osKicker: "mandata.ai",
+    osKicker: "Mandata",
     osTitle: "A sample Vidhan Sabha, live in the browser.",
     osBody:
       "AC-25 Panipat City. Booth-level net favorability, pending Jan-Sunwai, turnout, and weekly contacts. Fictional file. Real product shape.",
@@ -185,7 +185,7 @@ export const DICT = {
       "The digital space is not a vacuum. Algorithms serve the ground. Whether it is building a custom app for Panipat Urban or structuring data for the 2019 IYC Haath Uthao campaign, tech only wins when it survives contact with a booth sheet.",
 
     footerBlurb:
-      "Barnstorm Co-operations is a political consulting firm in India since 2019, and the team behind mandata.ai — a constituency management platform for data-driven constituency governance and citizen feedback analysis.",
+      "Barnstorm Co-operations is a political consulting firm in India since 2019, and the team behind Mandata — a constituency management platform for data-driven constituency governance and citizen feedback analysis.",
     footerLegal:
       "Barnstorm Co-operations. Nonpartisan as a vendor; partisan as a client requires. Named parties and principals appear with the file.",
     footerLive: "Live console",
@@ -194,7 +194,7 @@ export const DICT = {
 
     advisoryHeroTitle: "A seat, not a slide deck.",
     advisoryHeroLede:
-      "Barnstorm Co-operations advisory is election campaign consulting as an embedded strategic chair — political strategy, booth-level intelligence, digital perception, and war-room command. Principals get one-page decision memos. Field gets a sentence it can execute. mandata.ai sits underneath when the constituency graph has to persist after counting day.",
+      "Barnstorm Co-operations advisory is election campaign consulting as an embedded strategic chair — political strategy, booth-level intelligence, digital perception, and war-room command. Principals get one-page decision memos. Field gets a sentence it can execute. Mandata sits underneath when the constituency graph has to persist after counting day.",
     advisoryCta: "Request a confidential brief",
     advisoryHow: "What advisory means at Barnstorm Co-operations",
     advisorySeat: "An embedded strategic seat. Not a visiting consultant.",
@@ -223,7 +223,7 @@ export const DICT = {
 
     platformHeroTitle: "A constituency operating system built for modern MPs and MLAs.",
     platformHeroLede:
-      "mandata.ai is the constituency management platform from Barnstorm Co-operations: Jan-Sunwai workflow management, citizen connect, booth intelligence, and MPLADS / MLACDS tracking — under role-based access, activity history, and human oversight.",
+      "Mandata is the constituency management platform from Barnstorm Co-operations: Jan-Sunwai workflow management, citizen connect, booth intelligence, and MPLADS / MLACDS tracking — under role-based access, activity history, and human oversight.",
     platformOpen: "Open the sample console",
     platformAccess: "Request a platform walkthrough",
     modules: "Modules",
@@ -235,11 +235,11 @@ export const DICT = {
     forOffice: "For officeholders",
     forOfficeTitle: "MP and MLA constituency management after counting day.",
     forOfficeBody:
-      "Governing is a graph. Jan-Sunwai, MPLADS / MLACDS, and citizen connect sit on the household. The next race is already in the inbox. mandata.ai makes neglect visible early enough to be expensive to ignore.",
+      "Governing is a graph. Jan-Sunwai, MPLADS / MLACDS, and citizen connect sit on the household. The next race is already in the inbox. Mandata makes neglect visible early enough to be expensive to ignore.",
     access: "Access",
     accessTitle: "License the graph, or sit with advisory.",
     accessBody:
-      "Parties, large offices, and firms with a bench already can license mandata.ai alone. Everyone else usually wants the Barnstorm Co-operations room as well.",
+      "Parties, large offices, and firms with a bench already can license Mandata alone. Everyone else usually wants the Barnstorm Co-operations room as well.",
     tryConsole: "Open the sample console",
     advisoryPractice: "Advisory practice",
 
@@ -286,7 +286,7 @@ export const DICT = {
     roleParty: "Party caucus",
     roleInvestor: "Investor",
     needAdvisory: "Advisory",
-    needOs: "mandata.ai OS",
+    needOs: "Mandata OS",
     needBoth: "Both practices",
     time90: "Inside 90 days",
     timeCycle: "This cycle",
@@ -296,17 +296,17 @@ export const DICT = {
     recGov: "Governing retainer + OS",
     recGovBody: "Jan-Sunwai graph first. Campaign capacity later, if at all.",
     recRace: "Race command",
-    recRaceBody: "A full advisory seat and a live mandata.ai instance. Ninety days is a logistics problem.",
+    recRaceBody: "A full advisory seat and a live Mandata instance. Ninety days is a logistics problem.",
     recAdv: "Advisory engagement",
     recAdvBody: "Strategy, research, and booth design. Platform optional once the theory of the race exists.",
     recPlat: "Platform license",
-    recPlatBody: "mandata.ai under your existing consulting bench.",
+    recPlatBody: "Mandata under your existing consulting bench.",
     recBoth: "Both practices",
     recBothBody: "One room, one graph. Typical for first-time principals and rebuilds.",
     recInvestor: "Investor briefing",
     recInvestorBody: "A product and market memo — not a campaign seat.",
 
-    consoleBadge: "mandata.ai",
+    consoleBadge: "Mandata",
     liveSample: "Live sample",
     electorate: "Electorate",
     winNumber: "Win number",
@@ -348,9 +348,9 @@ export const DICT = {
     structure: "Structure",
     structureTitle: "Two engines, one partnership.",
     structureBody1:
-      "Advisory is full-cycle political consulting: booth, narrative, perception, war-room. Platform is mandata.ai, licensed to MPs, MLAs, parties, and firms that already have a bench. Many clients buy both.",
+      "Advisory is full-cycle political consulting: booth, narrative, perception, war-room. Platform is Mandata, licensed to MPs, MLAs, parties, and firms that already have a bench. Many clients buy both.",
     structureBody2:
-      "Advisory and mandata.ai share one graph. Principals get the room. Officeholders get the OS. Many buy both.",
+      "Advisory and Mandata share one graph. Principals get the room. Officeholders get the OS. Many buy both.",
     workWithUs: "Work with us",
     studiosTitle: "Where the work sits.",
 
@@ -370,7 +370,7 @@ export const DICT = {
     closeAdvTitle: "Request a confidential brief for an advisory seat.",
     closeAdvBody: "Election campaign consulting as an embedded mandate — political strategy, booth-level intelligence, war-room. Say so if the clock is already against the file.",
     closePlatTitle: "Request a platform walkthrough.",
-    closePlatBody: "mandata.ai for MP and MLA constituency management, with governance, access, and accountability a serious office can sit with.",
+    closePlatBody: "Mandata for MP and MLA constituency management, with governance, access, and accountability a serious office can sit with.",
     workContext: "Context",
     workChallenge: "Challenge",
     workIntervention: "Intervention",
@@ -397,22 +397,22 @@ export const DICT = {
     moduleWho: "Who uses it",
     moduleImproves: "What visibility it improves",
     platformWhatKicker: "What it is",
-    platformWhatTitle: "What mandata.ai is — a constituency operating system, not a blast list.",
+    platformWhatTitle: "What Mandata is — a constituency operating system, not a blast list.",
     platformWhatBody:
-      "mandata.ai is not a marketing cloud and not an unsupervised bot. It is a political operations platform for India: households, booths, cases, outreach, and sanctioned works under permissioned access. Campaigns use it as the booth file that argues back. Officeholders use it as Jan-Sunwai workflow management, citizen connect, and fund discipline.",
+      "Mandata is not a marketing cloud and not an unsupervised bot. It is a political operations platform for India: households, booths, cases, outreach, and sanctioned works under permissioned access. Campaigns use it as the booth file that argues back. Officeholders use it as Jan-Sunwai workflow management, citizen connect, and fund discipline.",
     platformWhoKicker: "Who it is for",
     platformWhoTitle: "Sitting MPs, MLAs, constituency offices, and party operations.",
     forParties: "For parties",
     forPartiesTitle: "A political operations platform India can actually license.",
     forPartiesBody:
-      "A common graph. Named access. Party operations teams license mandata.ai as infrastructure — booth intelligence, outreach, audit trails — under their own bench, or sit with Barnstorm Co-operations advisory where the race is live.",
+      "A common graph. Named access. Party operations teams license Mandata as infrastructure — booth intelligence, outreach, audit trails — under their own bench, or sit with Barnstorm Co-operations advisory where the race is live.",
     workflowKicker: "Operating workflows",
-    workflowTitle: "How mandata.ai supports grievance, outreach, and field write-back",
+    workflowTitle: "How Mandata supports grievance, outreach, and field write-back",
     deployKicker: "How it is bought",
     deployTitle: "Platform-only license, or advisory-supported deployment",
     deployPlatTitle: "Platform-only license",
     deployPlatBody:
-      "For parties, large offices, and firms with a consulting bench already. mandata.ai underneath your operators — constituency graph, workflows, access control. Choose this when you already have a room and need the graph.",
+      "For parties, large offices, and firms with a consulting bench already. Mandata underneath your operators — constituency graph, workflows, access control. Choose this when you already have a room and need the graph.",
     deployAdvTitle: "Advisory-supported deployment",
     deployAdvBody:
       "For first-time principals and rebuilds. Barnstorm Co-operations sits the room and stands up the instance. Combined engagement is the default when the file does not yet exist. Choose this when campaign-to-governance continuity is the brief.",
@@ -433,7 +433,7 @@ export const DICT = {
     contactInclude3: "Timeline and clock",
     contactInclude4: "The current operational challenge",
     contactInclude5: "Who is in the room",
-    contactInclude6: "Whether the need is advisory, mandata.ai, or both",
+    contactInclude6: "Whether the need is advisory, Mandata, or both",
     contactConfKicker: "Confidentiality",
     contactConfTitle: "Named staff. No public intake email.",
     contactConfBody:
@@ -450,7 +450,7 @@ export const DICT = {
     contactFormSupport:
       "Submit a confidential intake. A director at Barnstorm Co-operations reads it. If there is no fit, we say so.",
     platformWhoLede:
-      "mandata.ai is built for sitting MPs, sitting MLAs, constituency offices, party operations, campaign command, and large public-facing political offices.",
+      "Mandata is built for sitting MPs, sitting MLAs, constituency offices, party operations, campaign command, and large public-facing political offices.",
     closeSecondaryMandate: "Discuss a mandate",
     roleMp: "Sitting MP",
     roleMla: "Sitting MLA",
@@ -514,7 +514,7 @@ export const DICT = {
     lang: "भाषा",
     caseStudies: "The Mandates",
     trackRecord: "ट्रैक रिकॉर्ड",
-    mandataNav: "mandata.ai",
+    mandataNav: "Mandata",
     whatWeDo: "हम क्या करते हैं",
     social: "कनेक्ट",
     socialX: "X",
@@ -524,14 +524,14 @@ export const DICT = {
     heroKicker: "भारत में राजनीतिक परामर्श संस्था · 2019 से",
     heroTitle: "उम्मीदवारों, सांसदों, विधायकों और पार्टी नेतृत्व के लिए राजनीतिक अभियान परामर्श और क्षेत्रीय इंटेलिजेंस।",
     heroLede:
-      "बार्नस्टॉर्म को-ऑपरेशन्स भारत की राजनीतिक परामर्श संस्था है। बूथ स्तर पर चुनाव अभियान प्रबंधन — फिर mandata.ai, डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म।",
+      "बार्नस्टॉर्म को-ऑपरेशन्स भारत की राजनीतिक परामर्श संस्था है। बूथ स्तर पर चुनाव अभियान प्रबंधन — फिर Mandata, डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म।",
     heroFirmLabel: "बार्नस्टॉर्म को-ऑपरेशन्स",
     heroFirmLine: "राजनीतिक परामर्श और क्षेत्रीय संचालन।",
-    heroProductLabel: "mandata.ai",
+    heroProductLabel: "Mandata",
     heroProductLine: "डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण।",
     heroScale: "2019 से · 10+ राज्य · 200+ विधानसभा खंड · 35+ लोकसभा क्षेत्र · 90M+ निर्वाचक रिकॉर्ड",
     ctaBrief: "गोपनीय ब्रीफ का अनुरोध",
-    ctaPlatform: "mandata.ai देखें",
+    ctaPlatform: "Mandata देखें",
 
     arsenalKicker: "ऑपरेटिंग अनुशासन",
     arsenalTitle: "बार्नस्टॉर्म को-ऑपरेशन्स वास्तव में क्या चलाता है",
@@ -542,8 +542,8 @@ export const DICT = {
       "सेंटिमेंट, रैपिड रिस्पॉन्स, और 72-घंटे की घड़ी पर शॉर्ट-फॉर्म — बूथ फ़ाइल पर राइट-बैक, कंटेंट कैलेंडर नहीं।",
     arsenal3Title: "बूथ-स्तरीय इंटेलिजेंस",
     arsenal3Body: "वास्तविक रोल के विरुद्ध बूथ प्रबंधन और माइक्रो-टारगेटिंग। रात्रिकालीन समाधान — लॉजिस्टिक्स, लोककथा नहीं।",
-    arsenal4Title: "mandata.ai क्षेत्रीय OS",
-    arsenal4Product: "mandata.ai",
+    arsenal4Title: "Mandata क्षेत्रीय OS",
+    arsenal4Product: "Mandata",
     arsenal4Body: "गिनती के बाद क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म: जन-सुनवाई वर्कफ़्लो, नागरिक प्रतिक्रिया विश्लेषण, MPLADS / MLACDS ट्रैकिंग।",
 
     statVoters: "अभियान और ऑपरेटिंग एंगेजमेंट्स में संसाधित निर्वाचक रिकॉर्ड",
@@ -555,7 +555,7 @@ export const DICT = {
     statPcsSecured: "समर्थित लोकसभा क्षेत्र",
     statStatesMastered: "ऑपरेटिंग पदचिह्न में राज्य",
     statRaces: "सलाह दिए गए चुनाव",
-    statRecords: "mandata.ai पर नागरिक",
+    statRecords: "Mandata पर नागरिक",
     statOperators: "ऑपरेटर",
     statStudios: "स्टूडियो",
 
@@ -565,10 +565,10 @@ export const DICT = {
       "मध्य प्रदेश, दिल्ली, महाराष्ट्र, राजस्थान, हरियाणा, असम, ओडिशा, तेलंगाना, गोवा, पुदुचेरी, जम्मू-कश्मीर।",
     impactSeoTitle: "बूथ-स्तरीय इंटेलिजेंस और क्षेत्रीय संचालन वाली भारत की राजनीतिक परामर्श संस्था।",
     impactLede:
-      "2019 से बार्नस्टॉर्म को-ऑपरेशन्स एंगेजमेंट्स से जुड़ी ऑपरेटिंग फ़ाइलों में लगभग 9 करोड़ निर्वाचक, 200+ विधानसभा खंड और 35+ लोकसभा क्षेत्र शामिल हैं — mandata.ai में लिखे, ताकि गिनती के दिन शासन शून्य से न शुरू हो। बूथ एक निर्देशांक है। मतदाता एक ग्राफ़।",
+      "2019 से बार्नस्टॉर्म को-ऑपरेशन्स एंगेजमेंट्स से जुड़ी ऑपरेटिंग फ़ाइलों में लगभग 9 करोड़ निर्वाचक, 200+ विधानसभा खंड और 35+ लोकसभा क्षेत्र शामिल हैं — Mandata में लिखे, ताकि गिनती के दिन शासन शून्य से न शुरू हो। बूथ एक निर्देशांक है। मतदाता एक ग्राफ़।",
     impactBanner:
-      "यह पदचिह्न अब mandata.ai पर बैठता है — सांसदों और विधायकों के लिए डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण, जिन्हें सोमवार को शासन करना होता है।",
-    impactCta: "mandata.ai देखें",
+      "यह पदचिह्न अब Mandata पर बैठता है — सांसदों और विधायकों के लिए डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण, जिन्हें सोमवार को शासन करना होता है।",
+    impactCta: "Mandata देखें",
     impactStates:
       "मध्य प्रदेश · दिल्ली · महाराष्ट्र · राजस्थान · हरियाणा · असम · ओडिशा · तेलंगाना · गोवा · पुदुचेरी · जम्मू-कश्मीर",
     impactStatesKicker: "थिएटर",
@@ -604,16 +604,16 @@ export const DICT = {
     founderTitle: "संस्थापक और निदेशक",
     founderBio:
       "शुभ तिवारी एक अनुभवी राजनीतिक इंटेलिजेंस रणनीतिकार और डीप-टेक नवप्रवर्तक हैं, जिनके पास 13+ वर्षों का उच्च-दांव चुनावी इंजीनियरिंग अनुभव है। आंध्र प्रदेश, कर्नाटक और राष्ट्रीय नीति मंचों सहित भारत भर के जटिल राज्य और राष्ट्रीय अभियानों का नेतृत्व करने के बाद उन्होंने डेटा-चालित निष्पादन की प्रतिष्ठा बनाई। 2019 लोकसभा चुनावों में इंडियन यूथ कांग्रेस के राष्ट्रीय रणनीतिक सलाहकार के रूप में उन्होंने हाथ उठाओ जैसे राष्ट्रव्यापी ढाँचे 200+ क्षेत्रों में चलाए। 2019 के आम चुनावों के बाद उन्होंने बार्नस्टॉर्म को-ऑपरेशन्स की स्थापना की, जिसका विस्तार 10+ राज्यों, 35+ लोकसभा क्षेत्रों और 200+ विधानसभा खंडों तक है। उनके पोर्टफोलियो में भाजपा और इंडियन यूथ कांग्रेस से लेकर श्री शिवराज सिंह चौहान, केंद्रीय मंत्री, कृषि एवं किसान कल्याण और ग्रामीण विकास · मध्य प्रदेश के पूर्व मुख्यमंत्री, तेलंगाना के मुख्यमंत्री श्री रेवंत रेड्डी, और प्रमुख क्षेत्रीय नेता शामिल हैं।",
-    visionKicker: "mandata.ai की कल्पना",
+    visionKicker: "Mandata की कल्पना",
     visionTitle: "भारत जनदेश से क्षेत्रीय ऑपरेटिंग सिस्टम तक।",
     visionBody:
-      "अभियान रणनीति और दैनिक विधायी शासन के बीच के घर्षण को पहचानते हुए शुभ ने mandata.ai की कल्पना की — उनके डिजिटल ब्लूप्रिंट भारत जनदेश ऐप से विकसित। पारंपरिक राजनीति गिनती के दिन खत्म होती है; असली शासन अगली सुबह शुरू होता है। mandata.ai बैठे सांसदों और विधायकों के लिए एक क्षेत्रीय ऑपरेटिंग सिस्टम है — भूमिका-आधारित पहुँच, गतिविधि इतिहास, और मानवीय निगरानी के साथ बूथ एनालिटिक्स, जन-सुनवाई कतारें, और MPLADS/MLACDS ट्रैकिंग एक अनुमति-प्राप्त फ़ाइल पर।",
+      "अभियान रणनीति और दैनिक विधायी शासन के बीच के घर्षण को पहचानते हुए शुभ ने Mandata की कल्पना की — उनके डिजिटल ब्लूप्रिंट भारत जनदेश ऐप से विकसित। पारंपरिक राजनीति गिनती के दिन खत्म होती है; असली शासन अगली सुबह शुरू होता है। Mandata बैठे सांसदों और विधायकों के लिए एक क्षेत्रीय ऑपरेटिंग सिस्टम है — भूमिका-आधारित पहुँच, गतिविधि इतिहास, और मानवीय निगरानी के साथ बूथ एनालिटिक्स, जन-सुनवाई कतारें, और MPLADS/MLACDS ट्रैकिंग एक अनुमति-प्राप्त फ़ाइल पर।",
 
-    gatewayKicker: "उत्पाद · mandata.ai",
+    gatewayKicker: "उत्पाद · Mandata",
     gatewayTitle: "क्षेत्रीय ऑपरेटिंग सिस्टम।",
     gatewayBody:
       "बूथ हीट, जन-सुनवाई कतार, नागरिक संपर्क, और MPLADS / MLACDS उपयोग — बैठे सांसदों और विधायकों के लिए एक ग्राफ़।",
-    gatewayCta: "mandata.ai सूट देखें",
+    gatewayCta: "Mandata सूट देखें",
     gatewayFeat1: "Constituency OS",
     gatewayFeat2: "जन-सुनवाई ट्रैकिंग",
     gatewayFeat3: "बूथ हीटमैप",
@@ -625,12 +625,12 @@ export const DICT = {
     pillarAdvisoryBody:
       "बूथ-स्तरीय इंटेलिजेंस, कथा रणनीति, डिजिटल परसेप्शन, और राजनीतिक वॉर-रूम प्रबंधन। प्रिंसिपलों को एक-पेज मेमो। फ़ील्ड को एक वाक्य। फिर उन्हीं ऑपरेटरों को शासन करना होता है।",
     pillarAdvisoryCta: "सलाह देखें",
-    pillarPlatformKicker: "mandata.ai · मानचित्र",
+    pillarPlatformKicker: "Mandata · मानचित्र",
     pillarPlatformTitle: "बैठे सांसदों और विधायकों के लिए क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म",
     pillarPlatformSub: "डेटा-चालित क्षेत्रीय शासन। नागरिक प्रतिक्रिया विश्लेषण।",
     pillarPlatformBody:
       "क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म: जन-सुनवाई वर्कफ़्लो, नागरिक संपर्क, बूथ इंटेलिजेंस, और MPLADS / MLACDS ट्रैकिंग — उसी ऑपरेटर टीम द्वारा जो सलाह कक्ष में बैठती है, भूमिका-आधारित पहुँच पर।",
-    pillarPlatformCta: "mandata.ai देखें",
+    pillarPlatformCta: "Mandata देखें",
 
     workKicker: "The Mandates",
     workTitle: "नतीजे, वॉर-रूम फ़ोटोग्राफ़ी नहीं।",
@@ -645,7 +645,7 @@ export const DICT = {
     operatingGeographies: "संचालन क्षेत्र",
     assemblyTheatres: "विधानसभा क्षेत्र",
 
-    osKicker: "mandata.ai",
+    osKicker: "Mandata",
     osTitle: "एक नमूना विधानसभा, ब्राउज़र में लाइव।",
     osBody:
       "AC-25 पानीपत सिटी। बूथ-स्तरीय नेट फेवरेबिलिटी, लंबित जन-सुनवाई, मतदान, साप्ताहिक संपर्क। काल्पनिक फ़ाइल। असली उत्पाद आकार।",
@@ -660,7 +660,7 @@ export const DICT = {
       "The digital space is not a vacuum. Algorithms serve the ground. Whether it is building a custom app for Panipat Urban or structuring data for the 2019 IYC Haath Uthao campaign, tech only wins when it survives contact with a booth sheet.",
 
     footerBlurb:
-      "बार्नस्टॉर्म को-ऑपरेशन्स 2019 से भारत की राजनीतिक परामर्श संस्था है, और mandata.ai की टीम — डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म।",
+      "बार्नस्टॉर्म को-ऑपरेशन्स 2019 से भारत की राजनीतिक परामर्श संस्था है, और Mandata की टीम — डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म।",
     footerLegal:
       "बार्नस्टॉर्म को-ऑपरेशन्स। विक्रेता के रूप में गैर-दलीय; मुवक्किल के अनुसार दलीय। नामित पार्टियाँ और जनप्रतिनिधि फ़ाइल के साथ हैं।",
     footerLive: "लाइव कंसोल",
@@ -669,7 +669,7 @@ export const DICT = {
 
     advisoryHeroTitle: "स्लाइड डेक नहीं, एक सीट।",
     advisoryHeroLede:
-      "बार्नस्टॉर्म को-ऑपरेशन्स सलाह चुनाव अभियान परामर्श है — एम्बेडेड रणनीतिक कुर्सी: राजनीतिक रणनीति, बूथ-स्तरीय इंटेलिजेंस, डिजिटल परसेप्शन, वॉर-रूम कमांड। प्रिंसिपलों को एक-पेज मेमो। फ़ील्ड को एक वाक्य। गिनती के बाद ग्राफ़ जब टिकना हो तो mandata.ai नीचे बैठता है।",
+      "बार्नस्टॉर्म को-ऑपरेशन्स सलाह चुनाव अभियान परामर्श है — एम्बेडेड रणनीतिक कुर्सी: राजनीतिक रणनीति, बूथ-स्तरीय इंटेलिजेंस, डिजिटल परसेप्शन, वॉर-रूम कमांड। प्रिंसिपलों को एक-पेज मेमो। फ़ील्ड को एक वाक्य। गिनती के बाद ग्राफ़ जब टिकना हो तो Mandata नीचे बैठता है।",
     advisoryCta: "गोपनीय ब्रीफ का अनुरोध",
     advisoryHow: "बार्नस्टॉर्म को-ऑपरेशन्स में सलाह का अर्थ",
     advisorySeat: "एम्बेडेड रणनीतिक सीट। विजिटिंग कंसल्टेंट नहीं।",
@@ -698,7 +698,7 @@ export const DICT = {
 
     platformHeroTitle: "आधुनिक सांसदों और विधायकों के लिए क्षेत्रीय ऑपरेटिंग सिस्टम।",
     platformHeroLede:
-      "mandata.ai बार्नस्टॉर्म को-ऑपरेशन्स का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म है: जन-सुनवाई वर्कफ़्लो, नागरिक संपर्क, बूथ इंटेलिजेंस, MPLADS / MLACDS ट्रैकिंग — भूमिका-आधारित पहुँच, गतिविधि इतिहास, और मानव निगरानी पर।",
+      "Mandata बार्नस्टॉर्म को-ऑपरेशन्स का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म है: जन-सुनवाई वर्कफ़्लो, नागरिक संपर्क, बूथ इंटेलिजेंस, MPLADS / MLACDS ट्रैकिंग — भूमिका-आधारित पहुँच, गतिविधि इतिहास, और मानव निगरानी पर।",
     platformOpen: "नमूना कंसोल खोलें",
     platformAccess: "एक्सेस का अनुरोध",
     modules: "मॉड्यूल",
@@ -710,11 +710,11 @@ export const DICT = {
     forOffice: "जनप्रतिनिधियों के लिए",
     forOfficeTitle: "गिनती के बाद सांसद और विधायक क्षेत्रीय प्रबंधन।",
     forOfficeBody:
-      "शासन एक ग्राफ़ है। जन-सुनवाई, MPLADS / MLACDS और नागरिक संपर्क घर पर बैठते हैं। अगला चुनाव पहले से इनबॉक्स में है। mandata.ai उपेक्षा को इतना जल्दी दिखाता है कि उसे नज़रअंदाज़ करना महंगा पड़े।",
+      "शासन एक ग्राफ़ है। जन-सुनवाई, MPLADS / MLACDS और नागरिक संपर्क घर पर बैठते हैं। अगला चुनाव पहले से इनबॉक्स में है। Mandata उपेक्षा को इतना जल्दी दिखाता है कि उसे नज़रअंदाज़ करना महंगा पड़े।",
     access: "एक्सेस",
     accessTitle: "लाइसेंस, या सलाह के साथ बैठें।",
     accessBody:
-      "पार्टियाँ, बड़े कार्यालय, और जिनके पास पहले से बेंच है, अकेले mandata.ai लाइसेंस कर सकते हैं। बाकी आमतौर पर कक्ष भी चाहते हैं।",
+      "पार्टियाँ, बड़े कार्यालय, और जिनके पास पहले से बेंच है, अकेले Mandata लाइसेंस कर सकते हैं। बाकी आमतौर पर कक्ष भी चाहते हैं।",
     tryConsole: "कंसोल आज़माएँ",
     advisoryPractice: "सलाह प्रैक्टिस",
 
@@ -761,7 +761,7 @@ export const DICT = {
     roleParty: "पार्टी कॉकस",
     roleInvestor: "निवेशक",
     needAdvisory: "सलाह",
-    needOs: "mandata.ai OS",
+    needOs: "Mandata OS",
     needBoth: "दोनों प्रैक्टिस",
     time90: "90 दिनों के भीतर",
     timeCycle: "इस चक्र",
@@ -771,17 +771,17 @@ export const DICT = {
     recGov: "शासन रिटेनर + OS",
     recGovBody: "पहले जन-सुनवाई ग्राफ़। अभियान क्षमता बाद में।",
     recRace: "रेस कमांड",
-    recRaceBody: "पूरी सलाह सीट और लाइव mandata.ai इंस्टेंस। नब्बे दिन एक लॉजिस्टिक्स समस्या है।",
+    recRaceBody: "पूरी सलाह सीट और लाइव Mandata इंस्टेंस। नब्बे दिन एक लॉजिस्टिक्स समस्या है।",
     recAdv: "सलाह एंगेजमेंट",
     recAdvBody: "रणनीति, शोध, बूथ डिज़ाइन।",
     recPlat: "प्लेटफ़ॉर्म लाइसेंस",
-    recPlatBody: "आपके मौजूदा बेंच के नीचे mandata.ai।",
+    recPlatBody: "आपके मौजूदा बेंच के नीचे Mandata।",
     recBoth: "दोनों प्रैक्टिस",
     recBothBody: "एक कक्ष, एक ग्राफ़।",
     recInvestor: "निवेशक ब्रीफिंग",
     recInvestorBody: "उत्पाद और बाज़ार मेमो — अभियान सीट नहीं।",
 
-    consoleBadge: "mandata.ai",
+    consoleBadge: "Mandata",
     liveSample: "लाइव नमूना",
     electorate: "मतदाता",
     winNumber: "विजय संख्या",
@@ -823,9 +823,9 @@ export const DICT = {
     structure: "संरचना",
     structureTitle: "दो इंजन, एक साझेदारी।",
     structureBody1:
-      "सलाह पूर्ण-चक्र राजनीतिक परामर्श है। प्लेटफ़ॉर्म mandata.ai है, सांसदों, विधायकों, पार्टियों के लिए। कई मुवक्किल दोनों लेते हैं।",
+      "सलाह पूर्ण-चक्र राजनीतिक परामर्श है। प्लेटफ़ॉर्म Mandata है, सांसदों, विधायकों, पार्टियों के लिए। कई मुवक्किल दोनों लेते हैं।",
     structureBody2:
-      "सलाह और mandata.ai एक ही ग्राफ़ साझा करते हैं। प्रधानाचार्यों को कक्ष मिलता है। जनप्रतिनिधियों को OS। कई दोनों लेते हैं।",
+      "सलाह और Mandata एक ही ग्राफ़ साझा करते हैं। प्रधानाचार्यों को कक्ष मिलता है। जनप्रतिनिधियों को OS। कई दोनों लेते हैं।",
     workWithUs: "हमारे साथ काम करें",
     studiosTitle: "काम कहाँ बैठता है।",
 
@@ -854,7 +854,7 @@ export const DICT = {
     closeAdvTitle: "सलाह सीट के लिए गोपनीय ब्रीफ का अनुरोध।",
     closeAdvBody: "एम्बेडेड जनादेश के रूप में चुनाव अभियान परामर्श — राजनीतिक रणनीति, बूथ-स्तरीय इंटेलिजेंस, वॉर-रूम। यदि घड़ी फ़ाइल के विरुद्ध है तो कह दें।",
     closePlatTitle: "प्लेटफ़ॉर्म वॉकथ्रू का अनुरोध।",
-    closePlatBody: "सांसद और विधायक क्षेत्रीय प्रबंधन के लिए mandata.ai — शासन, पहुँच और जवाबदेही के साथ।",
+    closePlatBody: "सांसद और विधायक क्षेत्रीय प्रबंधन के लिए Mandata — शासन, पहुँच और जवाबदेही के साथ।",
     workContext: "संदर्भ",
     workChallenge: "चुनौती",
     workIntervention: "हस्तक्षेप",
@@ -881,22 +881,22 @@ export const DICT = {
     moduleWho: "कौन उपयोग करता है",
     moduleImproves: "कौन सी दृश्यता सुधरती है",
     platformWhatKicker: "यह क्या है",
-    platformWhatTitle: "mandata.ai क्या है — क्षेत्रीय ऑपरेटिंग सिस्टम, ब्लास्ट लिस्ट नहीं।",
+    platformWhatTitle: "Mandata क्या है — क्षेत्रीय ऑपरेटिंग सिस्टम, ब्लास्ट लिस्ट नहीं।",
     platformWhatBody:
-      "mandata.ai मार्केटिंग क्लाउड नहीं, अनियंत्रित बॉट नहीं। भारत के लिए राजनीतिक ऑपरेशन्स प्लेटफ़ॉर्म: घर, बूथ, केस, आउटरीच, स्वीकृत कार्य — अनुमति-युक्त पहुँच पर। अभियान इसे बूथ फ़ाइल की तरह उपयोग करते हैं। जनप्रतिनिधि जन-सुनवाई, नागरिक संपर्क और निधि अनुशासन की तरह।",
+      "Mandata मार्केटिंग क्लाउड नहीं, अनियंत्रित बॉट नहीं। भारत के लिए राजनीतिक ऑपरेशन्स प्लेटफ़ॉर्म: घर, बूथ, केस, आउटरीच, स्वीकृत कार्य — अनुमति-युक्त पहुँच पर। अभियान इसे बूथ फ़ाइल की तरह उपयोग करते हैं। जनप्रतिनिधि जन-सुनवाई, नागरिक संपर्क और निधि अनुशासन की तरह।",
     platformWhoKicker: "यह किसके लिए है",
     platformWhoTitle: "बैठे सांसद, विधायक, क्षेत्रीय कार्यालय, और पार्टी ऑपरेशन्स।",
     forParties: "पार्टियों के लिए",
     forPartiesTitle: "भारत के लिए राजनीतिक ऑपरेशन्स प्लेटफ़ॉर्म, जिसे वास्तव में लाइसेंस किया जा सके।",
     forPartiesBody:
-      "एक साझा ग्राफ़। नामित पहुँच। पार्टी ऑपरेशन्स mandata.ai को अवसंरचना के रूप में लाइसेंस करते हैं — बूथ इंटेलिजेंस, आउटरीच, ऑडिट ट्रेल — अपनी बेंच के नीचे, या जहाँ दौड़ जीवित हो वहाँ बार्नस्टॉर्म को-ऑपरेशन्स सलाह के साथ।",
+      "एक साझा ग्राफ़। नामित पहुँच। पार्टी ऑपरेशन्स Mandata को अवसंरचना के रूप में लाइसेंस करते हैं — बूथ इंटेलिजेंस, आउटरीच, ऑडिट ट्रेल — अपनी बेंच के नीचे, या जहाँ दौड़ जीवित हो वहाँ बार्नस्टॉर्म को-ऑपरेशन्स सलाह के साथ।",
     workflowKicker: "ऑपरेटिंग वर्कफ़्लो",
-    workflowTitle: "mandata.ai शिकायत, आउटरीच और फ़ील्ड राइट-बैक कैसे चलाता है",
+    workflowTitle: "Mandata शिकायत, आउटरीच और फ़ील्ड राइट-बैक कैसे चलाता है",
     deployKicker: "यह कैसे खरीदा जाता है",
     deployTitle: "केवल-प्लेटफ़ॉर्म लाइसेंस, या सलाह-समर्थित तैनाती",
     deployPlatTitle: "केवल-प्लेटफ़ॉर्म लाइसेंस",
     deployPlatBody:
-      "पार्टियाँ, बड़े कार्यालय, और जिनके पास पहले से कंसल्टिंग बेंच है। आपके ऑपरेटरों के नीचे mandata.ai। जब कमरा पहले से हो और ग्राफ़ चाहिए, तब चुनें।",
+      "पार्टियाँ, बड़े कार्यालय, और जिनके पास पहले से कंसल्टिंग बेंच है। आपके ऑपरेटरों के नीचे Mandata। जब कमरा पहले से हो और ग्राफ़ चाहिए, तब चुनें।",
     deployAdvTitle: "सलाह-समर्थित तैनाती",
     deployAdvBody:
       "पहली बार के प्रिंसिपल और पुनर्निर्माण। बार्नस्टॉर्म को-ऑपरेशन्स कमरा बैठता है और इंस्टेंस खड़ा करता है। जब फ़ाइल अभी नहीं है, संयुक्त एंगेजमेंट डिफ़ॉल्ट है।",
@@ -917,7 +917,7 @@ export const DICT = {
     contactInclude3: "समयरेखा और घड़ी",
     contactInclude4: "वर्तमान ऑपरेशनल चुनौती",
     contactInclude5: "कमरे में कौन है",
-    contactInclude6: "ज़रूरत सलाह है, mandata.ai, या दोनों",
+    contactInclude6: "ज़रूरत सलाह है, Mandata, या दोनों",
     contactConfKicker: "गोपनीयता",
     contactConfTitle: "नामित स्टाफ़। कोई सार्वजनिक इनटेक ईमेल नहीं।",
     contactConfBody:
@@ -934,7 +934,7 @@ export const DICT = {
     contactFormSupport:
       "गोपनीय इनटेक जमा करें। बार्नस्टॉर्म को-ऑपरेशन्स का निदेशक पढ़ता है। फ़िट नहीं तो हम कहते हैं।",
     platformWhoLede:
-      "mandata.ai बैठे सांसदों, बैठे विधायकों, क्षेत्रीय कार्यालयों, पार्टी ऑपरेशन्स, अभियान कमांड, और बड़े सार्वजनिक राजनीतिक कार्यालयों के लिए बना है।",
+      "Mandata बैठे सांसदों, बैठे विधायकों, क्षेत्रीय कार्यालयों, पार्टी ऑपरेशन्स, अभियान कमांड, और बड़े सार्वजनिक राजनीतिक कार्यालयों के लिए बना है।",
     closeSecondaryMandate: "जनादेश पर चर्चा",
     roleMp: "बैठे सांसद",
     roleMla: "बैठे विधायक",

@@ -5,7 +5,7 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/console/")({
   head: () =>
     pageHead(
-      "Console | mandata.ai",
+      "Console | Mandata",
       "Sample constituency console for AC-25 Panipat City. Booth heat, Jan-Sunwai, turnout, and weekly contacts.",
       "/console",
     ),

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/insights/")({
   head: () =>
     pageHead(
       "Political Insights | Barnstorm",
-      "Notes from the advisory practice and the builders of mandata.ai on booth systems, Jan-Sunwai, and constituency funds.",
+      "Notes from the advisory practice and the builders of Mandata on booth systems, Jan-Sunwai, and constituency funds.",
       "/insights",
     ),
   component: InsightsIndex,

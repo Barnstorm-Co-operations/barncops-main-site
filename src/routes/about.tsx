@@ -111,7 +111,7 @@ function About() {
           </div>
           <img
             src="/images/field/ideation-os.jpg"
-            alt="Conceptual mandata.ai command center"
+            alt="Conceptual Mandata command center"
             className="h-auto w-full rounded-xl border border-slate-700 object-cover shadow-2xl"
             loading="lazy"
             decoding="async"

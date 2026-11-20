@@ -14,8 +14,8 @@ import { useCopy, useT } from "@/lib/i18n";
 export const Route = createFileRoute("/platform")({
   head: () =>
     pageHead(
-      "mandata.ai Constituency Platform | Barnstorm",
-      "mandata.ai is the constituency operating system for MPs and MLAs: Jan-Sunwai, citizen connect, booth intelligence, and MPLADS tracking.",
+      "Mandata Constituency Platform | Barnstorm",
+      "Mandata is the constituency operating system for MPs and MLAs: Jan-Sunwai, citizen connect, booth intelligence, and MPLADS tracking.",
       "/platform",
     ),
   component: Platform,
@@ -30,7 +30,7 @@ function Platform() {
   return (
     <main>
       <PageHero
-        kicker="Platform · mandata.ai"
+        kicker="Platform · Mandata"
         title={t("platformHeroTitle")}
         lede={t("platformHeroLede")}
       >

@@ -43,7 +43,7 @@ export const intakeSchema = z
     needType: z
       .string()
       .transform((v) => {
-        if (v === "mandata.ai" || v === "platform") return "mandata";
+        if (v === "Mandata" || v === "platform") return "mandata";
         return v;
       })
       .pipe(z.enum(NEEDS)),

@@ -16,7 +16,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Political consulting firm in India since 2019. Election campaign management, booth intelligence, and mandata.ai.",
+          "Political consulting firm in India since 2019. Election campaign management, booth intelligence, and Mandata.",
       },
     ],
     links: [

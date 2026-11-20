@@ -8,15 +8,15 @@ export const CASES = [
     placeLabel: "Location",
     place: "Panipat Urban Assembly",
     practice: "Advisory + Platform",
-    proofs: ["Campaign strategy", "Booth intelligence", "Governance workflows", "mandata.ai"],
-    snap: "Two consecutive urban cycles. Booth, media, and volunteer tracking as one live file — the operating lineage later productised as mandata.ai.",
+    proofs: ["Campaign strategy", "Booth intelligence", "Governance workflows", "Mandata"],
+    snap: "Two consecutive urban cycles. Booth, media, and volunteer tracking as one live file — the operating lineage later productised as Mandata.",
     context:
       "An urban assembly mandate spanning two consecutive election cycles. Media, booth work, and volunteer tracking had been bought as three vendor problems — each with its own file, none writing back to the others.",
     challenge:
       "The operating file reset between cycles. Booth management could not use what social command was producing. Volunteer tracking lived in spreadsheets. The second cycle started from folklore rather than a household graph, and there was no Jan-Sunwai or citizen-feedback layer waiting on Monday.",
     intervention:
-      "Barnstorm Co-operations ran full-cycle election campaign management as one room: integrated media and social command, rigorous booth management against the actual roll, and a proprietary application for real-time voter and volunteer tracking. That custom layer is the operating lineage later productised as mandata.ai — a constituency management platform for data-driven constituency governance and citizen feedback analysis, not a campaign-week gadget.",
-    model: "Combined engagement — advisory seat plus a custom operating layer (later lineage of mandata.ai).",
+      "Barnstorm Co-operations ran full-cycle election campaign management as one room: integrated media and social command, rigorous booth management against the actual roll, and a proprietary application for real-time voter and volunteer tracking. That custom layer is the operating lineage later productised as Mandata — a constituency management platform for data-driven constituency governance and citizen feedback analysis, not a campaign-week gadget.",
+    model: "Combined engagement — advisory seat plus a custom operating layer (later lineage of Mandata).",
     outcome:
       "The booth file survived from one cycle into the next. Tracking moved off spreadsheets onto a live layer the war-room could argue with overnight. Field contacts, volunteer movement, and booth status wrote to one picture instead of three vendor reports. The same graph could later carry grievance and outreach once the seat was won. Seat-level results remain with the public record; methods stay confidential.",
     takeaway: "Tech only holds if it survives contact with a booth sheet — and if it is still useful the morning after counting day.",

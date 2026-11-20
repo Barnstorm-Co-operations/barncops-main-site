@@ -58,7 +58,7 @@ export const SERVE = {
 export const OFFER = {
   en: {
     kicker: "How the work is bought",
-    title: "Advisory, mandata.ai, or both",
+    title: "Advisory, Mandata, or both",
     lede: "Barnstorm Co-operations is one political consulting firm with two engines. Buy the seat, license the constituency management platform, or sit both — the graph is the same either way.",
     forLabel: "Who it is for",
     incLabel: "What it includes",
@@ -78,12 +78,12 @@ export const OFFER = {
       {
         kicker: "02",
         kind: "Constituency platform",
-        title: "mandata.ai",
+        title: "Mandata",
         sig: "Data-driven constituency governance and citizen feedback analysis.",
         for: "Sitting MPs and MLAs, constituency offices, campaign command structures, and party operations teams that already have a bench.",
         inc: "Constituency management platform: household and booth graph, Jan-Sunwai workflow management, citizen connect, MPLADS / MLACDS tracking, booth intelligence, nightly briefing — under role-based access.",
         when: "Choose the platform when the need is infrastructure: MP and MLA constituency management that persists after counting day, not another visiting consultant.",
-        cta: "See mandata.ai",
+        cta: "See Mandata",
         to: "/platform" as const,
       },
       {
@@ -92,7 +92,7 @@ export const OFFER = {
         title: "Combined engagement",
         sig: "The room and the operating system. Campaign-to-governance as one brief.",
         for: "First-time principals, rebuilds, races inside ninety days, and offices that cannot afford a reset on counting day.",
-        inc: "Advisory command plus mandata.ai — one theory of the race, one write-back, election campaign management that still has to govern on Monday.",
+        inc: "Advisory command plus Mandata — one theory of the race, one write-back, election campaign management that still has to govern on Monday.",
         when: "Choose combined when you need both the seat and the graph, not a consultant and a separate vendor.",
         cta: "Discuss a mandate",
         to: "/contact" as const,
@@ -101,7 +101,7 @@ export const OFFER = {
   },
   hi: {
     kicker: "कार्य कैसे खरीदा जाता है",
-    title: "सलाह, mandata.ai, या दोनों",
+    title: "सलाह, Mandata, या दोनों",
     lede: "बार्नस्टॉर्म को-ऑपरेशन्स एक राजनीतिक परामर्श संस्था, दो इंजन। सीट खरीदें, क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म लाइसेंस करें, या दोनों बैठें — ग्राफ़ एक ही रहता है।",
     forLabel: "किसके लिए",
     incLabel: "क्या शामिल है",
@@ -121,12 +121,12 @@ export const OFFER = {
       {
         kicker: "02",
         kind: "क्षेत्रीय प्लेटफ़ॉर्म",
-        title: "mandata.ai",
+        title: "Mandata",
         sig: "डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण।",
         for: "बैठे सांसद-विधायक, क्षेत्रीय कार्यालय, अभियान कमांड, और जिन पार्टी टीमों के पास पहले से बेंच है।",
         inc: "क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म: घर-बूथ ग्राफ़, जन-सुनवाई वर्कफ़्लो, नागरिक संपर्क, MPLADS / MLACDS ट्रैकिंग, बूथ इंटेलिजेंस, रात्रिकालीन ब्रीफिंग — भूमिका-आधारित पहुँच पर।",
         when: "जब ज़रूरत अवसंरचना की हो: गिनती के बाद भी चलने वाला सांसद-विधायक क्षेत्रीय प्रबंधन, एक और विजिटिंग कंसल्टेंट नहीं।",
-        cta: "mandata.ai देखें",
+        cta: "Mandata देखें",
         to: "/platform" as const,
       },
       {
@@ -135,7 +135,7 @@ export const OFFER = {
         title: "संयुक्त एंगेजमेंट",
         sig: "कक्ष और ऑपरेटिंग सिस्टम। अभियान-से-शासन एक ब्रीफ।",
         for: "पहली बार के प्रिंसिपल, पुनर्निर्माण, नब्बे दिनों के भीतर की दौड़, और वे कार्यालय जो गिनती के दिन रीसेट नहीं सह सकते।",
-        inc: "सलाह कमांड प्लस mandata.ai — एक सिद्धांत, एक राइट-बैक, चुनाव अभियान प्रबंधन जो सोमवार को शासन भी करे।",
+        inc: "सलाह कमांड प्लस Mandata — एक सिद्धांत, एक राइट-बैक, चुनाव अभियान प्रबंधन जो सोमवार को शासन भी करे।",
         when: "जब सीट और ग्राफ़ दोनों चाहिए, कंसल्टेंट और अलग वेंडर नहीं।",
         cta: "जनादेश पर चर्चा",
         to: "/contact" as const,
@@ -207,7 +207,7 @@ export const PROCESS = {
       {
         n: "01",
         title: "Confidential intake",
-        body: "A brief, treated as the first memo. Geography, clock, who is in the room, and whether the need is advisory, mandata.ai, or both.",
+        body: "A brief, treated as the first memo. Geography, clock, who is in the room, and whether the need is advisory, Mandata, or both.",
       },
       {
         n: "02",
@@ -222,7 +222,7 @@ export const PROCESS = {
       {
         n: "04",
         title: "Operating cadence design",
-        body: "Decision rights, Friday memo, booth write-back, and — if licensed — the mandata.ai instance under named roles.",
+        body: "Decision rights, Friday memo, booth write-back, and — if licensed — the Mandata instance under named roles.",
       },
       {
         n: "05",
@@ -238,7 +238,7 @@ export const PROCESS = {
       {
         n: "01",
         title: "गोपनीय इनटेक",
-        body: "ब्रीफ, पहले मेमो की तरह। भूगोल, घड़ी, कमरे में कौन, सलाह या mandata.ai या दोनों।",
+        body: "ब्रीफ, पहले मेमो की तरह। भूगोल, घड़ी, कमरे में कौन, सलाह या Mandata या दोनों।",
       },
       {
         n: "02",
@@ -253,7 +253,7 @@ export const PROCESS = {
       {
         n: "04",
         title: "ऑपरेटिंग कैडेंस डिज़ाइन",
-        body: "निर्णय अधिकार, शुक्रवार मेमो, बूथ राइट-बैक, और यदि लाइसेंस हो तो नामित भूमिकाओं पर mandata.ai इंस्टेंस।",
+        body: "निर्णय अधिकार, शुक्रवार मेमो, बूथ राइट-बैक, और यदि लाइसेंस हो तो नामित भूमिकाओं पर Mandata इंस्टेंस।",
       },
       {
         n: "05",

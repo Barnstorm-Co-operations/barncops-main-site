@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     ...pageHead(
       "Political Consulting in India | Barnstorm",
-      "Political consulting firm in India. Election campaign management, war-room operations, and mandata.ai constituency governance.",
+      "Political consulting firm in India. Election campaign management, war-room operations, and Mandata constituency governance.",
       "/",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(ORGANIZATION_JSON_LD) }],

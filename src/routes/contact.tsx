@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contact")({
   head: () =>
     pageHead(
       "Confidential Intake | Barnstorm",
-      "Request a confidential brief for election campaign consulting or a mandata.ai constituency platform consultation. Principals only.",
+      "Request a confidential brief for election campaign consulting or a Mandata constituency platform consultation. Principals only.",
       "/contact",
     ),
   component: Contact,

@@ -10,8 +10,8 @@ import { useCopy, useT } from "@/lib/i18n";
 export const Route = createFileRoute("/governance")({
   head: () =>
     pageHead(
-      "Governance and Access | mandata.ai",
-      "Role-based access, permissioned outreach, activity history, and human oversight for constituency operations on mandata.ai.",
+      "Governance and Access | Mandata",
+      "Role-based access, permissioned outreach, activity history, and human oversight for constituency operations on Mandata.",
       "/governance",
     ),
   component: Governance,
