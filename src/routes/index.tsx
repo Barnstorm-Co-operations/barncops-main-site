@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     ...pageHead(
       "Political Consulting in India | Barnstorm",
-      "Political consulting firm in India. Election campaign management, war-room operations, and mandata.ai constituency governance.",
+      "Political consulting firm in India. Election campaign management, war-room operations, and Mandata.ai constituency governance.",
       "/",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(ORGANIZATION_JSON_LD) }],
@@ -49,7 +49,7 @@ function Home() {
               <Link to="/contact">{t("ctaBrief")}</Link>
             </Button>
             <Button asChild variant="strike" size="lg">
-              <Link to="/platform">{t("ctaPlatform")}</Link>
+              <Link to="/mandata">{t("ctaPlatform")}</Link>
             </Button>
             <WhatsAppCta prominent />
           </div>

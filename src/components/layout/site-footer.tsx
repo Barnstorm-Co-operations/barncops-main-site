@@ -82,7 +82,10 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {FIRM.legal}
           </p>
           <p className="font-mono text-xs text-subtle">
-            Advisory · {FIRM.product}
+            Advisory ·{" "}
+            <Link to="/mandata" className="text-subtle no-underline transition-colors duration-150 hover:text-fg">
+              {FIRM.product} by BarnCops
+            </Link>
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ const PHOTO_URL = SITE + "/images/shubh-tiwari.jpg";
 const TITLE = "Shubh Tiwari – Election Strategist & Data Analyst | Barnstorm";
 const DESCRIPTION =
   "Shubh Tiwari is an election strategist and data analyst from Bhopal, " +
-  "Founder & Director of Barnstorm Co-operations, building mandata.ai and Ask the Atlas.";
+  "Founder & Director of Barnstorm Co-operations, building Mandata.ai and Ask the Atlas.";
 
 const PROFILES = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/shubhspeaks" },
@@ -31,7 +31,7 @@ const jsonLd = {
     jobTitle: "Founder & Director, Barnstorm Co-operations",
     description:
       "Election strategist and data analyst from Bhopal, India. Founder & Director of " +
-      "Barnstorm Co-operations and builder of mandata.ai and Ask the Atlas.",
+      "Barnstorm Co-operations and builder of Mandata.ai and Ask the Atlas.",
     url: PAGE_URL,
     image: PHOTO_URL,
     homeLocation: { "@type": "Place", name: "Bhopal, Madhya Pradesh, India" },
@@ -133,7 +133,7 @@ function ShubhTiwariPage() {
             campaigns.
           </p>
           <p>
-            Shubh is now building two AI products for Indian politics. mandata.ai is a constituency
+            Shubh is now building two AI products for Indian politics. Mandata.ai is a constituency
             management platform for sitting MPs and MLAs that brings public grievances (Jan-Sunwai),
             citizen outreach, booth data and MPLADS / MLACDS fund tracking into one system, with human
             oversight. Ask the Atlas lets anyone ask about Indian elections in plain English or Hindi,
@@ -152,8 +152,8 @@ function ShubhTiwariPage() {
               </Link>
             </li>
             <li>
-              <Link to="/platform" className="text-fg underline-offset-4 hover:underline">
-                mandata.ai
+              <Link to="/mandata" className="text-fg underline-offset-4 hover:underline">
+                Mandata.ai
               </Link>
             </li>
             <li>

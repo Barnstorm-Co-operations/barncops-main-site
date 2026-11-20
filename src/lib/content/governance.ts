@@ -2,7 +2,7 @@ export const GOVERNANCE = {
   en: {
     kicker: "Operating controls",
     title: "Governance, access, and accountability",
-    lede: "mandata.ai holds political and constituency data that can damage a principal if it leaks, drifts, or is used without authority. Barnstorm Co-operations treats access as an operating problem: who may see, who may send, who may close a case, and what the log will show on Monday. This is office-level discipline, not a legal appendix.",
+    lede: "Mandata.ai holds political and constituency data that can damage a principal if it leaks, drifts, or is used without authority. Barnstorm Co-operations treats access as an operating problem: who may see, who may send, who may close a case, and what the log will show on Monday. This is office-level discipline, not a legal appendix.",
     items: [
       {
         title: "Role-based access",
@@ -37,7 +37,7 @@ export const GOVERNANCE = {
   hi: {
     kicker: "ऑपरेटिंग नियंत्रण",
     title: "शासन, पहुँच, और जवाबदेही",
-    lede: "mandata.ai राजनीतिक और क्षेत्रीय डेटा रखता है। बार्नस्टॉर्म को-ऑपरेशन्स पहुँच को ऑपरेटिंग समस्या मानता है: कौन देखे, कौन भेजे, कौन केस बंद करे, सोमवार को लॉग क्या दिखाए। यह कार्यालय अनुशासन है, कानूनी परिशिष्ट नहीं।",
+    lede: "Mandata.ai राजनीतिक और क्षेत्रीय डेटा रखता है। बार्नस्टॉर्म को-ऑपरेशन्स पहुँच को ऑपरेटिंग समस्या मानता है: कौन देखे, कौन भेजे, कौन केस बंद करे, सोमवार को लॉग क्या दिखाए। यह कार्यालय अनुशासन है, कानूनी परिशिष्ट नहीं।",
     items: [
       {
         title: "भूमिका-आधारित पहुँच",

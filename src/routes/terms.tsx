@@ -23,7 +23,7 @@ function Terms() {
       <section>
         <div className="mx-auto max-w-3xl space-y-5 px-6 py-16 text-sm leading-relaxed text-muted md:px-12 md:py-24">
           <p>
-            Material on this site is for principals considering Barnstorm Co-operations or mandata.ai. It is not legal advice, and it is not a promise of an electoral result.
+            Material on this site is for principals considering Barnstorm Co-operations or Mandata.ai. It is not legal advice, and it is not a promise of an electoral result.
           </p>
           <p>
             Submitting the contact form, or writing on WhatsApp, Messenger, Instagram, or X, is a request for a reply. It does not create a retainer. Work begins only when both sides agree the scope.

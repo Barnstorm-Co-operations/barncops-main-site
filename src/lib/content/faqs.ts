@@ -2,11 +2,11 @@ export const HOME_FAQS = {
   en: [
     {
       q: "What does Barnstorm Co-operations do?",
-      a: "Barnstorm Co-operations is a political consulting firm in India. We run election campaign management at booth grain — narrative strategy, political war-room, voter intelligence — and keep the same file alive after counting day through mandata.ai, a constituency management platform for data-driven constituency governance and citizen feedback analysis.",
+      a: "Barnstorm Co-operations is a political consulting firm in India. We run election campaign management at booth grain — narrative strategy, political war-room, voter intelligence — and keep the same file alive after counting day through Mandata.ai, a constituency management platform for data-driven constituency governance and citizen feedback analysis.",
     },
     {
-      q: "How is Barnstorm Advisory different from mandata.ai?",
-      a: "Advisory is an embedded consulting seat: political strategy consulting, booth design, digital perception, war-room command. mandata.ai is the constituency management platform — Jan-Sunwai workflow management, citizen feedback analysis, fund tracking, booth intelligence. Many principals buy both as a combined engagement.",
+      q: "How is Barnstorm Advisory different from Mandata.ai?",
+      a: "Advisory is an embedded consulting seat: political strategy consulting, booth design, digital perception, war-room command. Mandata.ai is the constituency management platform — Jan-Sunwai workflow management, citizen feedback analysis, fund tracking, booth intelligence. Many principals buy both as a combined engagement.",
     },
     {
       q: "Who should work with Barnstorm Co-operations?",
@@ -21,22 +21,22 @@ export const HOME_FAQS = {
       a: "Booth management strategy against the actual roll: universes, ID quality, persuasion sequenced before turnout, nightly reconciliation. Booth micro-targeting is the unit of the race — not a ground-team rumour file.",
     },
     {
-      q: "What is mandata.ai?",
-      a: "mandata.ai is the constituency management platform from Barnstorm Co-operations: data-driven constituency governance and citizen feedback analysis for sitting MPs and MLAs — Jan-Sunwai workflow management, citizen connect, booth intelligence, and MPLADS / MLACDS tracking, under role-based access.",
+      q: "What is Mandata.ai?",
+      a: "Mandata.ai is the constituency management platform from Barnstorm Co-operations: data-driven constituency governance and citizen feedback analysis for sitting MPs and MLAs — Jan-Sunwai workflow management, citizen connect, booth intelligence, and MPLADS / MLACDS tracking, under role-based access.",
     },
     {
       q: "How does campaign intelligence carry into governance?",
-      a: "The household in the race is the household in the inbox. mandata.ai writes booth contacts, grievances, and MPLADS / MLACDS status onto the same file so governing does not start from zero on counting day.",
+      a: "The household in the race is the household in the inbox. Mandata.ai writes booth contacts, grievances, and MPLADS / MLACDS status onto the same file so governing does not start from zero on counting day.",
     },
   ],
   hi: [
     {
       q: "बार्नस्टॉर्म को-ऑपरेशन्स क्या करता है?",
-      a: "भारत की राजनीतिक परामर्श संस्था। बूथ स्तर पर चुनाव अभियान प्रबंधन — कथा रणनीति, वॉर-रूम, मतदाता इंटेलिजेंस — और गिनती के बाद वही फ़ाइल mandata.ai में जीवित रहती है, सांसदों और विधायकों के क्षेत्रीय ऑपरेटिंग सिस्टम में।",
+      a: "भारत की राजनीतिक परामर्श संस्था। बूथ स्तर पर चुनाव अभियान प्रबंधन — कथा रणनीति, वॉर-रूम, मतदाता इंटेलिजेंस — और गिनती के बाद वही फ़ाइल Mandata.ai में जीवित रहती है, सांसदों और विधायकों के क्षेत्रीय ऑपरेटिंग सिस्टम में।",
     },
     {
-      q: "सलाह और mandata.ai में क्या अंतर है?",
-      a: "सलाह एम्बेडेड कंसल्टिंग सीट है। mandata.ai क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म है। कई प्रिंसिपल दोनों को संयुक्त एंगेजमेंट के रूप में खरीदते हैं।",
+      q: "सलाह और Mandata.ai में क्या अंतर है?",
+      a: "सलाह एम्बेडेड कंसल्टिंग सीट है। Mandata.ai क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म है। कई प्रिंसिपल दोनों को संयुक्त एंगेजमेंट के रूप में खरीदते हैं।",
     },
     {
       q: "यह किसके लिए है?",
@@ -51,12 +51,12 @@ export const HOME_FAQS = {
       a: "वास्तविक रोल के विरुद्ध बूथ प्रबंधन: यूनिवर्स, ID गुणवत्ता, मतदान से पहले अनुनय, रात्रिकालीन समाधान।",
     },
     {
-      q: "mandata.ai क्या है?",
-      a: "mandata.ai बार्नस्टॉर्म को-ऑपरेशन्स का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म है: बैठे सांसदों और विधायकों के लिए डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण — जन-सुनवाई वर्कफ़्लो, नागरिक संपर्क, बूथ इंटेलिजेंस, MPLADS / MLACDS ट्रैकिंग।",
+      q: "Mandata.ai क्या है?",
+      a: "Mandata.ai बार्नस्टॉर्म को-ऑपरेशन्स का क्षेत्रीय प्रबंधन प्लेटफ़ॉर्म है: बैठे सांसदों और विधायकों के लिए डेटा-चालित क्षेत्रीय शासन और नागरिक प्रतिक्रिया विश्लेषण — जन-सुनवाई वर्कफ़्लो, नागरिक संपर्क, बूथ इंटेलिजेंस, MPLADS / MLACDS ट्रैकिंग।",
     },
     {
       q: "अभियान की इंटेलिजेंस शासन में कैसे जाती है?",
-      a: "दौड़ वाला घर इनबॉक्स वाला घर है। mandata.ai संपर्क, शिकायतें और निधि स्थिति एक ही फ़ाइल पर लिखता है।",
+      a: "दौड़ वाला घर इनबॉक्स वाला घर है। Mandata.ai संपर्क, शिकायतें और निधि स्थिति एक ही फ़ाइल पर लिखता है।",
     },
   ],
 } as const;
@@ -76,7 +76,7 @@ export const ADVISORY_FAQS = {
       a: "Candidates in active races, sitting MPs and MLAs rebuilding a file, party caucuses that need political war-room management without a forty-person circus.",
     },
     {
-      q: "Can we take advisory without mandata.ai?",
+      q: "Can we take advisory without Mandata.ai?",
       a: "Yes. Platform is optional once the theory of the race exists. Combined engagement is typical for first-time principals and races inside ninety days.",
     },
     {
@@ -102,7 +102,7 @@ export const ADVISORY_FAQS = {
       a: "सक्रिय उम्मीदवार, फ़ाइल पुनर्निर्माण करते बैठे सदस्य, वॉर-रूम चाहिए ऐसी पार्टी टीमें।",
     },
     {
-      q: "mandata.ai के बिना सलाह ले सकते हैं?",
+      q: "Mandata.ai के बिना सलाह ले सकते हैं?",
       a: "हाँ। प्लेटफ़ॉर्म वैकल्पिक है। पहली बार के प्रिंसिपल अक्सर दोनों लेते हैं।",
     },
     {
@@ -119,12 +119,12 @@ export const ADVISORY_FAQS = {
 export const PLATFORM_FAQS = {
   en: [
     {
-      q: "Who should use mandata.ai?",
+      q: "Who should use Mandata.ai?",
       a: "Sitting MPs and MLAs, constituency offices, party operations teams, campaign command structures, and large public-facing political offices that need a constituency operating system — not a blast list.",
     },
     {
       q: "Can the platform be used without advisory?",
-      a: "Yes. Parties, large offices, and firms with a bench can license mandata.ai alone. Everyone else usually wants the Barnstorm Co-operations room as well.",
+      a: "Yes. Parties, large offices, and firms with a bench can license Mandata.ai alone. Everyone else usually wants the Barnstorm Co-operations room as well.",
     },
     {
       q: "How do Jan-Sunwai workflows operate?",
@@ -145,7 +145,7 @@ export const PLATFORM_FAQS = {
   ],
   hi: [
     {
-      q: "mandata.ai किसे उपयोग करना चाहिए?",
+      q: "Mandata.ai किसे उपयोग करना चाहिए?",
       a: "बैठे सांसद-विधायक, क्षेत्रीय कार्यालय, पार्टी ऑपरेशन्स, अभियान कमांड, बड़े सार्वजनिक कार्यालय — जिन्हें क्षेत्रीय ऑपरेटिंग सिस्टम चाहिए।",
     },
     {
@@ -179,7 +179,7 @@ export const CONTACT_FAQS = {
     },
     {
       q: "What should a political consulting inquiry include?",
-      a: "Geography, campaign or officeholder context, timeline, the current operational challenge, who is in the room, and whether the need is advisory, mandata.ai, or both.",
+      a: "Geography, campaign or officeholder context, timeline, the current operational challenge, who is in the room, and whether the need is advisory, Mandata.ai, or both.",
     },
     {
       q: "What happens after I send a brief?",
@@ -191,7 +191,7 @@ export const CONTACT_FAQS = {
     },
     {
       q: "Can this be a constituency platform consultation only?",
-      a: "Yes. Mark the need as mandata.ai. Parties and large offices with a bench often start with a platform walkthrough rather than an advisory seat.",
+      a: "Yes. Mark the need as Mandata.ai. Parties and large offices with a bench often start with a platform walkthrough rather than an advisory seat.",
     },
     {
       q: "Do you take every race?",
@@ -205,7 +205,7 @@ export const CONTACT_FAQS = {
     },
     {
       q: "राजनीतिक परामर्श पूछताछ में क्या शामिल करें?",
-      a: "भूगोल, अभियान या कार्यालय संदर्भ, समयरेखा, वर्तमान चुनौती, कमरे में कौन, सलाह या mandata.ai या दोनों।",
+      a: "भूगोल, अभियान या कार्यालय संदर्भ, समयरेखा, वर्तमान चुनौती, कमरे में कौन, सलाह या Mandata.ai या दोनों।",
     },
     {
       q: "ब्रीफ भेजने के बाद क्या होता है?",
@@ -217,7 +217,7 @@ export const CONTACT_FAQS = {
     },
     {
       q: "केवल प्लेटफ़ॉर्म परामर्श हो सकता है?",
-      a: "हाँ। ज़रूरत mandata.ai चिह्नित करें। बड़ी टीमें अक्सर वॉकथ्रू से शुरू करती हैं।",
+      a: "हाँ। ज़रूरत Mandata.ai चिह्नित करें। बड़ी टीमें अक्सर वॉकथ्रू से शुरू करती हैं।",
     },
     {
       q: "क्या आप हर दौड़ लेते हैं?",

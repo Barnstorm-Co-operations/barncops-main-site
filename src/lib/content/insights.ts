@@ -9,7 +9,7 @@ export const INSIGHTS = [
     body: [
       "A campaign that prints a turf sheet on Monday and believes it on Thursday is running on folklore. The electorate moves: additions, deletions, a factory shift change, a flood. The file either absorbs that or it lies with confidence.",
       "We have sat in rooms where a booth in-charge defended a 40% ID rate as ‘the universe is hard.’ It was not hard. It was wrong. The party model had been trained on a cycle that no longer described two wards of renters.",
-      "mandata.ai is opinionated on this point. A contact that does not write back the same night is not a contact. It is an anecdote. Nightly reconciliation is the difference between a program and a story about a program.",
+      "Mandata.ai is opinionated on this point. A contact that does not write back the same night is not a contact. It is an anecdote. Nightly reconciliation is the difference between a program and a story about a program.",
       "The practical test is simple. Can a principal ask, at 7 a.m., which booths moved yesterday, on which issue, and what we are doing about it before noon? If the answer requires a meeting, you do not have a map. You have a slide.",
     ],
   },
@@ -50,7 +50,7 @@ export const INSIGHTS = [
     kicker: "Funds",
     body: [
       "An MP who cannot name, at booth grain, where last year’s MPLADS went is already in the next race. Utilization reports written for the ministry are not written for the voter.",
-      "mandata.ai tracks sanction, stall, and visibility against the household graph. A school room that exists in a PDF and not on the ground is a grievance waiting for a microphone.",
+      "Mandata.ai tracks sanction, stall, and visibility against the household graph. A school room that exists in a PDF and not on the ground is a grievance waiting for a microphone.",
       "The nightly note is allowed to contradict the last utilization certificate. When it does, the certificate is the thing that has to explain itself.",
       "This is not mysticism about ‘being on the ground.’ It is a preference for high-frequency, noisy signal over low-frequency, clean signal.",
     ],

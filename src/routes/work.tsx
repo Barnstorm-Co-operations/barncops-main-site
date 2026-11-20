@@ -66,7 +66,7 @@ function Work() {
               {t("ctaBrief")}
             </Link>
             {" · "}
-            <Link to="/platform" className="text-fg underline-offset-4 hover:underline">
+            <Link to="/mandata" className="text-fg underline-offset-4 hover:underline">
               {t("ctaPlatform")}
             </Link>
           </p>

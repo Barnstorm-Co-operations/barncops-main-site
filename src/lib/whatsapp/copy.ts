@@ -47,7 +47,7 @@ export function msgGeography() {
 }
 
 export function msgNeed() {
-  return ["What do you need from Barnstorm Co-operations?", "", "1 Advisory", "2 mandata.ai", "3 Both"].join("\n");
+  return ["What do you need from Barnstorm Co-operations?", "", "1 Advisory", "2 Mandata.ai", "3 Both"].join("\n");
 }
 
 export function msgTimeline() {
@@ -84,11 +84,11 @@ export function msgCallbackFiled(ref: string) {
 }
 
 export function msgWalkthrough() {
-  return "A mandata.ai walkthrough is noted against this file. A director will confirm if there is a fit.";
+  return "A Mandata.ai walkthrough is noted against this file. A director will confirm if there is a fit.";
 }
 
 export function msgIntake() {
-  return "Confidential intake sits on the contact desk at mandata.ai. File it there if you would rather write than talk. This thread remains open.";
+  return "Confidential intake sits on the contact desk at barncops.in/contact. File it there if you would rather write than talk. This thread remains open.";
 }
 
 export function msgContinue() {
@@ -130,7 +130,7 @@ export const ROLE_LIST = {
 
 export const NEED_BUTTONS = [
   { id: "need_advisory", title: "Advisory" },
-  { id: "need_mandata", title: "mandata.ai" },
+  { id: "need_mandata", title: "Mandata.ai" },
   { id: "need_both", title: "Both" },
 ];
 

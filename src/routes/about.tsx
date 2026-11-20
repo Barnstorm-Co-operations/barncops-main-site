@@ -102,7 +102,7 @@ function About() {
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-slate-200 sm:text-base">{t("visionBody")}</p>
             <div className="relative z-10 mt-8 flex flex-wrap gap-3">
               <Button asChild>
-                <Link to="/platform">{t("gatewayCta")}</Link>
+                <Link to="/mandata">{t("gatewayCta")}</Link>
               </Button>
               <Button asChild variant="secondary">
                 <Link to="/console">{t("osOpen")}</Link>
@@ -111,7 +111,7 @@ function About() {
           </div>
           <img
             src="/images/field/ideation-os.jpg"
-            alt="Conceptual mandata.ai command center"
+            alt="Conceptual Mandata.ai command center"
             className="h-auto w-full rounded-xl border border-slate-700 object-cover shadow-2xl"
             loading="lazy"
             decoding="async"

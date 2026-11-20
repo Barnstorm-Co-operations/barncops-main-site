@@ -2,7 +2,7 @@ export const FIRM = {
   name: "Barnstorm Co-operations",
   short: "Barnstorm",
   legal: "Barnstorm Co-operations",
-  product: "mandata.ai",
+  product: "Mandata.ai",
   founded: 2019,
   offices: ["New Delhi", "Bhopal", "Hyderabad"],
   operators: 48,
@@ -61,7 +61,7 @@ export const PRINCIPLES = [
 export const OFFICES = [
   {
     city: "New Delhi",
-    role: "National advisory & mandata.ai",
+    role: "National advisory & Mandata.ai",
     address: "Lodhi Road studio",
   },
   {
