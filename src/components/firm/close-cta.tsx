@@ -9,21 +9,21 @@ export function CloseCta({
   body,
   primaryTo = "/contact",
   primaryNeed,
-  secondaryTo = "/platform",
+  secondaryTo = "/mandata",
   secondaryLabel,
 }: {
   kicker: string;
   title: string;
   body: string;
-  primaryTo?: "/contact" | "/advisory" | "/platform";
+  primaryTo?: "/contact" | "/advisory" | "/mandata";
   primaryNeed?: string;
-  secondaryTo?: "/platform" | "/advisory" | "/console" | "/contact";
+  secondaryTo?: "/mandata" | "/advisory" | "/console" | "/contact";
   secondaryLabel?: string;
 }) {
   const t = useT();
   const secondaryText =
     secondaryLabel ??
-    (secondaryTo === "/platform"
+    (secondaryTo === "/mandata"
       ? t("ctaPlatform")
       : secondaryTo === "/advisory"
         ? t("advisoryPractice")
@@ -53,7 +53,7 @@ export function CloseCta({
               ) : secondaryTo === "/console" ? (
                 <Link to="/console">{secondaryText}</Link>
               ) : (
-                <Link to="/platform">{secondaryText}</Link>
+                <Link to="/mandata">{secondaryText}</Link>
               )}
             </Button>
             <WhatsAppCta prominent />

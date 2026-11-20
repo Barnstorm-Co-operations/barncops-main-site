@@ -177,6 +177,11 @@ export default defineConfig(({ command, isPreview }) => ({
             serverDir: "./server",
             // Keeps the WhatsApp webhook function and the Atlas engine warm.
             vercel: { config: { crons: [{ path: "/api/wa-warm", schedule: "*/5 * * * *" }] } },
+            routeRules: {
+              "/platform": { redirect: { to: "/mandata", status: 301 } },
+              "/platform/**": { redirect: { to: "/mandata", status: 301 } },
+              "/mandata.html": { redirect: { to: "/mandata", status: 301 } },
+            },
           }),
         ]
       : []),

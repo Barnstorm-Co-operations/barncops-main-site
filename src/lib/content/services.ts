@@ -69,14 +69,14 @@ export const SERVICES = [
     title: "Digital organizing",
     summary:
       "Political outreach operations treated as a single system — lists, creative, conversion, write-back to the constituency graph.",
-    does: "Acquisition, nurture, conversion architecture, relational programs, integration with the mandata.ai graph.",
+    does: "Acquisition, nurture, conversion architecture, relational programs, integration with the Mandata.ai graph.",
     for: "Campaigns and parties that need outreach with write-back, not a vendor stack held together by screenshots.",
     improves: "Whether a digital contact becomes a household in the file.",
     details: [
       "Acquisition, nurture, and conversion architecture",
       "Creative testing with a kill criterion",
       "Relational and community programs",
-      "Integration with the mandata.ai graph",
+      "Integration with the Mandata.ai graph",
     ],
   },
   {
@@ -103,10 +103,10 @@ export const ENGAGEMENTS = [
     term: "90–180 days",
     fit: "Candidates and party units inside a live or coming cycle who need election campaign consulting as an embedded seat.",
     includes:
-      "Full advisory seat: narrative strategy, booth design, digital perception, political war-room management, and a mandata.ai instance when the graph must persist.",
+      "Full advisory seat: narrative strategy, booth design, digital perception, political war-room management, and a Mandata.ai instance when the graph must persist.",
     choose:
       "Choose this when the clock is real and the theory of the race does not yet exist — or the last ninety days need named command.",
-    body: "A full advisory seat: strategy, booth design, perception, war-room, and a mandata.ai instance. For campaigns that need a room and a map at once.",
+    body: "A full advisory seat: strategy, booth design, perception, war-room, and a Mandata.ai instance. For campaigns that need a room and a map at once.",
   },
   {
     title: "Governing retainer",
@@ -123,9 +123,9 @@ export const ENGAGEMENTS = [
     term: "Annual license",
     fit: "Parties, large public-facing offices, and firms that already have a consulting bench.",
     includes:
-      "mandata.ai under your operators: constituency graph, grievance workflows, citizen connect, fund tracking, access control, nightly briefing.",
+      "Mandata.ai under your operators: constituency graph, grievance workflows, citizen connect, fund tracking, access control, nightly briefing.",
     choose:
       "Choose this when you already have a room and need a constituency operating system underneath it — not another visiting consultant.",
-    body: "mandata.ai for campaigns, parties, and public offices that already have a consulting bench and need the graph underneath it.",
+    body: "Mandata.ai for campaigns, parties, and public offices that already have a consulting bench and need the graph underneath it.",
   },
 ] as const;

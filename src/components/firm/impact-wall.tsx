@@ -77,7 +77,7 @@ export function ImpactWall({ intro = true }: { intro?: boolean }) {
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-12">
           <p className="max-w-2xl text-base leading-relaxed text-fg">{t("impactBanner")}</p>
           <Button asChild variant="accent" size="lg" className="badge-glow shrink-0">
-            <Link to="/platform">{t("impactCta")}</Link>
+            <Link to="/mandata">{t("impactCta")}</Link>
           </Button>
         </div>
       </div>

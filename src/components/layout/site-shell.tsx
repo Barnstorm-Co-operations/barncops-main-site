@@ -22,8 +22,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     pathname.startsWith("/console/intake/") ||
     pathname === "/console/whatsapp" ||
     pathname.startsWith("/console/whatsapp/");
-  const isMandataLanding = pathname === "/mandata" || pathname.startsWith("/mandata/");
-  const hideChrome = isProductConsole || isInternalDesk || isMandataLanding;
+  const hideChrome = isProductConsole || isInternalDesk;
   const hydrate = useLocale((s) => s.hydrate);
   const t = useT();
 
@@ -61,7 +60,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       >
         {t("skip")}
       </a>
-      {isInternalDesk || isMandataLanding ? null : <SiteHeader compact={isProductConsole} />}
+      {isInternalDesk ? null : <SiteHeader compact={isProductConsole} />}
       <div id="main" className="relative z-10 flex flex-1 flex-col">
         {children}
       </div>

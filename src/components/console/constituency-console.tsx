@@ -182,7 +182,7 @@ export function ConstituencyConsole() {
               </Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link to="/platform">{t("platformOverview")}</Link>
+              <Link to="/mandata">{t("platformOverview")}</Link>
             </Button>
           </div>
 

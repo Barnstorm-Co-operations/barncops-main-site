@@ -32,7 +32,7 @@ const CARDS = [
     title: "arsenal4Title",
     body: "arsenal4Body",
     icon: Cpu,
-    to: "/platform" as const,
+    to: "/mandata" as const,
     hash: undefined,
   },
 ] as const;

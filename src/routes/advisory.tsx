@@ -54,7 +54,7 @@ function Advisory() {
             </Link>
           </Button>
           <Button asChild variant="strike" size="lg">
-            <Link to="/platform">{t("ctaPlatform")}</Link>
+            <Link to="/mandata">{t("ctaPlatform")}</Link>
           </Button>
         </div>
       </PageHero>
@@ -189,7 +189,7 @@ function Advisory() {
             </div>
           </div>
           <p className="mt-8 text-sm text-slate-300">
-            <Link to="/platform" className="text-slate-100 underline-offset-4 hover:underline">
+            <Link to="/mandata" className="text-slate-100 underline-offset-4 hover:underline">
               {t("ctaPlatform")}
             </Link>
             {" · "}
@@ -238,7 +238,7 @@ function Advisory() {
         title={t("closeAdvTitle")}
         body={t("closeAdvBody")}
         primaryNeed="advisory"
-        secondaryTo="/platform"
+        secondaryTo="/mandata"
       />
     </main>
   );

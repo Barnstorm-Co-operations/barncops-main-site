@@ -10,8 +10,8 @@ import { useCopy, useT } from "@/lib/i18n";
 export const Route = createFileRoute("/governance")({
   head: () =>
     pageHead(
-      "Governance and Access | mandata.ai",
-      "Role-based access, permissioned outreach, activity history, and human oversight for constituency operations on mandata.ai.",
+      "Governance and Access | Mandata.ai",
+      "Role-based access, permissioned outreach, activity history, and human oversight for constituency operations on Mandata.ai.",
       "/governance",
     ),
   component: Governance,
@@ -31,7 +31,7 @@ function Governance() {
             </Link>
           </Button>
           <Button asChild variant="secondary">
-            <Link to="/platform">{t("ctaPlatform")}</Link>
+            <Link to="/mandata">{t("ctaPlatform")}</Link>
           </Button>
         </div>
       </PageHero>

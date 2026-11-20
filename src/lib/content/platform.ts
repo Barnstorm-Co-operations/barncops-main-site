@@ -47,7 +47,7 @@ export const OS_STATS = [
   {
     label: "Citizens on licensed instances",
     value: "18.2M",
-    def: "Households and electors currently on licensed mandata.ai instances in the sample operating set — not a national claim.",
+    def: "Households and electors currently on licensed Mandata.ai instances in the sample operating set — not a national claim.",
   },
   {
     label: "Median Jan-Sunwai first response",
@@ -62,7 +62,7 @@ export const OS_STATS = [
   {
     label: "Live constituency instances",
     value: "41",
-    def: "Assembly and parliamentary units currently on a licensed mandata.ai instance in the sample operating set.",
+    def: "Assembly and parliamentary units currently on a licensed Mandata.ai instance in the sample operating set.",
   },
 ] as const;
 
