@@ -181,6 +181,8 @@ export default defineConfig(({ command, isPreview }) => ({
               "/platform": { redirect: { to: "/mandata", status: 301 } },
               "/platform/**": { redirect: { to: "/mandata", status: 301 } },
               "/mandata.html": { redirect: { to: "/mandata", status: 301 } },
+              "/careers": { redirect: { to: "/roster", status: 301 } },
+              "/careers/**": { redirect: { to: "/roster", status: 301 } },
             },
           }),
         ]

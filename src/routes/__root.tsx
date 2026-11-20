@@ -2,6 +2,8 @@ import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-r
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteShell } from "@/components/layout/site-shell";
+import { AnalyticsListener } from "@/components/analytics-listener";
+import { GA_BOOTSTRAP } from "@/lib/analytics";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Barnstorm";
@@ -27,6 +29,7 @@ export const Route = createRootRoute({
       { rel: "manifest", href: "/icons/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/icons/icon-180.png" },
     ],
+    scripts: [{ children: GA_BOOTSTRAP }],
   }),
   component: () => (
     <html lang="en" suppressHydrationWarning className="antialiased">
@@ -35,6 +38,7 @@ export const Route = createRootRoute({
       </head>
       <body className="bg-bg text-fg">
         <PreviewHostBridge />
+        <AnalyticsListener />
         <AuthProvider>
           <SiteShell>
             <Outlet />

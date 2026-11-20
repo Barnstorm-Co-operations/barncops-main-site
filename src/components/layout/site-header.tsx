@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { LangToggle } from "@/components/layout/lang-toggle";
 import { Mark } from "@/components/layout/mark";
-import { openRoster } from "@/components/layout/roster-dialog";
+import { RosterLink } from "@/components/layout/roster-dialog";
 import { Button } from "@/components/ui/button";
 import { NAV } from "@/lib/content/nav";
 import { cn } from "@/lib/cn";
@@ -91,13 +91,9 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             >
               {t("atlasAsk")}
             </a>
-            <button
-              type="button"
-              onClick={openRoster}
-              className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950"
-            >
+            <RosterLink className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950">
               {t("roster")}
-            </button>
+            </RosterLink>
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
@@ -177,16 +173,12 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
           >
             {t("atlasAsk")}
           </a>
-          <button
-            type="button"
-            onClick={() => {
-              setOpen(false);
-              openRoster();
-            }}
-            className="flex min-h-12 items-center border-b border-border text-left font-display text-2xl text-fg"
+          <RosterLink
+            onOpen={() => setOpen(false)}
+            className="flex min-h-12 items-center border-b border-border text-left font-display text-2xl text-fg no-underline"
           >
             {t("roster")}
-          </button>
+          </RosterLink>
           <div className="mt-6 flex items-center justify-between gap-3">
             <LangToggle />
             <Button asChild>

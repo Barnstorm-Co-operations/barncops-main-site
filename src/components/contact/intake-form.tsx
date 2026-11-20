@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { WhatsAppCta } from "@/components/contact/whatsapp-cta";
 import { TurnstileField } from "@/components/contact/turnstile-field";
+import { track } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { useT, type DictKey } from "@/lib/i18n";
 import { loadPublicConfig } from "@/lib/intake/client";
@@ -146,6 +147,7 @@ export function IntakeForm({ initialNeed }: { initialNeed?: string }) {
         setError(data.error || t("intakeError"));
         return;
       }
+      track("generate_lead", { form: "intake", need: form.needType, role: form.role });
       setSubmitted(data.ref);
     } catch {
       setError(t("intakeError"));

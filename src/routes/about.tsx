@@ -151,7 +151,7 @@ function About() {
           </div>
           <div className="mt-10">
             <Button asChild>
-              <a href="mailto:lead@1cop.in?subject=Application%20for%20Deployment">The Roster</a>
+              <Link to="/roster">We're hiring: see The Roster</Link>
             </Button>
           </div>
         </div>
