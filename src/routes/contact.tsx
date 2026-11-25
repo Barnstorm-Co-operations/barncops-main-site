@@ -6,7 +6,7 @@ import { PageHero } from "@/components/layout/page-hero";
 import { FaqBlock } from "@/components/firm/faq-block";
 import { BHOPAL_ADDRESS_TEXT, FIRM } from "@/lib/content/firm";
 import { CONTACT_FAQS } from "@/lib/content/faqs";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useCopy, useT } from "@/lib/i18n";
 
 type ContactSearch = {
@@ -17,12 +17,14 @@ export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): ContactSearch => ({
     need: typeof search.need === "string" ? search.need : undefined,
   }),
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Confidential Intake | Barnstorm",
       "Request a confidential brief for election campaign consulting or a Mandata.ai constituency platform consultation. Principals only.",
       "/contact",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["Contact", "/contact"]]))],
+  }),
   component: Contact,
 });
 

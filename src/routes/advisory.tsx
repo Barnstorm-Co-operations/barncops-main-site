@@ -11,16 +11,28 @@ import { ENGAGEMENTS, SERVICES } from "@/lib/content/services";
 import { CASES } from "@/lib/content/cases";
 import { ADVISORY_FAQS } from "@/lib/content/faqs";
 import { PROCESS, WHY } from "@/lib/content/site-copy";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead, serviceJsonLd } from "@/lib/seo";
 import { useCopy, useT } from "@/lib/i18n";
 
+const ADVISORY_DESCRIPTION =
+  "Election campaign consulting for candidates, MPs, and MLAs: narrative strategy, booth intelligence, and political war-room management.";
+
 export const Route = createFileRoute("/advisory")({
-  head: () =>
-    pageHead(
-      "Election Campaign Consulting | Barnstorm",
-      "Election campaign consulting for candidates, MPs, and MLAs: narrative strategy, booth intelligence, and political war-room management.",
-      "/advisory",
-    ),
+  head: () => ({
+    ...pageHead("Election Campaign Consulting | Barnstorm", ADVISORY_DESCRIPTION, "/advisory"),
+    scripts: [
+      jsonLdScript(
+        serviceJsonLd({
+          path: "/advisory",
+          name: "Election campaign consulting",
+          serviceType: "Election campaign consulting",
+          description: ADVISORY_DESCRIPTION,
+          offers: SERVICES.map((s) => ({ name: s.title, description: s.summary })),
+        }),
+      ),
+      jsonLdScript(breadcrumbJsonLd([["Advisory", "/advisory"]])),
+    ],
+  }),
   component: Advisory,
 });
 
@@ -44,6 +56,8 @@ function Advisory() {
             className="h-auto w-full rounded-xl object-cover shadow-2xl"
             width={1600}
             height={756}
+            loading="eager"
+            fetchPriority="high"
           />
         }
       >

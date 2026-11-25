@@ -4,18 +4,20 @@ import { PageHero } from "@/components/layout/page-hero";
 import { MandateFile } from "@/components/firm/mandate-file";
 import { CASES } from "@/lib/content/cases";
 import { cn } from "@/lib/cn";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useT } from "@/lib/i18n";
 
 const FILTERS = ["All", "Advisory", "Platform"] as const;
 
 export const Route = createFileRoute("/work")({
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Political Consulting Mandates | Barnstorm",
       "Selected election campaign mandates: Panipat Urban, Shivraj Singh Chouhan, Adarsh Nagar, Jammu & Kashmir, and the IYC Haath Uthao programme.",
       "/work",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["The Mandates", "/work"]]))],
+  }),
   component: Work,
 });
 

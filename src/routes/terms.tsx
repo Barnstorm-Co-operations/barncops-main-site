@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/layout/page-hero";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Terms | Barnstorm Co-operations",
       "Terms for using the Barnstorm Co-operations site. An enquiry is not a retainer. Electoral outcomes are not guaranteed.",
       "/terms",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["Terms", "/terms"]]))],
+  }),
   component: Terms,
 });
 

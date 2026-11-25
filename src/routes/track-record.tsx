@@ -4,16 +4,18 @@ import { PageHero } from "@/components/layout/page-hero";
 import { ClientRoster } from "@/components/firm/client-roster";
 import { ImpactWall } from "@/components/firm/impact-wall";
 import { FOOTPRINT } from "@/lib/content/footprint";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/track-record")({
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Track Record | Barnstorm Co-operations",
       "Operating footprint since 2019: about 90 million electors, 200+ assembly segments, 35+ parliamentary constituencies, and 10+ states.",
       "/track-record",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["Track Record", "/track-record"]]))],
+  }),
   component: TrackRecord,
 });
 

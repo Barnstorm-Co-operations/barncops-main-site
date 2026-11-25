@@ -17,6 +17,7 @@ import {
   rosterRole,
   type RosterRole,
 } from "@/lib/content/roster";
+import { alternateLinks } from "@/lib/seo";
 
 export const Route = createFileRoute("/roster/$role")({
   loader: ({ params }) => {
@@ -36,7 +37,7 @@ export const Route = createFileRoute("/roster/$role")({
         { property: "og:description", content: role.description },
         { property: "og:url", content: url },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [{ rel: "canonical", href: url }, ...alternateLinks(url)],
       scripts: [
         { type: "application/ld+json", children: JSON.stringify(jobPostingJsonLd(role)) },
         { type: "application/ld+json", children: JSON.stringify(roleBreadcrumbJsonLd(role)) },
