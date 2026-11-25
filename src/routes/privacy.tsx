@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/layout/page-hero";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Privacy | Barnstorm Co-operations",
       "How Barnstorm Co-operations collects enquiry messages, uses them only to respond, stores them securely, and deletes them on request.",
       "/privacy",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["Privacy", "/privacy"]]))],
+  }),
   component: Privacy,
 });
 

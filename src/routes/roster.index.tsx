@@ -11,6 +11,7 @@ import {
   SITE,
   mailtoFor,
 } from "@/lib/content/roster";
+import { alternateLinks } from "@/lib/seo";
 
 const TITLE = "Careers at BarnCops: Political Consulting Jobs in India";
 const DESCRIPTION =
@@ -189,7 +190,7 @@ export const Route = createFileRoute("/roster/")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: ROSTER_URL },
     ],
-    links: [{ rel: "canonical", href: ROSTER_URL }],
+    links: [{ rel: "canonical", href: ROSTER_URL }, ...alternateLinks(ROSTER_URL)],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
   }),
   component: Roster,

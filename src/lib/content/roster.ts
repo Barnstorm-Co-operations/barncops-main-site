@@ -119,8 +119,9 @@ export function roleBreadcrumbJsonLd(role: RosterRole) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "The Roster", item: ROSTER_URL },
-      { "@type": "ListItem", position: 2, name: role.job, item: `${ROSTER_URL}/${role.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+      { "@type": "ListItem", position: 2, name: "The Roster", item: ROSTER_URL },
+      { "@type": "ListItem", position: 3, name: role.job, item: `${ROSTER_URL}/${role.slug}` },
     ],
   };
 }

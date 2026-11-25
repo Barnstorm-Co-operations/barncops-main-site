@@ -8,6 +8,7 @@ export const Route = createFileRoute("/console/")({
       "Console | Mandata.ai",
       "Sample constituency console for AC-25 Panipat City. Booth heat, Jan-Sunwai, turnout, and weekly contacts.",
       "/console",
+      { index: false },
     ),
   component: ConsolePage,
 });

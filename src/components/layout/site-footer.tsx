@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mark, Wordmark } from "@/components/layout/mark";
-import { FOOTER_NAV } from "@/lib/content/nav";
+import { ATLAS_2027, ATLAS_DELIMITATION, FOOTER_NAV } from "@/lib/content/nav";
 import { BHOPAL_ADDRESS_TEXT, FIRM, SOCIAL } from "@/lib/content/firm";
 import { useT, type DictKey } from "@/lib/i18n";
 
@@ -76,6 +76,23 @@ export function SiteFooter() {
             <p className="mt-4 text-sm leading-relaxed text-muted">{t("footerLegal")}</p>
           </div>
         </div>
+      </div>
+      <div className="border-t border-border">
+        <nav aria-label="Election Atlas: 2027 elections" className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+          <p className="eyebrow">Election Atlas: 2027 elections</p>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            {[...ATLAS_2027, ATLAS_DELIMITATION].map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">

@@ -3,9 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OFFER, SERVE, WHY } from "@/lib/content/site-copy";
 import { CASES } from "@/lib/content/cases";
+import { ATLAS_2027 } from "@/lib/content/nav";
 import { FOUNDER } from "@/lib/content/clients";
 import { seatMarkFor } from "@/lib/content/assembly-maps";
-import { ORGANIZATION_JSON_LD, pageHead } from "@/lib/seo";
+import { ORGANIZATION_JSON_LD, jsonLdScript, pageHead } from "@/lib/seo";
 import { useCopy, useT } from "@/lib/i18n";
 import { HeroField } from "@/components/firm/hero-field";
 import { ImpactWall } from "@/components/firm/impact-wall";
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/")({
       "Political consulting firm in India. Election campaign management, war-room operations, and Mandata.ai constituency governance.",
       "/",
     ),
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(ORGANIZATION_JSON_LD) }],
+    scripts: [jsonLdScript(ORGANIZATION_JSON_LD)],
   }),
   component: Home,
 });
@@ -117,7 +118,7 @@ function Home() {
       <section className="border-b border-border">
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 md:px-12 md:py-24 lg:grid-cols-12">
           <div className="flex justify-center lg:col-span-5">
-            <GlowAvatar src={FOUNDER.photo} alt={t("founderName")} glow="teal" size="xl" kind="upper" />
+            <GlowAvatar src={FOUNDER.photo} alt={t("founderName")} glow="teal" size="xl" kind="upper" priority />
           </div>
           <div className="lg:col-span-7">
             <p className="eyebrow">{t("founderKicker")}</p>
@@ -240,6 +241,16 @@ function Home() {
                 Forecasts
               </a>
             </li>
+          </ul>
+          <p className="mt-6 font-mono text-xs tracking-wide text-slate-400">2027 elections</p>
+          <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+            {ATLAS_2027.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className="text-sm text-slate-200 no-underline hover:text-white">
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
           <div className="mt-8">
             <Button asChild variant="accent">

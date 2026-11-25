@@ -9,6 +9,7 @@ import { MODULES, OS_STATS, PLATFORM_WHO } from "@/lib/content/platform";
 import { PLATFORM_FAQS } from "@/lib/content/faqs";
 import { GOVERNANCE, WORKFLOWS } from "@/lib/content/governance";
 import { useCopy, useT } from "@/lib/i18n";
+import { alternateLinks, breadcrumbJsonLd, jsonLdScript } from "@/lib/seo";
 
 const SITE = "https://www.barncops.in";
 const PAGE_URL = SITE + "/mandata";
@@ -42,8 +43,8 @@ export const Route = createFileRoute("/mandata")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: PAGE_URL },
     ],
-    links: [{ rel: "canonical", href: PAGE_URL }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
+    links: [{ rel: "canonical", href: PAGE_URL }, ...alternateLinks(PAGE_URL)],
+    scripts: [jsonLdScript(jsonLd), jsonLdScript(breadcrumbJsonLd([["Mandata.ai", "/mandata"]]))],
   }),
   component: Mandata,
 });

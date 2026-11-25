@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import { alternateLinks, breadcrumbJsonLd, jsonLdScript } from "@/lib/seo";
 
 const SITE = "https://www.barncops.in";
 const PAGE_URL = SITE + "/shubh-tiwari";
@@ -82,9 +83,10 @@ export const Route = createFileRoute("/shubh-tiwari")({
     ],
     links: [
       { rel: "canonical", href: PAGE_URL },
+      ...alternateLinks(PAGE_URL),
       ...PROFILES.map((p) => ({ rel: "me", href: p.href })),
     ],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
+    scripts: [jsonLdScript(jsonLd), jsonLdScript(breadcrumbJsonLd([["Shubh Tiwari", "/shubh-tiwari"]]))],
   }),
   component: ShubhTiwariPage,
 });
@@ -100,6 +102,8 @@ function ShubhTiwariPage() {
               alt="Shubh Tiwari"
               width={400}
               height={400}
+              loading="eager"
+              fetchPriority="high"
               className="h-auto w-full max-w-[400px] rounded-xl border border-border object-cover"
             />
           </div>

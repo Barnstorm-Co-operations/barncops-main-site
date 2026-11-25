@@ -2,7 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { AppNotFound } from "@/lib/not-found";
 import { INSIGHTS } from "@/lib/content/insights";
-import { pageHead } from "@/lib/seo";
+import { ORG_ID, PERSON_ID, absoluteUrl, breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useT } from "@/lib/i18n";
 
 const ARTICLE_TITLES: Record<string, string> = {
@@ -43,25 +43,42 @@ export const Route = createFileRoute("/insights/$slug")({
       article?.dek ?? "Notes from the Barnstorm Co-operations practice.",
       article ? `/insights/${article.slug}` : "/insights",
     );
-    head.meta.push({ name: "author", content: "Barnstorm Co-operations" });
+    head.meta.push({ name: "author", content: "Shubh Tiwari" });
     if (!article) return head;
+    const path = `/insights/${article.slug}`;
+    // Posts carry a single date and have not been revised since publication.
+    const published = publishedIso(article.date);
     const data = {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: article.title,
-      datePublished: publishedIso(article.date),
-      author: { "@type": "Organization", name: "Barnstorm Co-operations" },
+      description: article.dek,
+      datePublished: published,
+      dateModified: published,
+      author: {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        name: "Shubh Tiwari",
+        url: absoluteUrl("/shubh-tiwari"),
+      },
       publisher: {
         "@type": "Organization",
+        "@id": ORG_ID,
         name: "Barnstorm Co-operations",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.barncops.in/icons/icon-512.png",
+          url: absoluteUrl("/icons/icon-512.png"),
         },
       },
-      mainEntityOfPage: `https://www.barncops.in/insights/${article.slug}`,
+      mainEntityOfPage: absoluteUrl(path),
     };
-    return { ...head, scripts: [{ type: "application/ld+json", children: JSON.stringify(data) }] };
+    return {
+      ...head,
+      scripts: [
+        jsonLdScript(data),
+        jsonLdScript(breadcrumbJsonLd([["Insights", "/insights"], [article.title, path]])),
+      ],
+    };
   },
   component: Article,
 });
@@ -83,7 +100,11 @@ function Article() {
           {t("insights")}
         </Link>
         <p className="eyebrow mt-8">
-          {article.kicker} · {article.date} · Barnstorm Co-operations · {article.minutes} min
+          {article.kicker} · {article.date} ·{" "}
+          <Link to="/shubh-tiwari" className="text-inherit no-underline hover:text-fg">
+            Shubh Tiwari
+          </Link>
+          , Barnstorm Co-operations · {article.minutes} min
         </p>
         <h1 className="type-page mt-4 text-fg">{article.title}</h1>
         <p className="mt-5 font-display text-xl italic leading-relaxed text-muted">{article.dek}</p>

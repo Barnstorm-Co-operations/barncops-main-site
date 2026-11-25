@@ -6,7 +6,7 @@ import { GlowAvatar } from "@/components/firm/glow-avatar";
 import { MetricsBar } from "@/components/firm/metrics-bar";
 import { OFFICES, PRINCIPLES } from "@/lib/content/firm";
 import { FOUNDER } from "@/lib/content/clients";
-import { ORGANIZATION_JSON_LD, pageHead } from "@/lib/seo";
+import { ORGANIZATION_JSON_LD, breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useT } from "@/lib/i18n";
 
 const FOUNDER_PROFILES = [
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/about")({
       "Shubh Tiwari founded Barnstorm Co-operations in 2019. Election campaign management across 10+ states, 35+ parliamentary seats, and 200+ assembly segments.",
       "/about",
     ),
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(ORGANIZATION_JSON_LD) }],
+    scripts: [jsonLdScript(ORGANIZATION_JSON_LD), jsonLdScript(breadcrumbJsonLd([["The Agency", "/about"]]))],
   }),
   component: About,
 });

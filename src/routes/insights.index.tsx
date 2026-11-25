@@ -1,16 +1,18 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/layout/page-hero";
 import { INSIGHTS } from "@/lib/content/insights";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/insights/")({
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Political Insights | Barnstorm",
       "Notes from the advisory practice and the builders of Mandata.ai on booth systems, Jan-Sunwai, and constituency funds.",
       "/insights",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["Insights", "/insights"]]))],
+  }),
   component: InsightsIndex,
 });
 

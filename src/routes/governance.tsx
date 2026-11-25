@@ -4,16 +4,18 @@ import { PageHero } from "@/components/layout/page-hero";
 import { FaqBlock } from "@/components/firm/faq-block";
 import { GOVERNANCE_FAQS } from "@/lib/content/faqs";
 import { GOVERNANCE } from "@/lib/content/governance";
-import { pageHead } from "@/lib/seo";
+import { breadcrumbJsonLd, jsonLdScript, pageHead } from "@/lib/seo";
 import { useCopy, useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/governance")({
-  head: () =>
-    pageHead(
+  head: () => ({
+    ...pageHead(
       "Governance and Access | Mandata.ai",
       "Role-based access, permissioned outreach, activity history, and human oversight for constituency operations on Mandata.ai.",
       "/governance",
     ),
+    scripts: [jsonLdScript(breadcrumbJsonLd([["Governance", "/governance"]]))],
+  }),
   component: Governance,
 });
 
