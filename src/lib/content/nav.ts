@@ -6,6 +6,14 @@ export const NAV = [
   { to: "/insights", labelKey: "insights", badge: false },
 ] as const;
 
+export const SERVICE_PAGES = [
+  { to: "/political-consulting", label: "Political consulting" },
+  { to: "/election-campaign-management", label: "Election campaign management" },
+  { to: "/political-social-media-management", label: "Political social media management" },
+] as const;
+
+export const SERVICES_NAV = [...SERVICE_PAGES, { to: "/mandata", label: "Mandata.ai" }] as const;
+
 /** Mirrors https://atlas.barncops.in/sitemaps/upcoming.xml. */
 export const ATLAS_2027 = [
   { href: "https://atlas.barncops.in/upcoming/uttar-pradesh-2027/", label: "Uttar Pradesh 2027" },

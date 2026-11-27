@@ -17,7 +17,7 @@ const SHARE_META_KEYS = new Set([
   "og:image:width",
   "og:image:height",
   "og:type",
-  "og:url",
+  // og:url is not listed: routes own it (self canonical) and the injector never emits one.
   "og:site_name",
   "twitter:card",
   "twitter:title",

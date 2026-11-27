@@ -20,8 +20,13 @@ export function alternateLinks(url: string) {
   ];
 }
 
-export function pageHead(title: string, description: string, path = "/", opts: { index?: boolean } = {}) {
-  const pageTitle = fit(title, 60);
+export function pageHead(
+  title: string,
+  description: string,
+  path = "/",
+  opts: { index?: boolean; titleMax?: number } = {},
+) {
+  const pageTitle = fit(title, opts.titleMax ?? 60);
   const pageDescription = fit(description, 155);
   const url = absoluteUrl(path);
   const index = opts.index ?? true;
@@ -65,6 +70,20 @@ export function breadcrumbJsonLd(crumbs: readonly (readonly [name: string, path:
   };
 }
 
+/** FAQPage for head(); `items` must be the same array the page renders so the text matches word for word. */
+export function faqJsonLd(path: string, items: readonly { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
 /** Service offered by the firm; reuse for each service page (e.g. the planned D6 pages). */
 export function serviceJsonLd(service: {
   path: string;
@@ -72,6 +91,8 @@ export function serviceJsonLd(service: {
   serviceType: string;
   description: string;
   offers?: readonly { name: string; description: string }[];
+  audienceType?: string;
+  relatedSoftware?: { name: string; path: string };
 }) {
   const url = absoluteUrl(service.path);
   return {
@@ -84,6 +105,18 @@ export function serviceJsonLd(service: {
     url,
     provider: { "@id": ORG_ID },
     areaServed: "IN",
+    ...(service.audienceType
+      ? { audience: { "@type": "Audience", audienceType: service.audienceType } }
+      : {}),
+    ...(service.relatedSoftware
+      ? {
+          isRelatedTo: {
+            "@type": "SoftwareApplication",
+            name: service.relatedSoftware.name,
+            url: absoluteUrl(service.relatedSoftware.path),
+          },
+        }
+      : {}),
     ...(service.offers?.length
       ? {
           hasOfferCatalog: {
@@ -100,7 +133,8 @@ export function serviceJsonLd(service: {
 }
 
 export const SITE_NAME = "Barnstorm Co-operations";
-export const SITE_TAGLINE = "Political consulting firm in India — election campaign management and constituency intelligence.";
+export const SITE_TAGLINE =
+  "Political consulting firm in India — election campaign management and constituency intelligence.";
 
 // telephone and geo are deliberately absent until confirmed against the Google Business Profile.
 export const ORGANIZATION_JSON_LD = {
