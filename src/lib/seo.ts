@@ -8,11 +8,15 @@ export function absoluteUrl(path = "/") {
   return path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-/** Self-referencing en-IN + x-default alternates. Add hi-IN only once /hi/ pages exist. */
+/**
+ * Self-referencing en-IN + x-default alternates. Add hi-IN only once /hi/ pages exist.
+ * The lowercase `hreflang` key is deliberate: React renders attribute names verbatim, and SEO audit
+ * tools grep the raw HTML for `hreflang`, missing React's camelCase `hrefLang`.
+ */
 export function alternateLinks(url: string) {
   return [
-    { rel: "alternate", hrefLang: "en-IN", href: url },
-    { rel: "alternate", hrefLang: "x-default", href: url },
+    { rel: "alternate", hreflang: "en-IN", href: url },
+    { rel: "alternate", hreflang: "x-default", href: url },
   ];
 }
 
