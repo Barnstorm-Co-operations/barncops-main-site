@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useEffect, useRef, useState, type FocusEvent } from "react";
 import { LangToggle } from "@/components/layout/lang-toggle";
 import { Mark } from "@/components/layout/mark";
 import { RosterLink } from "@/components/layout/roster-dialog";
 import { Button } from "@/components/ui/button";
-import { NAV } from "@/lib/content/nav";
+import { NAV, SERVICES_NAV } from "@/lib/content/nav";
 import { cn } from "@/lib/cn";
 import { useT, type DictKey } from "@/lib/i18n";
 
@@ -53,7 +53,11 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             </span>
           </Link>
 
-          <nav className="hidden flex-nowrap items-center gap-4 lg:flex xl:gap-5" aria-label="Primary">
+          <nav
+            className="hidden flex-nowrap items-center gap-4 lg:flex xl:gap-5"
+            aria-label="Primary"
+          >
+            <ServicesMenu />
             {NAV.map((item) =>
               item.badge ? (
                 <Link
@@ -140,7 +144,28 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
         )}
         aria-hidden={!open}
       >
-        <nav className="mx-auto flex h-full max-w-7xl flex-col overflow-y-auto px-4 pb-8 pt-4 sm:px-6" aria-label="Mobile">
+        <nav
+          className="mx-auto flex h-full max-w-7xl flex-col overflow-y-auto px-4 pb-8 pt-4 sm:px-6"
+          aria-label="Mobile"
+        >
+          <div className="border-b border-border pb-3 pt-2">
+            <p className="eyebrow" id="mobile-services-label">
+              Services
+            </p>
+            <ul className="mt-1" aria-labelledby="mobile-services-label">
+              {SERVICES_NAV.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="flex min-h-11 items-center font-display text-xl text-fg no-underline"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           {NAV.map((item) => (
             <Link
               key={item.labelKey}
@@ -190,5 +215,70 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
         </nav>
       </div>
     </>
+  );
+}
+
+/** Disclosure menu; the links stay in the SSR HTML (only hidden) so crawlers see them. */
+function ServicesMenu() {
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      root.current?.querySelector("button")?.focus();
+    };
+    const onDown = (e: PointerEvent) => {
+      if (!root.current?.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onDown);
+    };
+  }, [open]);
+
+  const onBlur = (e: FocusEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false);
+  };
+
+  return (
+    <div ref={root} className="relative" onBlur={onBlur}>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls="services-menu"
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex h-8 shrink-0 items-center gap-1 whitespace-nowrap text-sm text-slate-700 transition-colors duration-150 hover:text-slate-950"
+      >
+        Services
+        <ChevronDown
+          className={cn("size-3.5 transition-transform duration-150", open && "rotate-180")}
+          aria-hidden
+        />
+      </button>
+      <div
+        id="services-menu"
+        className={cn("absolute left-0 top-full mt-3", open ? "block" : "hidden")}
+      >
+        <ul className="w-72 border border-slate-300/80 bg-slate-50 py-2 shadow-[0_8px_30px_rgba(11,31,58,0.12)]">
+          {SERVICES_NAV.map((item) => (
+            <li key={item.to}>
+              <Link
+                to={item.to}
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2.5 text-sm text-slate-700 no-underline transition-colors duration-150 hover:bg-slate-200/60 hover:text-slate-950"
+                activeProps={{ className: "text-slate-950" }}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

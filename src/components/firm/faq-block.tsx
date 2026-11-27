@@ -5,10 +5,13 @@ export function FaqBlock({
   kicker = "FAQ",
   title,
   items,
+  jsonLd: emitJsonLd = true,
 }: {
   kicker?: string;
   title: string;
   items: readonly { q: string; a: string }[];
+  /** Pass false when the route head() already emits FAQPage for these items. */
+  jsonLd?: boolean;
 }) {
   const [open, setOpen] = useState<number | null>(null);
   const jsonLd = {
@@ -23,7 +26,9 @@ export function FaqBlock({
 
   return (
     <section className="border-b border-border">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {emitJsonLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      ) : null}
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
         <p className="eyebrow">{kicker}</p>
         <h2 className="type-section mt-3 max-w-3xl text-slate-100">{title}</h2>

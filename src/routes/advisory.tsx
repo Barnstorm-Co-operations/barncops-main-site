@@ -19,7 +19,14 @@ const ADVISORY_DESCRIPTION =
 
 export const Route = createFileRoute("/advisory")({
   head: () => ({
-    ...pageHead("Election Campaign Consulting | Barnstorm", ADVISORY_DESCRIPTION, "/advisory"),
+    ...pageHead(
+      "Election Campaign Consulting for Candidates & MLAs | BarnCops",
+      ADVISORY_DESCRIPTION,
+      "/advisory",
+      {
+        titleMax: 61,
+      },
+    ),
     scripts: [
       jsonLdScript(
         serviceJsonLd({
@@ -94,7 +101,10 @@ function Advisory() {
           <h2 className="type-section mt-3 max-w-3xl text-fg">{t("whoAdvTitle")}</h2>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2">
             {[t("whoAdv1"), t("whoAdv2"), t("whoAdv3"), t("whoAdv4")].map((line) => (
-              <li key={line} className="border-t border-border pt-5 text-sm leading-relaxed text-muted sm:text-base">
+              <li
+                key={line}
+                className="border-t border-border pt-5 text-sm leading-relaxed text-muted sm:text-base"
+              >
                 {line}
               </li>
             ))}
@@ -133,25 +143,36 @@ function Advisory() {
             {SERVICES.map((s) => {
               const summary = firstTwoSentences(s.summary);
               return (
-              <article key={s.id} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-                <p className="font-mono text-xs text-subtle">{s.kicker}</p>
-                <h3 className="mt-3 font-display text-xl tracking-tight text-slate-100">{s.title}</h3>
-                <ReadMore lead={summary.lead}>
-                  {summary.extra ? <p>{summary.extra}</p> : null}
-                  <p>
-                    <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">{t("pillarDoes")}</span>
-                    <span className="mt-1 block">{s.does}</span>
-                  </p>
-                  <p>
-                    <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">{t("pillarFor")}</span>
-                    <span className="mt-1 block">{s.for}</span>
-                  </p>
-                  <p>
-                    <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">{t("pillarImproves")}</span>
-                    <span className="mt-1 block">{s.improves}</span>
-                  </p>
-                </ReadMore>
-              </article>
+                <article
+                  key={s.id}
+                  className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+                >
+                  <p className="font-mono text-xs text-subtle">{s.kicker}</p>
+                  <h3 className="mt-3 font-display text-xl tracking-tight text-slate-100">
+                    {s.title}
+                  </h3>
+                  <ReadMore lead={summary.lead}>
+                    {summary.extra ? <p>{summary.extra}</p> : null}
+                    <p>
+                      <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">
+                        {t("pillarDoes")}
+                      </span>
+                      <span className="mt-1 block">{s.does}</span>
+                    </p>
+                    <p>
+                      <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">
+                        {t("pillarFor")}
+                      </span>
+                      <span className="mt-1 block">{s.for}</span>
+                    </p>
+                    <p>
+                      <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">
+                        {t("pillarImproves")}
+                      </span>
+                      <span className="mt-1 block">{s.improves}</span>
+                    </p>
+                  </ReadMore>
+                </article>
               );
             })}
           </div>
@@ -183,21 +204,30 @@ function Advisory() {
               {ENGAGEMENTS.map((e) => {
                 const fit = firstTwoSentences(e.fit);
                 return (
-                <article key={e.title} className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                  <h3 className="font-display text-xl tracking-tight text-slate-100">{e.title}</h3>
-                  <p className="mt-2 font-mono text-xs text-slate-400">{e.term}</p>
-                  <ReadMore lead={fit.lead}>
-                    {fit.extra ? <p>{fit.extra}</p> : null}
-                    <p>
-                      <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">{t("engIncludes")}</span>
-                      <span className="mt-1 block">{e.includes}</span>
-                    </p>
-                    <p>
-                      <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">{t("engChoose")}</span>
-                      <span className="mt-1 block">{e.choose}</span>
-                    </p>
-                  </ReadMore>
-                </article>
+                  <article
+                    key={e.title}
+                    className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur"
+                  >
+                    <h3 className="font-display text-xl tracking-tight text-slate-100">
+                      {e.title}
+                    </h3>
+                    <p className="mt-2 font-mono text-xs text-slate-400">{e.term}</p>
+                    <ReadMore lead={fit.lead}>
+                      {fit.extra ? <p>{fit.extra}</p> : null}
+                      <p>
+                        <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">
+                          {t("engIncludes")}
+                        </span>
+                        <span className="mt-1 block">{e.includes}</span>
+                      </p>
+                      <p>
+                        <span className="font-mono text-[10px] uppercase tracking-wide text-slate-400">
+                          {t("engChoose")}
+                        </span>
+                        <span className="mt-1 block">{e.choose}</span>
+                      </p>
+                    </ReadMore>
+                  </article>
                 );
               })}
             </div>
@@ -209,6 +239,13 @@ function Advisory() {
             {" · "}
             <Link to="/work" className="text-slate-100 underline-offset-4 hover:underline">
               {t("caseStudies")}
+            </Link>
+            {" · "}
+            <Link
+              to="/election-campaign-management"
+              className="text-slate-100 underline-offset-4 hover:underline"
+            >
+              Election campaign management
             </Link>
           </p>
         </div>
@@ -301,7 +338,8 @@ function useHashScroll() {
   useEffect(() => {
     const id = (hash || "").replace(/^#/, "");
     if (!id) return;
-    const run = () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const run = () =>
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     const t = window.setTimeout(run, 40);
     return () => window.clearTimeout(t);
   }, [hash]);

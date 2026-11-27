@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mark, Wordmark } from "@/components/layout/mark";
-import { ATLAS_2027, ATLAS_DELIMITATION, FOOTER_NAV } from "@/lib/content/nav";
+import { ATLAS_2027, ATLAS_DELIMITATION, FOOTER_NAV, SERVICE_PAGES } from "@/lib/content/nav";
 import { BHOPAL_ADDRESS_TEXT, FIRM, SOCIAL } from "@/lib/content/firm";
 import { useT, type DictKey } from "@/lib/i18n";
 
@@ -9,7 +9,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12">
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-4">
           <div className="flex items-center gap-2">
             <Mark className="h-8 w-10" />
             <Wordmark />
@@ -47,7 +47,22 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8 lg:grid-cols-5">
+          <nav aria-label="Services">
+            <p className="eyebrow">Services</p>
+            <ul className="mt-4 space-y-2">
+              {SERVICE_PAGES.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <FooterCol title={t("practice")} items={FOOTER_NAV.practice} />
           <FooterCol title={t("atlasCol")} items={FOOTER_NAV.atlas} />
           <div>
@@ -63,12 +78,18 @@ export function SiteFooter() {
             <p className="eyebrow">{t("legal")}</p>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="/privacy" className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg">
+                <Link
+                  to="/privacy"
+                  className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg"
+                >
                   {t("privacy")}
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg">
+                <Link
+                  to="/terms"
+                  className="text-sm text-muted no-underline transition-colors duration-150 hover:text-fg"
+                >
                   {t("terms")}
                 </Link>
               </li>
@@ -78,7 +99,10 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border">
-        <nav aria-label="Election Atlas: 2027 elections" className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+        <nav
+          aria-label="Election Atlas: 2027 elections"
+          className="mx-auto max-w-7xl px-4 py-8 sm:px-6"
+        >
           <p className="eyebrow">Election Atlas: 2027 elections</p>
           <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
             {[...ATLAS_2027, ATLAS_DELIMITATION].map((item) => (
@@ -101,7 +125,10 @@ export function SiteFooter() {
           </p>
           <p className="font-mono text-xs text-subtle">
             Advisory ·{" "}
-            <Link to="/mandata" className="text-subtle no-underline transition-colors duration-150 hover:text-fg">
+            <Link
+              to="/mandata"
+              className="text-subtle no-underline transition-colors duration-150 hover:text-fg"
+            >
               {FIRM.product} by BarnCops
             </Link>
           </p>
@@ -164,7 +191,14 @@ function SocialIcon({ id }: { id: (typeof SOCIAL)[number]["id"] }) {
     );
   }
   return (
-    <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      className={common}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      aria-hidden
+    >
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />

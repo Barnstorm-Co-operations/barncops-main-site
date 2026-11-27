@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,13 @@ import { ConstituencyMark } from "@/components/firm/assembly-map";
 import { IntelligenceFeed } from "@/components/firm/intelligence-feed";
 import { WhatsAppCta } from "@/components/contact/whatsapp-cta";
 import { ClientRoster } from "@/components/firm/client-roster";
+
+const HERO_SERVICE_LINKS = [
+  { to: "/political-consulting", label: "Political consulting" },
+  { to: "/election-campaign-management", label: "Campaign management" },
+  { to: "/political-social-media-management", label: "Social media" },
+  { to: "/mandata", label: "Mandata.ai" },
+] as const;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,7 +44,9 @@ function Home() {
   const selected = ["panipat-urban", "shivraj-sentiment", "adarsh-nagar"]
     .map((slug) => CASES.find((item) => item.slug === slug))
     .filter((item) => item != null);
-  const closing = ["bhawanipatna", "niwari"].map((id) => seatMarkFor(id)).filter((mark) => mark != null);
+  const closing = ["bhawanipatna", "niwari"]
+    .map((id) => seatMarkFor(id))
+    .filter((mark) => mark != null);
   return (
     <main>
       <section className="relative min-h-[88dvh] overflow-hidden">
@@ -44,7 +54,9 @@ function Home() {
         <div className="relative mx-auto flex min-h-[88dvh] max-w-7xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 sm:pb-20">
           <p className="eyebrow">{t("heroKicker")}</p>
           <h1 className="type-hero mt-5 max-w-5xl text-fg">{t("heroTitle")}</h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg/90 sm:text-lg">{t("heroLede")}</p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg/90 sm:text-lg">
+            {t("heroLede")}
+          </p>
           <div className="relative z-10 mt-8 flex w-full flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
               <Link to="/contact">{t("ctaBrief")}</Link>
@@ -54,6 +66,16 @@ function Home() {
             </Button>
             <WhatsAppCta prominent />
           </div>
+          <p className="relative z-10 mt-6 text-sm text-fg/90">
+            {HERO_SERVICE_LINKS.map((item, i) => (
+              <Fragment key={item.to}>
+                {i > 0 ? " · " : null}
+                <Link to={item.to} className="text-fg underline-offset-4 hover:underline">
+                  {item.label}
+                </Link>
+              </Fragment>
+            ))}
+          </p>
         </div>
       </section>
 
@@ -64,11 +86,16 @@ function Home() {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">{offer.lede}</p>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {offer.items.map((item) => (
-              <article key={item.title} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <article
+                key={item.title}
+                className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+              >
                 <p className="font-mono text-xs text-slate-400">
                   {item.kicker} · {item.kind}
                 </p>
-                <h3 className="mt-3 font-display text-2xl tracking-tight text-slate-100">{item.title}</h3>
+                <h3 className="mt-3 font-display text-2xl tracking-tight text-slate-100">
+                  {item.title}
+                </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-200">{item.sig}</p>
                 <Link
                   to={item.to}
@@ -118,13 +145,22 @@ function Home() {
       <section className="border-b border-border">
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 md:px-12 md:py-24 lg:grid-cols-12">
           <div className="flex justify-center lg:col-span-5">
-            <GlowAvatar src={FOUNDER.photo} alt={t("founderName")} glow="teal" size="xl" kind="upper" priority />
+            <GlowAvatar
+              src={FOUNDER.photo}
+              alt={t("founderName")}
+              glow="teal"
+              size="xl"
+              kind="upper"
+              priority
+            />
           </div>
           <div className="lg:col-span-7">
             <p className="eyebrow">{t("founderKicker")}</p>
             <h2 className="type-section mt-3 text-slate-100">{t("founderName")}</h2>
             <p className="mt-2 text-sm font-medium text-slate-100">{t("founderTitle")}</p>
-            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-300">{t("founderBioHome")}</p>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-300">
+              {t("founderBioHome")}
+            </p>
             <div className="relative z-10 mt-8">
               <Button asChild variant="secondary">
                 <Link to="/about">
@@ -142,7 +178,9 @@ function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
           <p className="eyebrow">{t("workSnapKicker")}</p>
           <h2 className="type-section mt-3 max-w-3xl text-slate-100">{t("caseStudies")}</h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">{t("workDisclaimer")}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
+            {t("workDisclaimer")}
+          </p>
           <div className="mt-10 space-y-6">
             {selected.map((item) => {
               const mark = seatMarkFor(item.slug);
@@ -155,7 +193,9 @@ function Home() {
                     <p className="font-mono text-xs text-slate-400">
                       {item.n} · {item.practice}
                     </p>
-                    <h3 className="mt-3 font-display text-2xl tracking-tight text-slate-100">{item.title}</h3>
+                    <h3 className="mt-3 font-display text-2xl tracking-tight text-slate-100">
+                      {item.title}
+                    </h3>
                     <p className="mt-2 text-sm text-slate-200">
                       {item.placeLabel}: {item.place}
                     </p>
@@ -172,7 +212,9 @@ function Home() {
           </div>
           <div className="mt-14 border-t border-white/10 pt-12">
             <p className="eyebrow">{t("operatingGeographies")}</p>
-            <h3 className="mt-3 font-display text-3xl tracking-tight text-slate-100">{t("assemblyTheatres")}</h3>
+            <h3 className="mt-3 font-display text-3xl tracking-tight text-slate-100">
+              {t("assemblyTheatres")}
+            </h3>
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
               {closing.map((mark) => (
                 <ConstituencyMark key={mark.id} mark={mark} />
@@ -198,46 +240,71 @@ function Home() {
             Every Indian election since 1952, constituency by constituency.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
-            Lok Sabha and Vidhan Sabha results, swing, margins and leader histories — free, from ECI records.
+            Lok Sabha and Vidhan Sabha results, swing, margins and leader histories — free, from ECI
+            records.
           </p>
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
             <li>
-              <a href="https://atlas.barncops.in/lok-sabha/2024/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/lok-sabha/2024/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 Lok Sabha 2024
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/lok-sabha/2024/party-wise/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/lok-sabha/2024/party-wise/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 2024 party-wise seats
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/lok-sabha/2024/state-wise/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/lok-sabha/2024/state-wise/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 2024 state-wise results
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/vidhan-sabha/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/vidhan-sabha/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 Vidhan Sabha results
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/bihar/vidhan-sabha/2025/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/bihar/vidhan-sabha/2025/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 Bihar 2025
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/ask/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/ask/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 Ask the Atlas
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/analysis/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/analysis/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 Election analysis
               </a>
             </li>
             <li>
-              <a href="https://atlas.barncops.in/upcoming/" className="text-sm text-slate-200 no-underline hover:text-white">
+              <a
+                href="https://atlas.barncops.in/upcoming/"
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
                 Forecasts
               </a>
             </li>
@@ -246,7 +313,10 @@ function Home() {
           <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
             {ATLAS_2027.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="text-sm text-slate-200 no-underline hover:text-white">
+                <a
+                  href={item.href}
+                  className="text-sm text-slate-200 no-underline hover:text-white"
+                >
                   {item.label}
                 </a>
               </li>

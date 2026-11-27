@@ -15,10 +15,13 @@ import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ConsoleRouteImport } from './routes/console'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ElectionCampaignManagementRouteImport } from './routes/election-campaign-management'
 import { Route as GovernanceRouteImport } from './routes/governance'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as MandataRouteImport } from './routes/mandata'
 import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as PoliticalConsultingRouteImport } from './routes/political-consulting'
+import { Route as PoliticalSocialMediaManagementRouteImport } from './routes/political-social-media-management'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RosterRouteImport } from './routes/roster'
 import { Route as ShubhTiwariRouteImport } from './routes/shubh-tiwari'
@@ -76,6 +79,12 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ElectionCampaignManagementRoute =
+  ElectionCampaignManagementRouteImport.update({
+    id: '/election-campaign-management',
+    path: '/election-campaign-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GovernanceRoute = GovernanceRouteImport.update({
   id: '/governance',
   path: '/governance',
@@ -96,6 +105,17 @@ const PlatformRoute = PlatformRouteImport.update({
   path: '/platform',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PoliticalConsultingRoute = PoliticalConsultingRouteImport.update({
+  id: '/political-consulting',
+  path: '/political-consulting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticalSocialMediaManagementRoute =
+  PoliticalSocialMediaManagementRouteImport.update({
+    id: '/political-social-media-management',
+    path: '/political-social-media-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -234,10 +254,13 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/console': typeof ConsoleRouteWithChildren
   '/contact': typeof ContactRoute
+  '/election-campaign-management': typeof ElectionCampaignManagementRoute
   '/governance': typeof GovernanceRoute
   '/insights': typeof InsightsRouteWithChildren
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
+  '/political-consulting': typeof PoliticalConsultingRoute
+  '/political-social-media-management': typeof PoliticalSocialMediaManagementRoute
   '/privacy': typeof PrivacyRoute
   '/roster': typeof RosterRouteWithChildren
   '/shubh-tiwari': typeof ShubhTiwariRoute
@@ -271,9 +294,12 @@ export interface FileRoutesByTo {
   '/advisory': typeof AdvisoryRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/election-campaign-management': typeof ElectionCampaignManagementRoute
   '/governance': typeof GovernanceRoute
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
+  '/political-consulting': typeof PoliticalConsultingRoute
+  '/political-social-media-management': typeof PoliticalSocialMediaManagementRoute
   '/privacy': typeof PrivacyRoute
   '/shubh-tiwari': typeof ShubhTiwariRoute
   '/terms': typeof TermsRoute
@@ -308,10 +334,13 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/console': typeof ConsoleRouteWithChildren
   '/contact': typeof ContactRoute
+  '/election-campaign-management': typeof ElectionCampaignManagementRoute
   '/governance': typeof GovernanceRoute
   '/insights': typeof InsightsRouteWithChildren
   '/mandata': typeof MandataRoute
   '/platform': typeof PlatformRoute
+  '/political-consulting': typeof PoliticalConsultingRoute
+  '/political-social-media-management': typeof PoliticalSocialMediaManagementRoute
   '/privacy': typeof PrivacyRoute
   '/roster': typeof RosterRouteWithChildren
   '/shubh-tiwari': typeof ShubhTiwariRoute
@@ -348,10 +377,13 @@ export interface FileRouteTypes {
     | '/careers'
     | '/console'
     | '/contact'
+    | '/election-campaign-management'
     | '/governance'
     | '/insights'
     | '/mandata'
     | '/platform'
+    | '/political-consulting'
+    | '/political-social-media-management'
     | '/privacy'
     | '/roster'
     | '/shubh-tiwari'
@@ -385,9 +417,12 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/careers'
     | '/contact'
+    | '/election-campaign-management'
     | '/governance'
     | '/mandata'
     | '/platform'
+    | '/political-consulting'
+    | '/political-social-media-management'
     | '/privacy'
     | '/shubh-tiwari'
     | '/terms'
@@ -421,10 +456,13 @@ export interface FileRouteTypes {
     | '/careers'
     | '/console'
     | '/contact'
+    | '/election-campaign-management'
     | '/governance'
     | '/insights'
     | '/mandata'
     | '/platform'
+    | '/political-consulting'
+    | '/political-social-media-management'
     | '/privacy'
     | '/roster'
     | '/shubh-tiwari'
@@ -460,10 +498,13 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ConsoleRoute: typeof ConsoleRouteWithChildren
   ContactRoute: typeof ContactRoute
+  ElectionCampaignManagementRoute: typeof ElectionCampaignManagementRoute
   GovernanceRoute: typeof GovernanceRoute
   InsightsRoute: typeof InsightsRouteWithChildren
   MandataRoute: typeof MandataRoute
   PlatformRoute: typeof PlatformRoute
+  PoliticalConsultingRoute: typeof PoliticalConsultingRoute
+  PoliticalSocialMediaManagementRoute: typeof PoliticalSocialMediaManagementRoute
   PrivacyRoute: typeof PrivacyRoute
   RosterRoute: typeof RosterRouteWithChildren
   ShubhTiwariRoute: typeof ShubhTiwariRoute
@@ -529,6 +570,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/election-campaign-management': {
+      id: '/election-campaign-management'
+      path: '/election-campaign-management'
+      fullPath: '/election-campaign-management'
+      preLoaderRoute: typeof ElectionCampaignManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/governance': {
       id: '/governance'
       path: '/governance'
@@ -555,6 +603,20 @@ declare module '@tanstack/react-router' {
       path: '/platform'
       fullPath: '/platform'
       preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/political-consulting': {
+      id: '/political-consulting'
+      path: '/political-consulting'
+      fullPath: '/political-consulting'
+      preLoaderRoute: typeof PoliticalConsultingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/political-social-media-management': {
+      id: '/political-social-media-management'
+      path: '/political-social-media-management'
+      fullPath: '/political-social-media-management'
+      preLoaderRoute: typeof PoliticalSocialMediaManagementRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -791,10 +853,13 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ConsoleRoute: ConsoleRouteWithChildren,
   ContactRoute: ContactRoute,
+  ElectionCampaignManagementRoute: ElectionCampaignManagementRoute,
   GovernanceRoute: GovernanceRoute,
   InsightsRoute: InsightsRouteWithChildren,
   MandataRoute: MandataRoute,
   PlatformRoute: PlatformRoute,
+  PoliticalConsultingRoute: PoliticalConsultingRoute,
+  PoliticalSocialMediaManagementRoute: PoliticalSocialMediaManagementRoute,
   PrivacyRoute: PrivacyRoute,
   RosterRoute: RosterRouteWithChildren,
   ShubhTiwariRoute: ShubhTiwariRoute,
