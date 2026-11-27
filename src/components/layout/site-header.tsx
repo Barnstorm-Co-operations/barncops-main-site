@@ -90,7 +90,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
               {t("electionAtlas")}
             </a>
             <a
-              href="https://atlas.barncops.in/ask/"
+              href="https://atlas.barncops.in/ask-sarathi/"
               className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950"
             >
               {t("atlasAsk")}
@@ -192,7 +192,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             {t("electionAtlas")}
           </a>
           <a
-            href="https://atlas.barncops.in/ask/"
+            href="https://atlas.barncops.in/ask-sarathi/"
             onClick={() => setOpen(false)}
             className="flex min-h-12 items-center border-b border-border font-display text-2xl text-fg no-underline"
           >

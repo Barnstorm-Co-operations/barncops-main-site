@@ -43,7 +43,7 @@ export const FOOTER_NAV = {
     { href: "https://atlas.barncops.in/lok-sabha/2024/party-wise/", labelKey: "atlasPartyWise" },
     { href: "https://atlas.barncops.in/lok-sabha/2024/state-wise/", labelKey: "atlasStateWise" },
     { href: "https://atlas.barncops.in/vidhan-sabha/", labelKey: "atlasVidhan" },
-    { href: "https://atlas.barncops.in/ask/", labelKey: "atlasAsk" },
+    { href: "https://atlas.barncops.in/ask-sarathi/", labelKey: "atlasAsk" },
   ],
   firm: [
     { to: "/about", labelKey: "firm" },

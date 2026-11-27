@@ -286,10 +286,10 @@ function Home() {
             </li>
             <li>
               <a
-                href="https://atlas.barncops.in/ask/"
+                href="https://atlas.barncops.in/ask-sarathi/"
                 className="text-sm text-slate-200 no-underline hover:text-white"
               >
-                Ask the Atlas
+                Ask Sarathi
               </a>
             </li>
             <li>
