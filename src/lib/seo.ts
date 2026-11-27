@@ -136,7 +136,7 @@ export const SITE_NAME = "Barnstorm Co-operations";
 export const SITE_TAGLINE =
   "Political consulting firm in India — election campaign management and constituency intelligence.";
 
-// telephone and geo are deliberately absent until confirmed against the Google Business Profile.
+// geo is deliberately absent until confirmed against the Google Business Profile.
 export const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": ["Organization", "ProfessionalService"],
@@ -154,6 +154,7 @@ export const ORGANIZATION_JSON_LD = {
     url: `${ORIGIN}/shubh-tiwari`,
   },
   email: "poll@barncops.in",
+  telephone: "+91 95222 36699",
   address: BHOPAL_POSTAL_ADDRESS,
   areaServed: "IN",
   sameAs: [

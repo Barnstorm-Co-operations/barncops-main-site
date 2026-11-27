@@ -7,7 +7,7 @@ const PHOTO_URL = SITE + "/images/shubh-tiwari.jpg";
 const TITLE = "Shubh Tiwari – Election Strategist & Data Analyst | Barnstorm";
 const DESCRIPTION =
   "Shubh Tiwari is an election strategist and data analyst from Bhopal, " +
-  "Founder & Director of Barnstorm Co-operations, building Mandata.ai and Ask the Atlas.";
+  "Founder & Director of Barnstorm Co-operations, building Mandata.ai and Ask Sarathi.";
 
 const PROFILES = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/shubhspeaks" },
@@ -32,7 +32,7 @@ const jsonLd = {
     jobTitle: "Founder & Director, Barnstorm Co-operations",
     description:
       "Election strategist and data analyst from Bhopal, India. Founder & Director of " +
-      "Barnstorm Co-operations and builder of Mandata.ai and Ask the Atlas.",
+      "Barnstorm Co-operations and builder of Mandata.ai and Ask Sarathi.",
     url: PAGE_URL,
     image: PHOTO_URL,
     homeLocation: { "@type": "Place", name: "Bhopal, Madhya Pradesh, India" },
@@ -140,7 +140,7 @@ function ShubhTiwariPage() {
             Shubh is now building two AI products for Indian politics. Mandata.ai is a constituency
             management platform for sitting MPs and MLAs that brings public grievances (Jan-Sunwai),
             citizen outreach, booth data and MPLADS / MLACDS fund tracking into one system, with human
-            oversight. Ask the Atlas lets anyone ask about Indian elections in plain English or Hindi,
+            oversight. Ask Sarathi lets anyone ask about Indian elections in plain English or Hindi,
             with answers computed from every Lok Sabha and Vidhan Sabha result since 1952.
           </p>
           <p>
@@ -162,10 +162,10 @@ function ShubhTiwariPage() {
             </li>
             <li>
               <a
-                href="https://atlas.barncops.in/ask/"
+                href="https://atlas.barncops.in/ask-sarathi/"
                 className="text-fg underline-offset-4 hover:underline"
               >
-                Ask the Atlas
+                Ask Sarathi
               </a>
             </li>
           </ul>

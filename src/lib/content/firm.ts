@@ -21,7 +21,7 @@ export const BHOPAL_POSTAL_ADDRESS = {
   "@type": "PostalAddress",
   streetAddress: "Unit 5, 6, 7 & 8, 5th Floor, Bansal One, CW-2, Habibganj Railway Station, Zone-II",
   addressLocality: "Bhopal",
-  addressRegion: "MP",
+  addressRegion: "Madhya Pradesh",
   postalCode: "462016",
   addressCountry: "IN",
 } as const;

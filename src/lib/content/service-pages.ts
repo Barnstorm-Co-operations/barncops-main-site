@@ -162,7 +162,7 @@ export const politicalConsulting: ServicePageCopy = {
       blocks: [
         {
           kind: "p",
-          text: "Most seats are not won across the whole constituency. They are won in a set of booths where turnout, a small swing or one community moves the margin. That is why we built the [Barnstorm Election Atlas](https://atlas.barncops.in/) — every Lok Sabha and Vidhan Sabha result since 1952 — and [Ask Sarathi](https://atlas.barncops.in/ask/), which answers election questions in plain English or Hindi. Every recommendation we make starts from that evidence.",
+          text: "Most seats are not won across the whole constituency. They are won in a set of booths where turnout, a small swing or one community moves the margin. That is why we built the [Barnstorm Election Atlas](https://atlas.barncops.in/) — every Lok Sabha and Vidhan Sabha result since 1952 — and [Ask Sarathi](https://atlas.barncops.in/ask-sarathi/), which answers election questions in plain English or Hindi. Every recommendation we make starts from that evidence.",
         },
       ],
     },
@@ -413,7 +413,7 @@ export const electionCampaignManagement: ServicePageCopy = {
       blocks: [
         {
           kind: "p",
-          text: "The booth file should not reset on counting day. With [Mandata AI](/mandata), the same households and booths carry Jan-Sunwai grievances, citizen outreach and MPLADS / MLACDS tracking once the seat is won. Want to understand a seat's history first? Explore it on the [Election Atlas](https://atlas.barncops.in/) or [Ask Sarathi](https://atlas.barncops.in/ask/).",
+          text: "The booth file should not reset on counting day. With [Mandata AI](/mandata), the same households and booths carry Jan-Sunwai grievances, citizen outreach and MPLADS / MLACDS tracking once the seat is won. Want to understand a seat's history first? Explore it on the [Election Atlas](https://atlas.barncops.in/) or [Ask Sarathi](https://atlas.barncops.in/ask-sarathi/).",
         },
       ],
     },
