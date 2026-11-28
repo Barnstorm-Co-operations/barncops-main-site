@@ -252,7 +252,8 @@ export const DICT = {
     next3: "3. If aligned: a principals-only discussion, then a one-page proposal.",
     next4: "4. Where appropriate, a strategic intake call — not a pitch deck.",
     studios: "Studios",
-    noEmail: "We do not list a public intake email on purpose.",
+    contactHours: "Mon–Sat 10:00–18:00",
+    contactVisits: "Visits by appointment.",
     conflicts: "Conflicts",
     conflictsBody:
       "We will not sit both sides of a race. Platform licenses in a contested constituency are disclosed before a contract.",
@@ -435,7 +436,7 @@ export const DICT = {
     contactInclude5: "Who is in the room",
     contactInclude6: "Whether the need is advisory, Mandata.ai, or both",
     contactConfKicker: "Confidentiality",
-    contactConfTitle: "Named staff. No public intake email.",
+    contactConfTitle: "Named staff only.",
     contactConfBody:
       "Barnstorm Co-operations treats the brief as a live file. We will not sit both sides of a race. Platform licenses in a contested constituency are disclosed before contract.",
     contactQualKicker: "Qualification",
@@ -729,7 +730,8 @@ export const DICT = {
     next3: "3. यदि संरेखित हो: प्रिंसिपल-ओनली चर्चा, फिर एक-पृष्ठ प्रस्ताव।",
     next4: "4. जहाँ उचित हो, रणनीतिक इनटेक कॉल — पिच डेक नहीं।",
     studios: "स्टूडियो",
-    noEmail: "हम जानबूझकर सार्वजनिक इनटेक ईमेल नहीं देते।",
+    contactHours: "सोम–शनि 10:00–18:00",
+    contactVisits: "मुलाक़ात अपॉइंटमेंट से।",
     conflicts: "हित-संघर्ष",
     conflictsBody:
       "हम एक ही चुनाव के दोनों पक्ष नहीं बैठते। विवादित क्षेत्र में प्लेटफ़ॉर्म लाइसेंस अनुबंध से पहले बताए जाते हैं।",
@@ -921,7 +923,7 @@ export const DICT = {
     contactInclude5: "कमरे में कौन है",
     contactInclude6: "ज़रूरत सलाह है, Mandata.ai, या दोनों",
     contactConfKicker: "गोपनीयता",
-    contactConfTitle: "नामित स्टाफ़। कोई सार्वजनिक इनटेक ईमेल नहीं।",
+    contactConfTitle: "केवल नामित स्टाफ़।",
     contactConfBody:
       "बार्नस्टॉर्म को-ऑपरेशन्स ब्रीफ को जीवित फ़ाइल मानता है। हम एक दौड़ के दोनों पक्ष नहीं बैठते। विवादित क्षेत्र में प्लेटफ़ॉर्म लाइसेंस अनुबंध से पहले बताए जाते हैं।",
     contactQualKicker: "योग्यता",

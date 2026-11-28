@@ -187,7 +187,7 @@ export const CONTACT_FAQS = {
     },
     {
       q: "Is the intake confidential?",
-      a: "Named staff only. We do not list a public intake email. We will not sit both sides of a race. Platform licenses in a contested constituency are disclosed before contract.",
+      a: "Named staff only. We will not sit both sides of a race. Platform licenses in a contested constituency are disclosed before contract.",
     },
     {
       q: "Can this be a constituency platform consultation only?",
@@ -213,7 +213,7 @@ export const CONTACT_FAQS = {
     },
     {
       q: "क्या इनटेक गोपनीय है?",
-      a: "केवल नामित स्टाफ़। सार्वजनिक इनटेक ईमेल नहीं। हम एक दौड़ के दोनों पक्ष नहीं बैठते।",
+      a: "केवल नामित स्टाफ़। हम एक दौड़ के दोनों पक्ष नहीं बैठते।",
     },
     {
       q: "केवल प्लेटफ़ॉर्म परामर्श हो सकता है?",
