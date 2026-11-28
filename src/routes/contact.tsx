@@ -103,7 +103,20 @@ function Contact() {
               <address className="mt-3 text-sm not-italic leading-relaxed text-muted">
                 <span className="text-fg">{t("bhopalOffice")}:</span> {BHOPAL_ADDRESS_TEXT}
               </address>
-              <p className="mt-2 font-mono text-xs text-subtle">{t("noEmail")}</p>
+              <ul className="mt-3 space-y-1 text-sm leading-relaxed text-muted">
+                <li>
+                  <a className="text-fg underline-offset-4 hover:underline" href="mailto:poll@barncops.in">
+                    poll@barncops.in
+                  </a>
+                </li>
+                <li>
+                  <a className="text-fg underline-offset-4 hover:underline" href="tel:+919522236699">
+                    +91 95222 36699
+                  </a>
+                </li>
+                <li>{t("contactHours")}</li>
+                <li>{t("contactVisits")}</li>
+              </ul>
             </div>
             <div>
               <p className="eyebrow">{t("conflicts")}</p>

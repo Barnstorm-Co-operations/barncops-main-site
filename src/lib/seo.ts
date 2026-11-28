@@ -155,6 +155,7 @@ export const ORGANIZATION_JSON_LD = {
   },
   email: "poll@barncops.in",
   telephone: "+91 95222 36699",
+  openingHours: "Mo-Sa 10:00-18:00",
   address: BHOPAL_POSTAL_ADDRESS,
   areaServed: "IN",
   sameAs: [
