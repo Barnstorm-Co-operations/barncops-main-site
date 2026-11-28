@@ -30,6 +30,11 @@ export const ATLAS_DELIMITATION = {
   label: "Delimitation 2026",
 } as const;
 
+export const ATLAS_DELIMITATION_BILL = {
+  href: "https://atlas.barncops.in/delimitation/bill-2026/",
+  label: "Delimitation Bill 2026 analysis",
+} as const;
+
 export const FOOTER_NAV = {
   practice: [
     { to: "/advisory", labelKey: "advisory" },

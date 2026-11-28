@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useRef, useState, type FocusEvent } from "react";
+import { useEffect, useRef, useState, type FocusEvent, type ReactNode } from "react";
 import { LangToggle } from "@/components/layout/lang-toggle";
 import { Mark } from "@/components/layout/mark";
 import { RosterLink } from "@/components/layout/roster-dialog";
 import { Button } from "@/components/ui/button";
-import { NAV, SERVICES_NAV } from "@/lib/content/nav";
+import { ATLAS_DELIMITATION_BILL, NAV, SERVICES_NAV } from "@/lib/content/nav";
 import { cn } from "@/lib/cn";
 import { useT, type DictKey } from "@/lib/i18n";
 
@@ -57,7 +57,22 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             className="hidden flex-nowrap items-center gap-4 lg:flex xl:gap-5"
             aria-label="Primary"
           >
-            <ServicesMenu />
+            <NavMenu id="services-menu" label="Services">
+              {(close) =>
+                SERVICES_NAV.map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      onClick={close}
+                      className={MENU_ITEM}
+                      activeProps={{ className: "text-slate-950" }}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))
+              }
+            </NavMenu>
             {NAV.map((item) =>
               item.badge ? (
                 <Link
@@ -83,18 +98,21 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
                 </Link>
               ),
             )}
-            <a
-              href="https://atlas.barncops.in/elections/"
-              className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950"
-            >
-              {t("electionAtlas")}
-            </a>
-            <a
-              href="https://atlas.barncops.in/ask-sarathi/"
-              className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950"
-            >
-              {t("atlasAsk")}
-            </a>
+            <NavMenu id="atlas-menu" label={t("electionAtlas")}>
+              {(close) =>
+                [
+                  { href: "https://atlas.barncops.in/elections/", label: t("electionAtlas") },
+                  { href: "https://atlas.barncops.in/ask-sarathi/", label: t("atlasAsk") },
+                  ATLAS_DELIMITATION_BILL,
+                ].map((item) => (
+                  <li key={item.href}>
+                    <a href={item.href} onClick={close} className={MENU_ITEM}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </NavMenu>
             <RosterLink className="inline-flex shrink-0 items-center whitespace-nowrap text-sm text-slate-700 no-underline transition-colors duration-150 hover:text-slate-950">
               {t("roster")}
             </RosterLink>
@@ -198,6 +216,13 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
           >
             {t("atlasAsk")}
           </a>
+          <a
+            href={ATLAS_DELIMITATION_BILL.href}
+            onClick={() => setOpen(false)}
+            className="flex min-h-12 items-center border-b border-border font-display text-2xl text-fg no-underline"
+          >
+            {ATLAS_DELIMITATION_BILL.label}
+          </a>
           <RosterLink
             onOpen={() => setOpen(false)}
             className="flex min-h-12 items-center border-b border-border text-left font-display text-2xl text-fg no-underline"
@@ -218,8 +243,19 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
   );
 }
 
+const MENU_ITEM =
+  "block px-4 py-2.5 text-sm text-slate-700 no-underline transition-colors duration-150 hover:bg-slate-200/60 hover:text-slate-950";
+
 /** Disclosure menu; the links stay in the SSR HTML (only hidden) so crawlers see them. */
-function ServicesMenu() {
+function NavMenu({
+  id,
+  label,
+  children,
+}: {
+  id: string;
+  label: string;
+  children: (close: () => void) => ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
 
@@ -250,33 +286,19 @@ function ServicesMenu() {
       <button
         type="button"
         aria-expanded={open}
-        aria-controls="services-menu"
+        aria-controls={id}
         onClick={() => setOpen((v) => !v)}
         className="inline-flex h-8 shrink-0 items-center gap-1 whitespace-nowrap text-sm text-slate-700 transition-colors duration-150 hover:text-slate-950"
       >
-        Services
+        {label}
         <ChevronDown
           className={cn("size-3.5 transition-transform duration-150", open && "rotate-180")}
           aria-hidden
         />
       </button>
-      <div
-        id="services-menu"
-        className={cn("absolute left-0 top-full mt-3", open ? "block" : "hidden")}
-      >
+      <div id={id} className={cn("absolute left-0 top-full mt-3", open ? "block" : "hidden")}>
         <ul className="w-72 border border-slate-300/80 bg-slate-50 py-2 shadow-[0_8px_30px_rgba(11,31,58,0.12)]">
-          {SERVICES_NAV.map((item) => (
-            <li key={item.to}>
-              <Link
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 no-underline transition-colors duration-150 hover:bg-slate-200/60 hover:text-slate-950"
-                activeProps={{ className: "text-slate-950" }}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {children(() => setOpen(false))}
         </ul>
       </div>
     </div>

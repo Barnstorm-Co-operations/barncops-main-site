@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OFFER, SERVE, WHY } from "@/lib/content/site-copy";
 import { CASES } from "@/lib/content/cases";
-import { ATLAS_2027 } from "@/lib/content/nav";
+import { ATLAS_2027, ATLAS_DELIMITATION_BILL } from "@/lib/content/nav";
 import { FOUNDER } from "@/lib/content/clients";
 import { seatMarkFor } from "@/lib/content/assembly-maps";
 import { ORGANIZATION_JSON_LD, jsonLdScript, pageHead } from "@/lib/seo";
@@ -306,6 +306,14 @@ function Home() {
                 className="text-sm text-slate-200 no-underline hover:text-white"
               >
                 Forecasts
+              </a>
+            </li>
+            <li>
+              <a
+                href={ATLAS_DELIMITATION_BILL.href}
+                className="text-sm text-slate-200 no-underline hover:text-white"
+              >
+                {ATLAS_DELIMITATION_BILL.label}
               </a>
             </li>
           </ul>
